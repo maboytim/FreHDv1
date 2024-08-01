@@ -171,7 +171,7 @@ BOOL rcvr_datablock (
 		token = rcvr_spi();
 	} while ((token == 0xFF) && Timer1);
 
-	if (token != 0xFE) return FALSE;		/* If not valid data token, retutn with error */
+	if (token != 0xFE) return FALSE;		/* If not valid data token, return with error */
 
 	crc16 = 0;
 	do {								/* Receive the data block into buffer */
@@ -314,7 +314,7 @@ BYTE send_cmd (
 /*-----------------------------------------------------------------------*/
 
 DSTATUS disk_initialize (
-	BYTE drv		/* Physical drive nmuber (0) */
+	BYTE drv		/* Physical drive number (0) */
 )
 {
 	BYTE n, cmd, ty, ocr[4];
@@ -354,7 +354,7 @@ DSTATUS disk_initialize (
 	CardType = ty;
 	release_spi();
 
-	if (ty) {					/* Initialization succeded */
+	if (ty) {					/* Initialization succeeded */
 		FCLK_FAST();
 		n = send_cmd(CMD59, 0x1);
 		if (n == 0) {
@@ -375,7 +375,7 @@ DSTATUS disk_initialize (
 /*-----------------------------------------------------------------------*/
 
 DSTATUS disk_status (
-	BYTE drv		/* Physical drive nmuber (0) */
+	BYTE drv		/* Physical drive number (0) */
 )
 {
 	if (drv) return STA_NOINIT;		/* Supports only single drive */
@@ -386,7 +386,7 @@ DSTATUS disk_status (
 /* Read Sector(s)                                                        */
 /*-----------------------------------------------------------------------*/
 DRESULT disk_read (
-	BYTE drv,			/* Physical drive nmuber (0) */
+	BYTE drv,			/* Physical drive number (0) */
 	BYTE *buff,			/* Pointer to the data buffer to store read data */
 	DWORD sector,		/* Start sector number (LBA) */
 	BYTE count			/* Sector count (1..255) */
@@ -422,12 +422,44 @@ DRESULT disk_read (
 }
 
 /*-----------------------------------------------------------------------*/
+/* Read Sectors in streaming mode                                        */
+/*-----------------------------------------------------------------------*/
+DRESULT disk_read_multiple(DWORD sector)
+{
+	if (!(CardType & CT_BLOCK)) sector <<= 9; 	/* Convert to byte address if needed */
+
+	if (send_cmd(CMD18, sector) != 0) {
+		state_size2 = 1;
+		release_spi();
+		return RES_ERROR;
+	}
+
+	SD_CS = 1;
+	return RES_OK;
+}
+
+/*-----------------------------------------------------------------------*/
+/* End streaming mode sector read                                        */
+/*-----------------------------------------------------------------------*/
+DRESULT disk_read_multiple_cancel(void)
+{
+	DRESULT res = RES_OK;
+
+	if (send_cmd(CMD12, 0) != 0)
+		res = RES_ERROR;
+
+	release_spi();
+
+	return res;
+}
+
+/*-----------------------------------------------------------------------*/
 /* Write Sector(s)                                                       */
 /*-----------------------------------------------------------------------*/
 
 #if _FS_READONLY == 0
 DRESULT disk_write (
-	BYTE drv,			/* Physical drive nmuber (0) */
+	BYTE drv,			/* Physical drive number (0) */
 	const BYTE *buff,	/* Pointer to the data to be written */
 	DWORD sector,		/* Start sector number (LBA) */
 	BYTE count			/* Sector count (1..255) */
@@ -469,7 +501,7 @@ DRESULT disk_write (
 /*-----------------------------------------------------------------------*/
 
 DRESULT disk_ioctl (
-	BYTE drv,		/* Physical drive nmuber (0) */
+	BYTE drv,		/* Physical drive number (0) */
 	BYTE ctrl,		/* Control code */
 	void *buff		/* Buffer to send/receive data block */
 )

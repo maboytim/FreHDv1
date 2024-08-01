@@ -45,7 +45,7 @@ rom UCHAR (*rom trs_extra[])(UCHAR) = {
 	trs_extra_infodrive,	// C
 	trs_extra_image,		// D
 	trs_extra_read_header,	// E
-	trs_extra_ignored,		// F
+	trs_extra_stream,		// F
 };	
 	
 
@@ -69,6 +69,8 @@ UCHAR trs_extra_version(UCHAR step)
 	extra_buffer[3] = *((UCHAR rom *) 0x7);
 	extra_buffer[4] = *((UCHAR rom *) FLASH_CRC_ADDR);
 	extra_buffer[5] = *((UCHAR rom *) FLASH_CRC_ADDR+1);	
+
+	data2_stream = 0;
 	
 	return DEFAULT_STATUS;
 }
@@ -90,6 +92,7 @@ UCHAR trs_extra_gettime(UCHAR step)
     extra_buffer[TRS80_DAY] = time[DS1307_DAY];
     extra_buffer[TRS80_MONTH] = time[DS1307_MONTH];
 	INTCONbits.GIEL = 1;
+	data2_stream = 0;
 		
 	return DEFAULT_STATUS;	
 }
@@ -119,11 +122,18 @@ UCHAR trs_extra_settime(UCHAR step)
 	return DEFAULT_STATUS;
 }
 
+#include "fatfs/diskio.h"
+extern DRESULT disk_read (
+	BYTE drv,			/* Physical drive nmuber (0) */
+	BYTE *buff,			/* Pointer to the data buffer to store read data */
+	DWORD sector,		/* Start sector number (LBA) */
+	BYTE count			/* Sector count (1..255) */
+);
 
 /*
  * Open file
  * 1. TRS writes SIZE2 (1 + strlen(filename))
- * 2. TRS wrties COMMAND2 + wait
+ * 2. TRS writes COMMAND2 + wait
  * 3. TRS writes DATA2 
  *       byte 0 : open options
  *       bytes 1..n : filename
@@ -148,6 +158,19 @@ UCHAR trs_extra_openfile(UCHAR step)
 			state_size2 = sizeof (DWORD);
 			memcpy(extra_buffer, (const void *)&state_file2.fsize,
               sizeof (DWORD));
+
+			{
+				DWORD sect;
+
+				// < 2 or -1 means error
+				sect = clust2sect(state_file2.fs, state_file2.sclust);
+				// 0 means error
+				memcpy(extra_buffer + state_size2, (const void *)&sect, sizeof sect);
+				state_size2 += sizeof(DWORD);
+			}
+
+			state_bytesdone2 = 0;
+			data2_stream = 0;
 		}
 	}
 	
@@ -178,6 +201,7 @@ UCHAR trs_extra_readfile(UCHAR step)
 			// got no data, don't set DRQ
 			return (TRS_HARD_READY | TRS_HARD_SEEKDONE);
 		}
+		data2_stream = 0;
 	} else {
 		state_error2 = FR_NO_FILE;
 		return (TRS_HARD_READY | TRS_HARD_SEEKDONE | TRS_HARD_ERR);
@@ -244,6 +268,7 @@ UCHAR trs_extra_writefile(UCHAR step)
 			state_size2 = sizeof (DWORD);
 			offset = f_tell(&state_file2);
 			memcpy(extra_buffer, (const void *)&offset, sizeof (DWORD));
+			data2_stream = 0;
 		} else {
 			state_error2 = FR_NO_FILE;
 			return (TRS_HARD_READY | TRS_HARD_SEEKDONE | TRS_HARD_ERR);
@@ -358,6 +383,7 @@ UCHAR trs_extra_readdir(UCHAR step)
 	}
 	state_size2 = sizeof (state_fno);
 	memcpy(extra_buffer, (const void *)&state_fno, state_size2);	
+	data2_stream = 0;
 
 	return DEFAULT_STATUS;
 }
@@ -427,6 +453,7 @@ UCHAR trs_extra_infodrive(UCHAR step)
 			extra_buffer[state_size2++] = d->secs;			// 5
 			memcpy(&extra_buffer[state_size2], (const char *)d->filename, 13);
 			state_size2 += 13;
+			data2_stream = 0;
 		}	
 	}	
 	
@@ -480,8 +507,55 @@ UCHAR trs_extra_read_header(UCHAR step)
 				return (TRS_HARD_READY | TRS_HARD_SEEKDONE | TRS_HARD_ERR);
 			}
 			state_size2 = n;
+			data2_stream = 0;
 		}		
 	}
 	
 	return DEFAULT_STATUS;
 }	
+
+// Write 15 to command2
+// start:
+// 	write 4 to size2
+//	write sector number to data2
+// end:
+//	write 1 to size2
+//	write 0 to data2 (data ignored)
+// query:
+//	 write 2 to size2
+//	 write 0, 0 to data2 (data ignored)
+// 	 read size2 and expect 1
+UCHAR trs_extra_stream(UCHAR step)
+{
+	// Direct raw streaming.
+	if (step == 1) {
+		DWORD sector;
+
+		switch (state_size2) {
+		case 4:
+			memcpy(&sector, (void *)extra_buffer, 4);
+			if (disk_read_multiple(sector) != RES_OK) {
+				return (TRS_HARD_READY | TRS_HARD_SEEKDONE | TRS_HARD_ERR);
+			}
+			// disk_read_multiple() triggered the read of the next byte
+			expected_addr = 0xff;
+			// fake stuff byte returned for the first read
+			TRS_DATA_OUT = data2_out = data2_out1 = 0xff;
+			data2_stream = 1;
+			break;
+		case 1:
+			data2_stream = 0;
+			if (disk_read_multiple_cancel() != RES_OK) {
+				return (TRS_HARD_READY | TRS_HARD_SEEKDONE | TRS_HARD_ERR);
+			}
+			break;
+		case 2:
+			state_size2 = 1;
+			break;
+		default:
+			return (TRS_HARD_READY | TRS_HARD_SEEKDONE | TRS_HARD_ERR);
+		}
+	}
+
+	return DEFAULT_STATUS;
+}

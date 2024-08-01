@@ -35,6 +35,7 @@
 #define TRS_EXTRA_INFODRIVE		0x0C
 #define TRS_EXTRA_IMAGE			0x0D
 #define TRS_EXTRA_READ_HEADER	0x0E
+#define TRS_EXTRA_STREAM		0x0F
 
 // LSDOS time : 6 bytes
 #define TRS80_SEC       0
@@ -105,6 +106,7 @@ UCHAR trs_extra_infodrive(UCHAR);
 UCHAR trs_extra_seekfile(UCHAR);
 UCHAR trs_extra_image(UCHAR);
 UCHAR trs_extra_read_header(UCHAR);
+UCHAR trs_extra_stream(UCHAR);
 
 // dsk.c
 void process_image_cmd(void);

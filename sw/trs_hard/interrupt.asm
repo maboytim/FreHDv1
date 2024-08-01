@@ -30,12 +30,13 @@
 	extern	state_status, state_wp, state_control
 	extern	state_bytesdone, state_bytesdone2
 	extern	state_command, state_command2, state_size2, state_error2
-	extern	state_busy, val_1F, foo
+	extern	state_busy, val_1F, expected_addr, data2_out, data2_out1, data2_stream, foo
 	extern	state_error, state_cyl, state_seccnt, state_secnum
 	extern	state_drive, state_head, state_present
 	extern	state_secsize, state_secsize16
 	extern	state_rom, state_romdone
 	extern	action_type, action_flags
+	extern	gled_val
 	
 
 #define	TRS_ADDR	PORTA
@@ -47,6 +48,7 @@
 #define GAL_INT		PORTB,1
 #define TRS_WAIT	LATB,3
 #define STAT_CS		LATC,0
+#define SD_CS		LATA,5
 #define GLED		LATB,7
 #define RLED		LATB,6
 
@@ -74,11 +76,49 @@ int_code	CODE APP_HI_INT
 handle_int2
 	GLOBAL	handle_int2
 
+	movf	TRS_ADDR,w		;<1> get I/O access address
+	cpfseq	expected_addr		;<1> are we expecting this?
+	bra	general_case		;<1> no? handle it generally
+	clrf	TRS_DATA_TRIS		;<1> TRS_DATA was set, let it go
+	bsf	TRS_WAIT		;<1> and clear off the wait states
+
+	btfss	GAL_INT			; wait transaction completion
+	bra	$-2
+	bcf	GAL_INT_IF		; acknowledge the interrupt
+
+	setf	TRS_DATA_TRIS
+	bcf	TRS_WAIT		; get ready for next transaction
+
+	btfss	SSPSTAT,BF
+	bra	$-2
+
+	movff	SSPBUF,data2_out
+	setf	SSPBUF			; start next read
+
+	movff	data2_out,TRS_DATA_OUT
+
+	bsf	gled_val,7,1		; gled_val |= LED_FLASH (indicate streaming)
+
+	retfie	FAST
+
+general_case:
 	bcf	GAL_INT_IF	; acknowledge the interrupt
 
-	tstfsz	state_busy	; state_busy should always by 0
+	tstfsz	state_busy	; state_busy should always be 0
 	bra	handle_busy	; (unless TRS forgot to poll STATUS)
-	
+
+	incf	expected_addr,w
+	bz	not_fast_pending
+
+	btfss	SSPSTAT,BF
+	bra	$-2
+
+	movff	SSPBUF,data2_out1
+	bsf	SD_CS
+
+	movlw	0xff
+	movwf	expected_addr	; invalidate fast case
+not_fast_pending
 	movf	TRS_ADDR,w	; dispatch based on the TRS address
 	andlw	0x1F		; PORTA = A3 A2 A1 A0 R/W
 	cpfseq	val_1F		; is it CF ? (write command)
@@ -96,7 +136,7 @@ jj	call	jump
 	goto	trs_read_data	    ; 	1 R C8 200
 	goto	trs_read_rom	    ; 	2 R C4
 	goto	trs_read_cyllo	    ; 	3 R CC 204
-	goto	trs_read_data2	    ; 	4 R C2 194
+	goto	trs_read_data2_slow ; 	4 R C2 194
 	goto	trs_read_seccnt	    ; 	5 R CA 202
 	goto	trs_read_uart_status ; 	6 R C6 
 	goto	trs_read_sdh	    ; 	7 R CE 206
@@ -503,8 +543,36 @@ trs_write_uart_ctrl  ; 	6 W C6
 trs_write_uart	     ; 	E W C7
 	bra	int_ret_rd
 
+; Unanticipated read from data2.
+trs_read_data2_slow:
+	btfss	data2_stream,0
+	bra	trs_read_data2
+	movff	data2_out,TRS_DATA_OUT
+	clrf	TRS_DATA_TRIS
+	bsf	TRS_WAIT
+	movf	TRS_ADDR,w
+	andlw	0x1F
+	movwf	expected_addr	; ensure expected address correct
 
+	btfss	GAL_INT		; wait transaction completion
+	bra	$-2
+	bcf	GAL_INT_IF	; acknowledge the interrupt
 
+	setf	TRS_DATA_TRIS
+	bcf	TRS_WAIT	; get ready for next transaction
+
+	bcf	SD_CS
+	movlw	0x20		; set fast clock
+	movwf	SSPCON1
+
+	movff	data2_out1,data2_out
+	setf	SSPBUF		; start next read
+
+	movff	data2_out,TRS_DATA_OUT
+
+	bsf	gled_val,7,1	; gled_val |= LED_FLASH (indicate streaming)
+
+	retfie	FAST
 
 	END
 	

@@ -272,6 +272,10 @@ void ff_rel_grant (_SYNC_t sobj);				/* Unlock sync object */
 int ff_del_syncobj (_SYNC_t sobj);				/* Delete a sync object */
 #endif
 
+// GWP - exposing internal functions for file to sector mapping
+extern DWORD get_fat(FATFS *fs, DWORD clst);
+extern DWORD clmt_clust(FIL* fp, DWORD ofs);
+extern DWORD clust2sect(FATFS *fs, DWORD clst);
 
 
 

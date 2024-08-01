@@ -1057,7 +1057,6 @@ DWORD create_chain (	/* 0:No free cluster, 1:Internal error, 0xFFFFFFFF:Disk err
 /*-----------------------------------------------------------------------*/
 
 #if _USE_FASTSEEK
-static
 DWORD clmt_clust (	/* <2:Error, >=2:Cluster number */
 	FIL* fp,		/* Pointer to the file object */
 	DWORD ofs		/* File offset to be converted to cluster# */

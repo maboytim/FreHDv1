@@ -78,6 +78,8 @@ led_t rled;
 led_t gled;
 
 #pragma udata access trs_access
+near UCHAR expected_addr;
+
 near BYTE action_flags;
 near BYTE action_type;
 near BYTE action_status;
@@ -103,9 +105,12 @@ near UCHAR state_bytesdone2;
 near UCHAR state_romdone;
 near UCHAR state_rom;
 near UCHAR val_1F;
+near UCHAR data2_out, data2_out1;
+near UCHAR data2_stream;
 near UCHAR crc7;
 near USHORT crc16;
 near UCHAR foo;
+near UCHAR gled_val;
 
 /* local prototypes */
 void handle_interrupt_low(void);
@@ -214,6 +219,7 @@ void pic_init(void)
 
 	/* globals init */
 	val_1F = 0x1F;
+	expected_addr = 0xff; // won't match any input
 	action_flags = 0;
 	fs_mounted = FS_NOT_MOUNTED;
 	state_file2_open = 0;
@@ -310,6 +316,8 @@ void main(void)
 
 			/* handle LEDs */
 			led_update(&rled);
+			gled.val |= gled_val;
+			gled_val = 0;
 			led_update(&gled);
 
 			/* sync hard drive files */

@@ -30,6 +30,8 @@ DRESULT disk_write (BYTE, const BYTE*, DWORD, BYTE);
 #endif
 DRESULT disk_ioctl (BYTE, BYTE, void*);
 void	disk_timerproc (void);
+DRESULT disk_read_multiple(DWORD sector);
+DRESULT disk_read_multiple_cancel(void);
 BYTE card_present(void);
 
 /*---------------------------------------*/
