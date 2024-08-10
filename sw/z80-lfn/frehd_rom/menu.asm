@@ -8,12 +8,12 @@
 MENU_FIRST_ROW	equ 	4
 MENU_FIRST_COL	equ 	4
 MENU_ROWS		equ 	16-MENU_FIRST_ROW
-MENU_MAX		equ 	3*MENU_ROWS
+MENU_MAX		equ 	2*MENU_ROWS	;limit to 2 columns for LFN (was 3)
 getver     		equ     0
 data2       	equ     0c2h
 command2    	equ     0c4h
 status      	equ     0cfh
-svn_rev_		equ		1009h ;SVN_REV	
+svn_rev_		equ		2009h ;SVN_REV	
 
 im_cur		db	0			; currently select boot file
 im_max		db	0			; number of boot files found
@@ -357,7 +357,7 @@ clear_screen2:
 read_info:
 	xor	a			; drive0 = ""
 	ld	(DRIVE0),a
-	ld	a,INFO_DRIVE		; get info for mounted drive 0
+	ld	a,INFO_DRIVE_LFN	; get info for mounted drive 0
 	out	(COMMAND2),a
 	call	wait
 	ret	nz			; return if error
@@ -382,7 +382,7 @@ read_directory:
 
 	ld	a,2			; strlen("/")
 	out	(SIZE2),a
-	ld	a,OPEN_DIR		; read directory command
+	ld	a,OPEN_DIR_LFN		; read directory command
 	out	(COMMAND2),a
 	call	wait
 	ld	a,'/'			; send '/'

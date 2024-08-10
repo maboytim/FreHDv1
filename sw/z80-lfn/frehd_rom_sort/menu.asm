@@ -8,12 +8,12 @@
 MENU_FIRST_ROW	equ 	4
 MENU_FIRST_COL	equ 	4
 MENU_ROWS		equ 	16-MENU_FIRST_ROW
-MENU_MAX		equ 	3*MENU_ROWS
+MENU_MAX		equ 	2*MENU_ROWS	;limit to 2 columns for LFN (was 3)
 getver     		equ     0
 data2       	equ     0c2h
 command2    	equ     0c4h
 status      	equ     0cfh
-svn_rev_		equ		1009h ;SVN_REV	
+svn_rev_		equ		200ah ;SVN_REV	
 
 im_cur		db	0			; currently select boot file
 im_max		db	0			; number of boot files found
@@ -219,6 +219,7 @@ build_menu:
 	ld	a,(im_max)
 	or	a			; if 0, no image found
 	jr	z,show_nothing
+	call	sort_bootfiles
 	call	display_bootfiles
 	call	draw_arrow
 menu_loop:
@@ -357,7 +358,7 @@ clear_screen2:
 read_info:
 	xor	a			; drive0 = ""
 	ld	(DRIVE0),a
-	ld	a,INFO_DRIVE		; get info for mounted drive 0
+	ld	a,INFO_DRIVE_LFN	; get info for mounted drive 0
 	out	(COMMAND2),a
 	call	wait
 	ret	nz			; return if error
@@ -382,7 +383,7 @@ read_directory:
 
 	ld	a,2			; strlen("/")
 	out	(SIZE2),a
-	ld	a,OPEN_DIR		; read directory command
+	ld	a,OPEN_DIR_LFN		; read directory command
 	out	(COMMAND2),a
 	call	wait
 	ld	a,'/'			; send '/'
@@ -536,6 +537,97 @@ is_drive0:
 +	pop	de
 	ret
 
+;;;
+;;; Sort boot files
+;;;
+sort_bootfiles:
+	ld	a,(im_max)
+	cp	2
+	jr	c,no_sort
+sort:
+	ld	a,(im_max)
+	ld	b,a
+	dec	b
+	ld	c,0
+	ld	hl,BOOTFILES
+	ld	de,BOOTFILES+FIL_FNAME_LEN+1
+
+bubble:	push	de
+	push	hl
+	call	strcmp		
+	pop	hl
+	pop	de
+	or	a
+	jr	z,no_swap	
+	bit	7,a
+	jr	nz,no_swap
+
+	push	bc
+	ld	bc,FIL_FNAME_LEN+1
+swap:	ld	a,(de)
+	ldi
+	dec	hl
+	ld	(hl),a
+	inc	hl
+	jp	v,swap
+	pop	bc
+	ld	c,1
+	djnz	bubble
+	jr	sort
+
+no_swap:
+	ld	hl,FIL_FNAME_LEN+1
+	add	hl,de
+	ex	de,hl
+	djnz	bubble
+
+	ld	a,c
+	or	a
+	jr	nz,sort
+
+; re-find the mounted drive0
+	ld	b,0
+	ld	hl,BOOTFILES
+	ld	de,FIL_FNAME_LEN+1
+find0:
+	push	hl
+	call	is_drive0
+	pop	hl
+	jr	z,found0
+	add	hl,de
+	inc	b
+	ld	a,(im_max)
+	cp	b
+	jr	nz,find0
+	ld	b,0
+found0:
+	ld	a,b
+	ld	(im_cur),a
+
+no_sort:
+	ret
+
+strcmp:	ld	a,(de)
+	or	(hl)
+	ret	z
+	ld	a,(de)
+	inc	de
+	sub	'a'
+	cp	'z'-'a'+1
+	jr	nc,+
+	sub	'a'-'A'
++	push	bc
+	ld	c,a
+	ld	a,(hl)
+	inc	hl
+	sub	'a'
+	cp	'z'-'a'+1
+	jr	nc,+
+	sub	'a'-'A'
++	sub	c
+	pop	bc
+	jr	z,strcmp
+	ret
 
 ;;;
 ;;; Display boot files
