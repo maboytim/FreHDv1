@@ -1,0 +1,2611 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	org	$d200
+stack:
+	assert	low($) == 0
+cwd	defs	256
+dsize	equ	1024
+dlen	equ	24	;13
+dirmax	equ	dsize/dlen
+dirbuf	defs	dsize
+
+
+mapkv	macro
+	ld	a,$86
+	out	($84),a		
+	endm
+
+
+map64	macro
+	ld	a,$87
+	out	($84),a
+	endm
+
+
+mapm3	macro
+	xor	a
+	out	($84),a
+	endm
+
+
+vw_on	macro
+ 	in	a,($ff)
+	or	a,$20
+	out	($ec)
+	endm
+
+
+vw_off	macro
+ 	in	a,($ff)
+	and	a,~$20
+	out	($ec)
+	endm
+
+ldv	macro	reg,var
+	ld	reg,(ix+var-varbase)
+	endm
+
+stv	macro	reg,var
+	ld	(ix+var-varbase),reg
+	endm
+
+incv	macro	var
+	inc	(ix+var-varbase)
+	endm
+
+decv	macro	var
+	dec	(ix+var-varbase)
+	endm
+
+addv	macro	var
+	add	(ix+var-varbase)
+	endm
+
+subv	macro	var
+	sub	(ix+var-varbase)
+	endm
+
+cpv	macro	var
+	cp	(ix+var-varbase)
+	endm
+
+bitv	macro	bt,var
+	bit	bt,(ix+var-varbase)
+	endm
+
+setv	macro	bt,var
+	set	bt,(ix+var-varbase)
+	endm
+
+resv	macro	bt,var
+	res	bt,(ix+var-varbase)
+	endm
+
+dircnt	defs	1
+
+
+dirent:
+d_size:	defs	4
+d_date:	defs	2
+d_time:	defs	2
+d_attr:	defs	1
+d_name:	defs	dlen	;16
+
+
+open_info:
+o_size:	defs	4
+o_sector:defs	4
+
+
+model:	defb	0
+submdl:	defb	' '
+host:	defb	0
+fps:	defb	0
+m1wait:	defb	0
+vram:	defw	$3c00
+vwid:	defb	$40
+vhgt:	defb	$10
+keyadr:	defw	$3800
+cycfrm:	defw	264*128
+audprt:	defb	$ff
+canply:	defb	0	
+canstm:	defb	0
+frehd:	defb	0
+preup:	defb	1	
+
+base:	defb	0	
+top:	defw	0	
+pos:	defb	0	
+cursor:	defw	0	
+choice:	defw	0	
+winwid:	defb	0	
+winhgt:	defb	0	
+tnwid:	defb	0	
+tnhgt:	defb	0	
+tnwid4:	defb	0	
+
+varbase:
+
+
+header:
+magic:	defs	4
+format:	defs	1
+hdsize:	defs	1
+viddur:	defs	2
+tvext:	defs	1
+vtitle:	defs	64
+frmcnt:	defs	1
+frmwid:	defs	1
+frmhgt:	defs	1
+header_size equ $ - header
+
+	include	frehd.inc
+
+	include	dec.inc
+	include	wait.inc
+	include	hwinfo.inc
+	include	dzx7_standard.asm
+tvid:	ascii	'GWP',$D6
+
+start:	
+	di
+	ld	sp,stack
+
+	ld	ix,varbase
+
+	call	hwinfo
+	stv	a,model
+	stv	a,host
+	stv	b,fps
+	stv	c,m1wait
+	cp	5
+	jr	nz,.nosm
+	ld	d,'P'
+	stv	d,submdl
+.nosm:	cp	4
+	jr	c,.nom1wt	
+	ld	a,2
+	sub	c
+	add	4		
+	stv	a,host
+.nom1wt:
+
+	call	frehd_or_exit
+	setv	0,frehd
+	in	a,($ff)
+	or	a,$50		
+	out	($ec),a
+
+
+	ld	a,SECTORSTREAM
+	out	(f_cmd),a
+	call	wait
+	ld	a,2
+	out	(f_size),a
+	out	(f_data),a	
+	out	(f_data),a	
+	call	wait
+	in	a,(f_size)
+	cp	1
+	jr	z,can_stream
+	xor	a
+can_stream:
+	stv	a,canstm
+
+	call	setvid
+
+	ldv	a,vhgt
+	dec	a
+	stv	a,winhgt
+	ldv	a,vwid
+	sub	16
+	stv	a,winwid
+
+	call	cls
+
+	call	copy_players_high
+	ld	de,(vram)
+	call	bar
+
+home:	ld	hl,'/'
+	ld	(cwd),hl
+
+newdir:
+	call	erase_dir
+
+	call	display_cwd
+
+	call	load_dir
+
+	ld	hl,(vram)
+	ld	a,(vwid)
+	ld	l,a
+	ld	(cursor),hl
+	stv	0,base
+	stv	0,pos
+	ld	hl,dirbuf
+	ld	(choice),hl
+	ld	(top),hl
+
+redraw:
+	call	display_dir
+
+sellp:	ld	sp,stack
+	vw_on
+	ld	hl,(cursor)
+	ld	(hl),'>'
+
+	call	display_cwd
+
+	call	preview_file
+
+	bitv	0,preup
+	jr	z,splash_up
+	resv	0,preup
+	call	unpack_splash
+	call	update_frehd_version
+	call	erase_preview
+	call	display_splash
+
+splash_up:
+	call	wait_keyup
+
+.ckkey:	call	check_keys
+	ld	hl,(cycfrm)
+	call	w0_HL
+	jr	.ckkey
+
+
+
+
+
+
+
+call_check_keys_only_when_necessary macro
+	push	hl
+	ld	hl,(keyadr)
+	ld	l,$40
+	ld	a,(hl)
+	and	$98
+	pop	hl
+	call	nz,check_keys
+	endm
+
+poll_keys:
+	ld	hl,(keyadr)
+	call	need_audio
+	jr	nz,nocs
+	ld	l,1
+	bit	3,(hl)
+	ld	a,$ff
+	jr	nz,set_audio
+	ld	l,4
+	bit	3,(hl)
+	ld	a,$90
+	jr	nz,set_audio
+
+nocs:	ld	l,$40
+	xor	a
+	bit	7,(hl)
+	ret	nz
+	dec	a
+	bit	3,(hl)
+	ret	nz
+	ld	a,1
+	bit	4,(hl)
+	ret
+
+set_audio:
+	stv	a,audprt
+	setv	0,preup		
+wtup:	ld	a,(hl)
+	or	a
+	jr	nz,wtup
+	jp	sellp
+
+
+
+
+check_keys:
+	call	poll_keys
+	ret	z
+
+	ld	hl,(cursor)
+	ld	(hl),' '
+
+	or	a
+	jp	z,choose
+	inc	a
+	jr	z,up
+down:	incv	pos
+	ldv	a,base
+	addv	pos
+	cpv	dircnt
+	jr	nz,down2
+	decv	pos		
+no_move:
+	ld	hl,(cursor)
+	ld	(hl),'>'
+	ret
+
+down2:	ldv	a,winhgt
+	cpv	pos
+	jr	nz,move_down
+	decv	pos		
+	incv	base
+	ld	hl,(top)
+	ld	de,dlen
+	add	hl,de
+	ld	(top),hl
+	call	choice_down
+	jp	redraw
+
+move_down:
+	ld	hl,(cursor)
+	ldv	e,vwid
+	ld	d,0
+	add	hl,de
+	ld	(cursor),hl
+	call	choice_down
+	jp	sellp
+
+choice_down:
+	ld	hl,(choice)
+	ld	de,dlen
+	add	hl,de
+	ld	(choice),hl
+	ret
+
+up:	decv	pos
+	jp	p,move_up
+	incv	pos
+	ldv	a,base
+	or	a
+	jr	z,no_move
+	decv	base
+	ld	hl,(top)
+	ld	de,-dlen
+	add	hl,de
+	ld	(top),hl
+	call	choice_up
+	jp	redraw
+
+move_up:
+	ld	hl,(cursor)
+	ld	a,(vwid)
+	neg
+	ld	e,a
+	ld	d,-1
+	add	hl,de
+	ld	(cursor),hl
+	call	choice_up
+	jp	sellp
+
+choice_up:
+	ld	hl,(choice)
+	ld	de,-dlen
+	add	hl,de
+	ld	(choice),hl
+	ret
+
+choose:	ld	hl,(choice)
+	ld	a,(hl)
+	inc	hl
+	cp	'@'
+	jp	z,choose_file
+	cp	'/'
+	jr	z,choose_dir
+	jp	home
+
+choose_dir:
+
+	push	hl
+	ld	de,dotdot
+	call	strcmp
+	ex	af,af'
+	pop	hl
+
+
+
+	ld	de,cwd
+	ld	bc,0
+.fend:	ld	a,(de)
+	cp	'/'
+	jr	nz,.nots
+	ld	c,b
+	ld	b,e
+.nots:	or	a
+	inc	de
+	jr	nz,.fend
+	dec	de
+
+	ex	af,af'
+	jr	nz,norem	
+
+
+	ld	a,b
+	cp	c
+	jr	z,norem
+
+	ld	b,d		
+	inc	bc
+	ld	a,(bc)
+	cp	'.'
+	jr	nz,rem0
+	inc	bc
+	ld	a,(bc)
+	cp	'.'
+	jr	nz,rem1
+	inc	bc
+	ld	a,(bc)
+	cp	'/'
+	jr	z,norem
+
+
+
+	dec	bc
+	dec	bc
+rem1:	dec	bc
+rem0:	ld	d,b
+	ld	e,c
+	jr	endit
+
+norem:	ld	b,8+1+3
+	call	pmsg_b
+	ld	a,'/'
+	ld	(de),a
+	inc	de
+endit:	xor	a
+	ld	(de),a
+	jp	newdir
+
+preview_file:
+	ld	de,cwd
+.cend:	ld	a,(de)
+	inc	de
+	or	a
+	jr	nz,.cend
+	dec	de
+	ld	hl,(choice)
+	ld	a,'@'
+	cp	(hl)
+	ret	nz		
+	inc	hl
+	push	de		
+	ld	b,dlen-1	;8+1+3
+	call	pmsg_b
+	xor	a
+	ld	(de),a
+
+	ld	a,OPENFILE
+	out	(f_cmd),a
+	ld	hl,cwd
+	inc	hl
+	call	strlenz
+	ld	b,a
+	inc	a
+	out	(f_size),a
+	call	wait
+	ld	a,FA_OPEN_EXISTING | FA_READ
+	out	(f_data),a
+	ld	c,f_data
+	otir
+	call	wait
+	pop	hl
+	ld	(hl),0		
+
+
+
+
+	ld	b,8
+	ld	c,f_data
+	ld	hl,open_info
+	inir
+
+	ld	a,header_size
+	ld	hl,header
+	call	read
+	jp	z,eof
+
+	call	check_magic
+	jp	nz,eof
+
+	call	erase_status
+
+	ld	bc,(viddur)
+	ld	iy,1		
+	call	print_bracketed_time	
+					
+	ld	hl,vtitle
+	ldv	b,frmcnt
+	stv	0,frmcnt	
+	call	strlenz
+	dec	a		
+	stv	b,frmcnt
+	ld	b,a
+	ld	hl,vtitle+63
+	ld	a,' '
+.trim:	cp	(hl)
+	dec	hl
+	jr	nz,.nospc
+	djnz	.trim		
+.nospc:	ld	a,b
+	push	iy
+	pop	de		
+	add	e		
+	cpv	vwid		
+	jr	c,title_fits
+	ldv	a,vwid		
+	push	af
+	sub	e
+	dec	a
+	ld	b,a		
+	pop	af		
+
+title_fits:
+	subv	vwid
+	neg
+	srl	a		
+	ld	de,(vram)
+	ld	e,a
+	ld	hl,vtitle
+	call	pmsg_b
+	ex	de,hl
+	ld	(hl),' '
+	inc	hl
+	push	hl
+	pop	iy
+	ld	bc,(viddur)
+	call	print_bracketed_time
+
+	xor	a
+	bitv	0,canstm
+	call	nz,find_player
+	stv	a,canply
+
+	setv	0,preup
+	call	erase_preview
+
+
+	ldv	b,winwid
+	ldv	a,frmwid
+	cp	b
+	jr	c,.hvwid
+	ld	a,b
+.hvwid:	stv	a,tnwid
+	ldv	b,winhgt
+	ldv	a,frmhgt
+	cp	b
+	jr	c,.hvhgt
+	ld	a,b
+.hvhgt:	stv	a,tnhgt
+
+
+
+
+
+	ld	hl,$4000
+	ldv	a,model
+	cp	3
+	jr	z,m3prep
+	cp	1
+	call	z,gen_m1_thumb_kernel
+	jr	noprep
+
+m3prep:	ld	iy,$4000
+	ld	b,0
+	ldv	c,frmcnt
+	add	hl,bc
+	add	hl,bc
+	jr	noprep
+
+m1prep:	
+
+noprep:	ldv	d,frmcnt
+
+tnfrm:	ldv	e,tnhgt
+
+	ldv	a,model
+	cp	3
+	jr	nz,tnrd
+
+	ld	(iy+0),l
+	ld	(iy+1),h
+	inc	iy
+	inc	iy
+
+	push	hl
+	call	get_thumbnail_push_display_addr
+	ld	(drawpos+1),hl
+	pop	hl
+
+tnrd:	ldv	a,frmhgt	
+	subv	tnhgt
+	call	nz,seek_row2
+
+	push	hl
+tnrow:	ldv	a,frmwid
+	subv	tnwid
+	call	seek2		
+
+	ldv	a,model
+	cp	3
+	ldv	a,tnwid
+	call	z,read3		
+	call	read
+	jp	z,eof
+
+	ldv	a,frmwid
+	subv	tnwid
+	call	seek21		
+
+	dec	e
+	jr	nz,tnrow
+
+	ex	(sp),hl
+
+	bitv	0,canply
+	jr	nz,m1playable
+	ldv	a,model
+	cp	1
+	jr	nz,m1playable
+
+
+
+
+
+
+	push	de
+	push	bc
+	ldv	a,tnwid
+	sub	noplay_msg_len
+	jr	c,npbig			
+	srl	a
+	ld	d,0
+	ld	e,a
+	add	hl,de
+npbig:	ex	de,hl
+	ld	hl,$3c00
+	ld	a,(hl)
+	ld	(hl),'a'
+	bit	6,(hl)
+	ld	(hl),a
+	ld	hl,noplay_msg
+	ld	bc,noplay_msg_len
+	jr	nz,lcok
+
+ucopy:	ld	a,(hl)
+	inc	hl
+	cp	'a'
+	jr	c,notlc
+	res	5,a
+notlc:	ld	(de),a
+	inc	de
+	dec	c
+	jr	nz,ucopy
+	jr	npdone
+
+lcok:	ldir
+npdone: pop	bc
+	pop	de
+
+m1playable:
+	pop	hl
+
+	ldv	a,frmhgt
+	subv	tnhgt
+	call	nz,seek_row21	
+
+	ldv	a,model
+	cp	3
+	jr	nz,.notm3
+	ld	(hl),jp_op
+	inc	hl
+	ld	(hl),low done_m3_frame
+	inc	hl
+	ld	(hl),high done_m3_frame
+	inc	hl
+
+.notm3:
+	dec	d
+	jp	nz,tnfrm
+
+	ldv	a,model
+	cp	4
+	jp	nc,m4thumb
+	cp	3
+	jp	z,m3t
+
+
+
+	call	get_thumbnail_push_display_addr
+	ld	(m1tadr+1),hl
+
+	push	iy
+	pop	de
+	ld	hl,264*112
+	or	a
+	sbc	hl,de
+	ld	de,m1thumb_cost
+	or	a
+	sbc	hl,de
+	push	hl
+	pop	iy
+
+m1thumb:
+	ld	hl,0
+	ldv	b,frmcnt
+
+m1tlp:	push	bc
+	ld	(spm1+1),sp
+m1tadr:	ld	sp,0
+	exx
+	ld	hl,$4000	
+	ld	d,high(char4)	
+	ld	e,(hl)
+	inc	hl
+	ex	de,hl
+	or	a		
+	jp	(hl)		
+done_m1_frame:
+spm1:	ld	sp,0
+	exx
+
+	pop	bc
+	push	hl
+
+	call_check_keys_only_when_necessary
+
+	push	iy
+	pop	hl
+
+
+	ld	a,b
+	sub	2
+	sbc	a,a
+	and	10+10+19
+	ld	e,a
+	ld	d,0
+	or	a
+	sbc	hl,de
+
+
+
+
+
+
+	ld	a,($3840)	
+	ld	e,a		
+notarw:	and	a,0		
+	ex	af,af'
+	ld	a,e
+	cpl
+	ld	(notarw+1),a
+	ex	af,af'		
+	add	a,a
+	add	a,a		
+	ld	d,a
+	sbc	a,a
+	and	112/4
+	ld	e,a
+	ld	a,d
+	ld	d,0
+	add	hl,de		
+	add	a,a
+	sbc	a,a
+	and	112/4		
+	ld	e,a
+	sbc	hl,de		
+
+
+
+
+
+
+
+ if 0
+	ld	a,($3810)	
+	rrca
+	and	7		
+	ld	e,a
+	add	hl,de		
+
+	ld	a,($3810)	
+	rrca
+	rrca
+	rrca
+	rrca
+	and	7		
+	ld	de,mult7
+	add	a,e
+	ld	e,a
+	ld	a,0
+	adc	a,d
+	ld	d,a
+	ld	a,(de)
+	ld	e,a
+	ld	d,0
+	ex	de,hl
+	add	hl,hl
+	add	hl,hl
+	add	hl,hl
+	add	hl,hl
+	add	hl,hl		
+	ex	de,hl
+	add	hl,de
+ endif
+
+	call_w0_HL
+
+	pop	hl
+
+	dec	b
+	jp	nz,m1tlp
+m1thumb_cost equ t($) - t(m1tlp)
+
+	jp	m1thumb
+
+mult7:	defb	0*7
+	defb	1*7
+	defb	2*7
+	defb	3*7
+	defb	4*7
+	defb	5*7
+	defb	6*7
+	defb	7*7
+
+m3t:	vw_on
+
+	ld	hl,$4000
+m3thumb:
+	call	draw_m3_frame
+	push	hl
+	ld	hl,192*128
+	call	w0_HL
+	pop	hl
+	call	draw_m3_frame
+	ldv	a,model
+	cp	1
+	jr	z,m3thumb
+
+	in	a,($ec)
+.wt30:	in	a,($e0)
+	and	4
+	jr	nz,.wt30
+	in	a,($ec)
+	jr	m3thumb
+
+draw_m3_frame:
+	ld	e,(hl)
+	inc	hl
+	ld	d,(hl)
+	inc	hl
+
+	push	hl
+	ld	(done_m3_frame+1),sp
+	push	de
+	ret		
+done_m3_frame:
+	ld	sp,0
+	call	check_keys
+
+	bitv	0,canply
+	jr	nz,.play1
+	ld	hl,noplay_msg
+	ld	de,$3c00+64+16+(48-noplay_msg_len)/2
+	ld	bc,noplay_msg_len
+	ldir
+.play1:
+
+	pop	hl
+	ldv	a,frmcnt
+	add	a,a
+	cp	l
+	ret	nz
+	ld	hl,$4000
+	ret
+
+noplay_msg:	ascii	'<Not playable on this TRS-80>'
+noplay_msg_len	equ	$-noplay_msg
+
+m4thumb:
+	call	get_thumbnail_display_addr
+	ld	(m4tadr+1),hl
+.dm4t:	call	display_thumbnail
+	jr	.dm4t
+
+eof:	ld	a,CLOSEFILE
+	out	(f_cmd),a
+	call	wait
+
+	ret
+
+display_thumbnail:
+	ld	hl,$4000
+	exx
+	ldv	c,frmcnt
+
+dtfrm:	exx
+m4tadr:	ld	de,0
+	exx
+
+	ldv	b,tnhgt
+
+dtlp:	exx
+	ld	b,0
+	ldv	c,tnwid
+	ldir
+	ldv	a,vwid
+	subv	tnwid
+	ld	c,a
+	ex	de,hl
+	add	hl,bc
+	ex	de,hl
+	exx
+
+	ldv	a,tnhgt
+	cp	b
+	jr	nz,.play2
+	bitv	0,canply
+	jr	nz,.play2
+	push	bc
+	push	hl
+	ld	hl,noplay_msg
+	ld	de,$f800+80+16+(64-noplay_msg_len)/2
+	ld	bc,noplay_msg_len
+	ldir
+	pop	hl
+	pop	bc
+.play2:
+	djnz	dtlp
+
+	in	a,($ec)
+.wtclk:	in	a,($e0)
+	and	4
+	jr	nz,.wtclk
+	in	a,($ec)
+
+	push	bc
+	call	check_keys
+	pop	bc
+
+	dec	c
+	jr	nz,dtfrm
+
+	ret
+
+check_magic:
+	ld	hl,tvid
+	ld	de,magic
+	ld	b,4
+.mgck:	ld	a,(de)
+	inc	de
+	cp	(hl)
+	inc	hl
+	ret	nz
+	djnz	.mgck
+	ret
+
+erase_preview:
+	ld	hl,(vram)
+	ldv	a,vwid
+	add	a,16
+	ld	l,a
+	ld	d,h
+	ld	e,l
+	inc	de
+	ld	b,0
+	ldv	c,winwid
+	dec	c
+	ldv	a,winhgt
+
+.erp:	ld	(hl),' '
+	push	bc
+	push	hl
+	ldir
+	pop	de
+	pop	bc
+	ld	h,0
+	ldv	l,vwid
+	add	hl,de
+	ld	d,h
+	ld	e,l
+	inc	de
+
+	dec	a
+	jr	nz,.erp
+	ret
+
+read_setup:
+	out	(f_size),a
+	ld	a,READFILE
+	out	(f_cmd),a
+	call	wait
+	in	a,(f_stat)
+	and	8
+	ret	z
+	in	a,(f_size)
+	ld	b,a
+	ld	c,f_data
+	ret
+
+read:	call	read_setup
+	ret	z
+	inir
+	or	a
+	ret
+
+seek21:	inc	a		
+seek2:	sra	a		
+seek:	or	a		
+	ret	z
+seeknz:	call	read_setup
+	jr	z,got_eof
+	push	hl
+	
+	
+	inir			
+	pop	hl
+	ret
+got_eof:
+	pop	af
+	jp	eof
+
+seek_row21:
+	inc	a
+seek_row2:
+	sra	a
+	ret	z
+	push	de
+	ld	e,a
+.skrow:	ldv	a,frmwid
+	call	seeknz		
+	dec	e
+	jr	nz,.skrow
+	pop	de
+	ret
+
+ld_de	equ	$11
+ld_sp	equ	$31
+push_de	equ	$d5
+jp_op	equ	$c3
+
+read3:	ex	(sp),hl
+	push	bc
+	ld	bc,3
+	add	hl,bc
+	pop	bc
+	ex	(sp),hl
+	call	read_setup
+	ret	z
+	push	af
+	push	de
+	push	hl
+	ld	a,b
+	
+	ld	hl,$ff0f
+	inir
+	ex	de,hl
+	dec	de		
+	pop	hl		
+
+drawpos:ld	bc,0
+
+	ld	(hl),ld_sp
+	inc	hl
+	ld	(hl),c
+	inc	hl
+	ld	(hl),b
+	inc	hl
+
+	push	hl
+	ld	h,0
+	ldv	l,vwid
+	add	hl,bc
+	ld	(drawpos+1),hl
+	pop	hl
+
+exp3:	sub	2
+	jr	c,rem3		
+
+	ex	af,af'
+
+	ld	(hl),ld_de
+	inc	hl
+	ld	a,(de)
+	dec	de
+	ld	b,a
+	ld	a,(de)
+	dec	de
+	ld	(hl),a
+	inc	hl
+	ld	(hl),b
+	inc	hl
+	ld	(hl),push_de
+	inc	hl
+
+	ex	af,af'
+	jr	exp3
+
+rem3:	inc	a
+	jr	nz,tail0
+tail1:	ld	(hl),ld_de
+	inc	hl
+	ld	(hl),' '
+	inc	hl
+	ld	a,(de)
+	dec	de
+	ld	(hl),a
+	inc	hl
+	ld	(hl),push_de
+	inc	hl
+tail0:	pop	de
+	pop	af
+	or	a
+	ret
+
+
+
+
+
+gen_m1_thumb_kernel:
+	ldv	a,tnwid
+	ld	c,a
+	add	a,3
+	srl	a
+	srl	a		
+	stv	a,tnwid4
+
+
+	ld	a,c
+	add	a,a		
+	ld	(rld_2w+1),a	
+	ld	a,64		
+	add	c
+	ld	(rld_lw+1),a	
+
+
+
+	ld	a,48
+	cp	c
+	ld	a,128
+	jr	nz,notfull
+	ld	a,bargfx
+notfull:
+	ld	(fill1+1),a
+	ld	(fill3+1),a
+
+
+
+	ld	iy,0		
+	ldv	b,tnhgt
+	ld	d,0
+
+dorow:	ldv	a,tnwid4
+
+call4:	ld	(hl),low(char4)
+	inc	hl
+	ld	e,char4_cost
+	add	iy,de
+	dec	a
+	jr	nz,call4
+
+
+	ldv	a,tnwid
+	and	3
+	jr	z,no_tail	
+	ld	(hl),low(char1)
+	ld	e,char1_cost
+	dec	a
+	jr	z,do_tail	
+	ld	(hl),low(char2)
+	ld	e,char2_cost
+	dec	a
+	jr	z,do_tail	
+	ld	(hl),low(char3)	
+	ld	e,char3_cost
+do_tail:
+	inc	hl
+	add	iy,de
+no_tail:
+	ld	(hl),low(reload)
+	inc	hl
+	ld	e,reload_cost
+	add	iy,de
+
+	djnz	dorow
+
+	ld	(hl),low(donem1)
+	inc	hl
+	ld	e,donem1_cost
+	add	iy,de
+
+	push	hl
+	ld	d,0
+	ldv	e,tnwid
+	dec	e
+	add	hl,de
+	ld	(m1thumb+1),hl	
+	pop	hl
+
+	ret
+
+
+	org	high($+255)*256
+
+char4:	exx
+	ld	b,(hl)
+	dec	hl
+	ld	c,(hl)
+	dec	hl
+	ld	d,(hl)
+	dec	hl
+	ld	e,(hl)
+	dec	hl
+	push	bc
+	push	de
+	exx
+	ex	de,hl
+	ld	e,(hl)
+	inc	hl
+	ex	de,hl
+	ret	c
+	jp	(hl)
+char4_cost equ t($) - t(char4)
+
+char3:	exx
+
+	or	a,0
+	nop
+
+	ld	b,(hl)
+	dec	hl
+	ld	c,(hl)
+	dec	hl
+	ld	d,(hl)
+	dec	hl
+fill3:	ld	e,128
+	push	bc
+	push	de
+	exx
+	ex	de,hl
+	ld	e,(hl)
+	inc	hl
+	ex	de,hl
+	jp	(hl)
+char3_cost equ t($) - t(char3)
+
+char2:	exx
+
+	jp	$+3
+	jp	$+3
+	jp	$+3
+	nop
+	nop
+	nop
+
+	ld	b,(hl)
+	dec	hl
+	ld	c,(hl)
+	dec	hl
+	push	bc
+	exx
+	ex	de,hl
+	ld	e,(hl)
+	inc	hl
+	ex	de,hl
+	jp	(hl)
+char2_cost equ t($) - t(char2)
+
+char1:	exx
+
+	rept	4
+	jp	$+3
+	endm
+	nop
+	nop
+
+	ld	b,(hl)
+	dec	hl
+fill1:	ld	c,128
+	push	bc
+	exx
+	ex	de,hl
+	ld	e,(hl)
+	inc	hl
+	ex	de,hl
+	jp	(hl)
+char1_cost equ t($) - t(char1)
+
+donem1:	jp	done_m1_frame
+donem1_cost equ t($) - t(donem1)
+
+reload:	addv	frmcnt	
+	exx
+rld_2w:	ld	de,48*2
+	add	hl,de			
+	ex	de,hl
+rld_lw:	ld	hl,64+48
+	add	hl,sp			
+	ld	sp,hl
+	ex	de,hl
+	or	a			
+	exx
+	ex	de,hl
+	ld	e,(hl)
+	inc	hl
+	ex	de,hl
+	jp	(hl)
+reload_cost equ t($) - t(reload)
+
+ assert high(char4) == high(char3)
+ assert high(char3) == high(char2)
+ assert high(char2) == high(char1)
+ assert high(char1) == high(reload)
+ assert high(reload) == high(donem1)
+
+ferror:	ascii	'Error talking to FreHD',0
+frehd_error:
+	ld	hl,ferror
+	ld	de,(vram)
+	call	pmsg
+	jr	$	
+
+wait_keyup:
+	ld	hl,(keyadr)
+	ld	l,$40
+	ld	a,(hl)
+	or	a
+	jr	nz,wait_keyup
+	ret
+
+erase_status:
+	ld	de,(vram)
+	push	de
+	ld	b,0
+	ldv	c,(vwid)
+	ld	a,' '
+	call	memset
+	pop	de
+	ret
+
+display_cwd:
+	call	erase_status
+	ld	hl,cwd
+	call	pmsg
+	ret
+
+load_dir:
+	stv	0,dircnt
+	ld	hl,cwd
+	call	strlenz
+
+
+
+	dec	a		
+	dec	a		
+	jr	nz,notroot	
+	inc	a		
+notroot:
+	ld	b,a		
+	inc	a		
+	out	(f_size),a
+	ld	a,OPENDIRLFN
+	out	(f_cmd),a
+	call	wait
+	ld	hl,cwd
+	ld	c,f_data
+	otir
+	xor	a
+	out	(f_data),a	
+	call	wait
+
+
+
+
+
+	ld	de,dirbuf
+	ld	hl,trsvid
+	ld	bc,trsvid_len
+	ldir
+	incv	dircnt
+	ld	de,dirbuf+dlen
+
+
+	ld	a,(cwd+1)
+	or	a
+	jr	z,atroot
+	ld	de,dirbuf+dlen
+	ld	hl,dirdotdot
+	ld	bc,dirdotdot_len
+	ldir
+	incv	dircnt
+	ld	de,dirbuf+2*dlen
+atroot:
+
+dlist1:	ex	de,hl
+
+dlist:	ld	a,READDIR
+	out	(f_cmd),a
+	call	wait
+
+
+
+	in	a,(f_stat)
+	and	8
+	jr	z,dir_done
+	in	a,(f_size)
+	ld	b,a
+	ld	c,f_data
+	ex	de,hl
+	ld	hl,dirent
+	inir
+
+
+ if 0
+	ld	a,(d_attr)
+	and	AM_DIR
+	jr	nz,.dirok
+ 	ld	hl,d_name
+	ld	b,dlen	;13
+.fdot:	ld	a,(hl)
+	inc	hl
+	or	a
+	jr	z,dlist1	
+	cp	'.'
+	jr	nz,.fdot
+	dec	b
+	jr	z,dlist1
+	ld	a,(hl)
+	or	' '
+	cp	't'
+	jr	nz,dlist1	
+	inc	hl
+	ld	a,(hl)
+	or	' '
+	cp	'v'
+	jr	nz,dlist1	
+.dirok:
+ endif
+
+
+
+	ld	a,(d_attr)
+	and	AM_DIR
+	ld	a,'@'
+	jr	z,not_dir
+	ld	a,'/'
+not_dir:
+	ld	(de),a
+	inc	de
+
+	ld	bc,dlen-1	;8+3+1
+	ld	hl,d_name
+	ldir
+
+	ex	de,hl
+
+	incv	dircnt
+	ldv	a,dircnt
+	cp	dirmax
+	jr	nz,dlist	
+
+dir_done:
+
+
+
+
+
+
+
+sort:	ldv	a,dircnt
+	cp	2
+	jr	c,no_sort
+	ld	b,a
+	dec	b
+	ld	c,0		
+	ld	hl,dirbuf
+	ld	de,dirbuf+dlen
+
+bubble:	push	de
+	push	hl
+	call	strcmp		
+	pop	hl
+	pop	de
+	or	a
+	jr	z,no_swap	
+	bit	7,a
+	jr	nz,no_swap
+
+	push	bc
+	ld	bc,dlen
+swap:	ld	a,(de)
+	ldi
+	dec	hl
+	ld	(hl),a
+	inc	hl
+	jp	v,swap
+	pop	bc
+	ld	c,1
+	djnz	bubble
+	jr	sort
+
+no_swap:
+	ld	hl,dlen
+	add	hl,de
+	ex	de,hl
+	djnz	bubble
+
+	ld	a,c
+	or	a
+	jr	nz,sort
+
+no_sort:
+
+
+
+
+	ret
+
+dirdotdot: ascii '/'
+dotdot:	ascii	'..',0
+dirdotdot_len equ $-dirdotdot
+trsvid:	ascii	'--=TRSVID=-',0
+trsvid_len equ $-trsvid
+
+erase_dir:
+	ld	hl,(vram)
+	ld	d,0
+	ldv	e,vwid
+	ldv	c,winhgt
+
+.edrow:	add	hl,de
+	ld	b,15
+	push	hl
+.edcol:	ld	(hl),' '
+	inc	hl
+	djnz	.edcol
+	pop	hl
+	dec	c
+	jr	nz,.edrow
+	ret
+
+display_dir:
+	ld	hl,(vram)
+	ld	a,(vwid)
+	add	1	;2
+	ld	d,0
+	ld	e,a
+	add	hl,de
+	ex	de,hl
+	ld	hl,(top)
+
+	ldv	a,dircnt
+	subv	base
+	cpv	winhgt
+	jr	c,dshort
+	ldv	a,winhgt
+dshort:
+	ld	b,a
+	ldv	a,winhgt
+	sub	b
+	push	af		
+
+.dlp:	push	bc
+	push	de
+	push	hl
+	ld	a,(hl)		
+	push	af
+	inc	hl
+	push	de
+	ld	b,9+3+1+1	;8+3+1+1
+.clrd:	ld	a,' '
+	ld	(de),a
+	inc	de
+	djnz	.clrd
+	pop	de
+	ld	b,9+3+1	;8+3+1
+	call	pmsg_b
+	inc	b
+	djnz	.ntlfn
+	ld	a,(hl)
+	or	a
+	jr	z,.ntlfn
+	ld	a,'+'
+	ld	(de),a
+.ntlfn	pop	af
+	cp	'/'
+	jr	nz,.ndd
+	ld	(de),a
+.ndd:
+	pop	hl
+	pop	de
+	ld	bc,dlen
+	add	hl,bc
+	ex	de,hl
+	ld	a,(vwid)
+	ld	c,a
+	add	hl,bc
+	ex	de,hl
+	pop	bc
+	djnz	.dlp
+
+	pop	af
+	ret	z		
+
+	ex	de,hl
+	ldv	e,vwid
+	ld	d,0
+.dclp:	ld	b,8+3+1+1
+	push	hl
+.clrd2:	ld	(hl),' '
+	inc	hl
+	djnz	.clrd2
+	pop	hl
+	add	hl,de
+	dec	a
+	jr	nz,.dclp
+
+	ret
+
+strlenz:
+	push	hl
+.strlp	ld	a,(hl)
+	inc	hl
+	or	a
+	jr	nz,.strlp
+	ld	a,l
+	pop	hl
+	sub	l
+	ret
+
+
+strcmp:	ld	a,(de)
+	or	(hl)
+	ret	z
+	ld	a,(de)
+	inc	de
+	sub	'a'
+	cp	'z'-'a'+1
+	jr	nc,.deup
+	sub	'a'-'A'
+.deup	push	bc
+	ld	c,a
+	ld	a,(hl)
+	inc	hl
+	sub	'a'
+	cp	'z'-'a'+1
+	jr	nc,.hlup
+	sub	'a'-'A'
+.hlup	sub	c
+	pop	bc
+	jr	z,strcmp
+	ret
+
+memclr:	xor	a
+memset:	ld	h,d
+	ld	l,e
+	ld	(de),a
+	inc	de
+	dec	bc
+	ldir
+	ret
+
+setvid:	ldv	a,(host)
+	cp	4
+	jr	nc,setvid4
+setvid3:
+	ld	hl,$3c00
+	ld	(vram),hl
+	ld	a,64
+	ld	(vwid),a
+	ld	a,16
+	ld	(vhgt),a
+	ld	hl,$3800
+	ld	(keyadr),hl
+	mapm3
+	ret
+
+setvid4:
+	ld	hl,$f800
+	ld	(vram),hl
+	ld	a,80
+	ld	(vwid),a
+	ld	a,24
+	ld	(vhgt),a
+	ld	hl,$f400
+	ld	(keyadr),hl
+	mapkv
+	ret
+
+bargfx	equ	128+2+8+32
+
+bar:	ld	hl,(vram)
+	ld	de,15
+	add	hl,de
+	ld	a,(vwid)
+	ld	e,a
+	ld	a,(winhgt)
+.barlp:	add	hl,de
+	ld	(hl),bargfx
+	dec	a
+	jr	nz,.barlp
+	ret
+
+cls:	ld	hl,(vram)
+	ld	de,(vram)
+	inc	de
+	ld	b,0
+	ldv	a,(vhgt)
+
+.clrln:	ldv	c,(vwid)
+	dec	c
+	ld	(hl),' '
+	ldir
+	inc	hl
+	inc	de
+	dec	a
+	jr	nz,.clrln
+	ret
+
+pmsg:	ex	de,hl
+.pmsg:	ld	a,(de)
+	inc	de
+	or	a
+	jr	z,pmdn
+	ld	(hl),a
+	cp	(hl)
+	inc	hl
+	jr	z,.pmsg
+	dec	hl
+	res	5,(hl)
+	inc	hl
+	jr	.pmsg
+
+pmsg_b:	ex	de,hl
+.pmsgb:	ld	a,(de)
+	inc	de
+	or	a
+	jr	z,pmdn
+	ld	(hl),a
+	cp	(hl)
+	jr	z,.pmok
+	res	5,(hl)
+.pmok:	inc	hl
+	djnz	.pmsgb
+pmdn:	ex	de,hl
+	ret
+
+choose_file:
+	bitv	0,canstm
+	jp	z,no_move
+	call	find_player
+	jp	z,no_move
+	call	setup_player
+
+	ld	a,SECTORSTREAM
+	out	(f_cmd),a
+	call	wait
+
+	ld32mem	hl,o_sector
+	ld32	de,0
+	ldv	e,hdsize
+	call	add32
+
+	ld	a,4
+	out	(f_size),a
+	ld	c,f_data
+	out	(c),l
+	out	(c),h
+	exx
+	ld	c,f_data
+	out	(c),l
+	out	(c),h
+	exx
+	call	wait
+
+skip:	in	a,(f_data)
+	cp	254
+	jr	nz,skip
+
+	ld	hl,finish
+	push	hl
+	ld	hl,pause
+	push	hl
+
+	call	wait_up		
+	ldv	a,format
+	cp	4
+	call	c,setvid3	
+	vw_off
+
+	ldv	a,audprt
+play:	ld	hl,0
+	jp	(hl)
+finish:
+
+
+
+	ldv	a,(model)
+	cp	1
+	jr	nz,vidok
+	xor	a
+	out	(255),a
+
+vidok:	ld	sp,stack
+	ld	ix,varbase
+	call	stream_close
+	call	setvid		
+	call	cls
+	ld	de,(vram)
+	call	bar
+	jp	redraw
+
+stream_close:
+	ld	a,SECTORSTREAM
+	out	(f_cmd),a
+	call	wait
+	ld	a,1
+	out	(f_size),a
+	out	(f_data),a	
+	call	wait
+	ret
+
+pause:	exx
+	push	bc
+	push	de
+	push	hl
+	exx
+	push	bc
+	push	de
+	push	ix
+	push	iy
+
+	push	hl		
+
+	ld	hl,(keyadr)
+	ld	l,$40
+	bit	2,(hl)
+	jp	nz,finish	
+
+	ld	ix,varbase
+	ld	hl,(vram)
+	ld	d,0
+	ldv	e,vwid
+	ldv	b,vhgt
+	dec	b
+	dec	b
+.flast:	add	hl,de
+	djnz	.flast
+
+	pop	bc		
+
+	push	hl		
+	add	hl,de		
+
+	push	bc
+	call	progress_bar
+	ld	a,c
+	ld	(pbpos+1),a
+	pop	bc
+
+	ld	iy,timebuf
+
+	call	print_bracketed_time
+
+	push	iy
+	pop	de
+	ld	hl,-timebuf & $ffff
+	add	hl,de		
+	ld	c,l
+	srl	l
+pbpos:	ld	a,0
+	sub	l
+	jr	nc,.ok1
+	xor	a		
+.ok1:	add	c
+	cpv	vwid
+	jr	c,.ok2		
+	ldv	a,vwid
+.ok2:	sub	c
+
+	pop	hl
+	ld	d,0
+	ld	e,a
+	add	hl,de		
+	ex	de,hl
+	ld	hl,timebuf
+	ld	b,0
+	ldir
+
+	ld	hl,(keyadr)
+	ld	l,$40
+	bit	7,(hl)
+	jr	nz,active_pause	
+
+	call	wait_up
+
+
+
+
+wtcnt:	ld	l,$ff
+	ld	a,(hl)
+	or	a
+	jr	z,wtcnt
+	ld	l,$40
+	bit	2,(hl)
+	jp	nz,finish
+
+active_pause:
+	call	wait_up
+
+	pop	iy
+	pop	ix
+	pop	de
+	pop	bc
+	exx
+	pop	hl
+	pop	de
+	pop	bc
+	exx
+	ret
+
+wait_up:
+	ld	hl,(keyadr)
+	ld	l,$ff
+	ld	a,(hl)
+	or	a
+	jr	nz,wait_up
+	ret
+
+timebuf:
+	defs	10
+
+
+
+
+progress_bar:
+	push	hl
+	exx
+	ld	bc,0
+	ld	de,0
+	exx
+	ld	d,0
+	ldv	e,(vwid)
+	call	mul32		
+	ld32_bc_hl
+	ld32	de,0
+	ld	de,(viddur)
+	call	divmod32	
+	pop	hl
+	ld	a,c
+	or	a
+	jr	z,.pzero
+
+	ld	b,a
+.pbar:	ld	(hl),140
+	inc	hl
+	djnz	.pbar
+
+.pzero:	neg
+	addv	vwid
+	ret	z
+
+	ld	b,a
+.pclr:	ld	(hl),':'
+	inc	hl
+	djnz	.pclr
+
+	ret
+
+print_bracketed_time:
+	ld	a,'<'
+	call	putc
+	call	print_time
+	ld	a,'>'
+	jp	putc
+
+print_time:
+	exx
+	ld	bc,0
+	ld	de,0
+	exx
+	ld	de,60
+
+	call	divmod32	
+	push	hl
+	ld32	de,60
+	call	divmod32	
+	ld	a,b
+	or	c
+	jr	z,hour0
+	push	hl		
+	ld	h,b
+	ld	l,c
+	call	prtHL
+	pop	hl
+	ld	a,':'
+	call	putc
+	call	prtHL00		
+	jr	hour1
+hour0:	call	prtHL		
+hour1:	pop	hl
+	ld	a,':'
+	call	putc
+	call	prtHL00
+	ret
+
+putc:	ld	(iy),a
+	inc	iy
+	ret
+
+prtHL00:
+	ld	a,l
+	cp	10
+	jp	nc,prtHL
+	ld	a,'0'
+	call	putc
+	jp	prtHL
+
+copy_players_high:
+	ld	iy,player_list
+.cplp:	ld	a,(iy)
+	or	a
+	ret	z
+	cpv	host
+	jr	nz,.nocph
+
+	ld	l,(iy+4)
+	ld	h,(iy+5)	
+
+	ld	c,(iy+6)
+	ld	b,(iy+7)	
+	ld	a,b
+	or	c
+	jr	z,.nocph	
+
+	ld	de,(hiptr)	
+
+	ld	(iy+4),e
+	ld	(iy+5),d	
+
+	map64
+	ldir			
+	mapkv
+
+	ld	(hiptr),de	
+.nocph:	ld	de,8
+	add	iy,de
+	jr	.cplp
+
+
+
+find_player:
+	ld	hl,player_list
+.fply:	ld	a,(hl)
+	inc	hl
+	or	a
+	ret	z
+	cpv	host
+	jr	nz,.nocmp
+	ldv	a,format
+	cp	(hl)
+	jr	nz,.nocmp
+	xor	a
+	inc	a		
+	ret
+
+.nocmp:	ld	de,8-1
+	add	hl,de
+	jr	.fply
+
+
+
+setup_player:
+	inc	hl
+	ld	e,(hl)
+	inc	hl
+	ld	d,(hl)
+	inc	hl
+	ld	bc,.sudone
+	map64
+	ldv	a,audprt
+	push	bc		
+	push	de		
+	ret			
+.sudone:
+	mapkv
+	ret
+
+player_list:
+	defb	1,1
+	defw	player13
+	defw	h1f1
+	defw	len_h1f1
+
+	defb	3,1
+	defw	player13
+	defw	h3f1
+	defw	len_h3f1
+
+	defb	3,3
+	defw	player13
+	defw	h3f3
+	defw	len_h3f3
+
+	defb	4,1
+	defw	player13
+	defw	h4f1
+	defw	len_h4f1
+
+	defb	4,3
+	defw	player13
+	defw	h4f3
+	defw	len_h4f3
+
+	defb	5,1
+	defw	player13
+	defw	h5f1
+	defw	len_h5f1
+
+	defb	5,3
+	defw	player13
+	defw	h5f3
+	defw	len_h5f3
+
+	defb	6,1
+	defw	player13
+	defw	h6f1
+	defw	len_h6f1
+
+	defb	6,3
+	defw	player13
+	defw	h6f3
+	defw	len_h6f3
+
+	defb	6,6
+	defw	player6
+	defw	0
+	defw	0
+
+	defb	0
+
+player13:
+
+	ld	e,(hl)
+	inc	hl
+	ld	d,(hl)
+	ex	de,hl
+
+	ld	e,(hl)
+	inc	hl
+	ld	d,(hl)
+	inc	hl
+	call	dzx7_standard
+
+	dec	hl
+
+	ld	d,(hl)
+	dec	hl
+	ld	e,(hl)
+	dec	hl
+	ld	(play+1),de
+
+	ld	d,(hl)
+	dec	hl
+	ld	e,(hl)
+	dec	hl
+
+	ld	b,0
+unpack:
+	ld	c,(hl)
+	dec	hl
+	ld	a,$ff		
+unplp:	cp	(hl)
+	jp	nz,upk
+	ldd
+	ld	a,$d3		
+	cp	(hl)		
+	jr	nz,upk
+	inc	de
+	ldv	a,audprt
+	ld	(de),a
+	dec	de
+upk1:	ld	a,$ff
+upk:	ldd
+	jp	v,unplp
+	ld	a,(hl)
+	dec	hl
+	or	a
+	ret	z
+	push	hl
+	ld	l,a
+	ld	h,b
+	ex	de,hl
+	sbc	hl,de
+	ex	de,hl
+	pop	hl
+	jr	unpack
+
+	include	player/play6.inc
+
+
+
+
+need_audio:
+	bitv	0,canstm
+	jr	z,retnz
+	ldv	a,model
+	cp	4
+	ret
+retnz:	xor	a
+	inc	a
+	ret
+
+splash:	incbin	player/splash.zx7
+cpu:	ascii	'CPU: ',0
+fast:	ascii	'fast',0
+medium:	ascii	'medium',0
+slow:	ascii	'slow  ',0
+files:	ascii	' files',0
+could:	ascii	'Could do',0
+nostm:	ascii	'if FreHD upgraded. '
+url:	ascii	'http://48k.ca/trsvid.html',0
+
+splash_base equ $6000
+
+unpack_splash:
+	ld	de,splash_base
+	ld	hl,splash
+	call	dzx7_standard
+
+	call	need_audio
+	jr	z,audio_update
+
+	ld	hl,splash_base+12*48
+	ld	b,48
+ercs:	ld	(hl),' '
+	inc	hl
+	djnz	ercs
+	jr	model_update
+
+audio_update:
+	ld	iy,splash_base+12*48+19
+	ld	de,'-'*256+'>'
+	ldv	a,audprt
+	cp	$ff
+	jr	z,audok
+	ld	de,'<'*256+'-'
+audok:	ld	(iy+0),d
+	ld	(iy+3),e
+
+model_update:
+	ldv	a,model
+	cp	5
+	jr	nz,.mdok
+	ld	a,4
+.mdok:	add	a,'0'
+	ld	(splash_base+10*48+9),a
+	ldv	a,submdl
+	ld	(splash_base+10*48+10),a
+	ldv	a,fps
+	cp	60
+	ld	a,'6'
+	jr	nc,.fpsok
+	ld	a,'5'
+.fpsok:	ld	(splash_base+10*48+13),a
+
+	ldv	a,model
+	cp	4
+	jr	c,.nocpu		
+	ld	de,splash_base+10*48+26
+	ld	hl,cpu
+	call	pmsg
+	ldv	a,m1wait
+	inc	a
+.cpu:	push	af
+	push	de
+	call	pmsg
+	pop	de
+	pop	af
+	dec	a
+	jr	nz,.cpu
+
+.nocpu:
+	bitv	0,canstm
+	jr	nz,.listplayable
+
+	ld	de,splash_base+11*48+17
+	ld	hl,could
+	ld	b,8
+	call	pmsg_b
+
+	ld	de,splash_base+12*48+3
+	ld	hl,nofrehd
+	bitv	0,frehd
+	jr	z,.nsmsg
+	ld	hl,nostm
+.nsmsg:	call	pmsg
+
+.listplayable:
+	ld	hl,splash_base+11*48+26
+	xor	a
+	ld	b,$25		
+	ld	c,1
+.flst:	srl	b
+	jr	nc,.nsf
+	dec	c
+	jr	z,.nocma
+	ld	(hl),','
+	inc	hl
+.nocma:	ld	(hl),'.'
+	inc	hl
+	ld	(hl),'t'
+	inc	hl
+	ld	(hl),'v'
+	inc	hl
+	add	a,'0'+1
+	ld	(hl),a
+	inc	hl
+	sub	a,'0'+1
+.nsf:	inc	a
+	cpv	host
+	jr	nz,.flst
+	ex	de,hl
+	ld	hl,files
+	call	pmsg
+
+	ldv	a,model
+	cp	1
+	ret	nz		
+	ld	hl,$3c00+64+16
+	ld	a,'a'
+	ld	(hl),a
+	cp	(hl)
+	ret	z
+
+	ld	hl,splash_base
+	ld	c,15/5
+	ld	a,64
+.ucp1:	ld	b,48*5
+.ucp2:	bit	7,(hl)
+	jr	nz,.chok
+	cp	(hl)
+	jr	nc,.chok
+	res	5,(hl)
+.chok:	inc	hl
+	djnz	.ucp2
+	dec	c
+	jr	nz,.ucp1
+	ret
+
+update_frehd_version:
+	ld	iy,splash_base+11*48+10
+	ld	a,GETVER
+	out	(f_cmd),a
+	call	wait
+	in	a,(f_data)
+	ld	l,a
+	ld	h,0
+	call	prtHL
+	ld	(iy),'.'
+	inc	iy
+	in	a,(f_data)
+	ld	b,-1
+tens:	sub	a,10
+	inc	b
+	jr	nc,tens
+	push	af
+	ld	a,b
+	add	'0'
+	call	putc
+	pop	af
+	add	a,'0'+10
+	jp	putc
+
+
+
+
+display_splash:
+	ld	bc,48*256+15	
+	call	get_display_addr
+	ex	de,hl
+	ldv	a,vwid
+	sub	48
+	ex	af,af'
+	ld	a,15		
+	ld	b,0
+	ld	hl,splash_base
+
+.splsh:	ex	af,af'
+	ld	c,48
+	ldir
+	ld	c,a
+	ex	de,hl
+	add	hl,bc
+	ex	de,hl
+	ex	af,af'
+	dec	a
+	jr	nz,.splsh
+
+	ret
+
+
+
+get_thumbnail_display_addr:
+	ldv	b,tnwid
+	ldv	c,tnhgt
+
+
+get_display_addr:
+	ldv	a,winwid
+	sub	b
+	rra			
+	addv	vwid		
+	add	16		
+	ld	hl,(vram)
+	ld	l,a		
+	ldv	a,winhgt
+	sub	c
+	rra			
+	ret	z		
+	ld	d,0
+	ldv	e,vwid
+vcntr:	add	hl,de
+	dec	a
+	jr	nz,vcntr
+	ret
+
+get_thumbnail_push_display_addr:
+	push	de
+	call	get_thumbnail_display_addr
+	ld	b,0		
+	ldv	c,tnwid		
+	add	hl,bc		
+	pop	de
+	ret
+
+hiptr:	defw	himem
+himem:
+
+
+
+nofrehd:ascii	'if FreHD with upgraded firmware attached.',0
+none:	ascii	'NONE',0
+
+frehd_or_exit:
+	call	frdchk
+	or	a
+	ret	nz
+
+	call	unpack_splash
+
+	ld	hl,none
+	ld	de,splash_base+11*48+10
+	call	pmsg
+
+	ld	hl,splash_base
+	ld	c,13
+srlp:	ld	b,48
+sclp:	ld	a,(hl)
+	inc	hl
+	call	dos_putc
+	djnz	sclp
+
+	call	dos_put_cr
+
+	dec	c
+	jr	nz,srlp
+
+	ld	b,3
+dspc:	ld	a,' '
+	call	dos_putc
+	djnz	dspc
+
+	ld	hl,url
+dmsg:	ld	a,(hl)
+	or	a
+	jr	z,emsg
+	call	dos_putc
+	inc	hl
+	jr	dmsg
+emsg:	call	dos_put_cr
+
+
+	call	is_trsdos
+	jp	z,$402d
+	ld	a,101		
+	rst	$28
+	ld	a,(iy+'O'-'A')	
+	out	($84),a
+	ld	a,22
+	rst	$28
+
+dos_put_cr:
+	ld	a,13
+dos_putc:
+	push	bc
+	push	hl
+	call	choose_putc
+	pop	hl
+	pop	bc
+	ret
+
+choose_putc:
+	ld	c,a
+	call	is_trsdos
+	ld	de,$401d
+	ld	a,c
+	jp	z,$1b
+	ld	a,2
+	rst	$28
+	ret
+
+
+is_trsdos:
+	ld	a,(10)
+	cp	$40
+	ret
+
+
+
+	assert	$ < $f400
+
+	org	$8000
+
+h1f1:	defw	$5001
+	incbin	player/h1f1.zx7
+len_h1f1 equ $ - h1f1
+
+h3f1:	defw	$5001
+	incbin	player/h3f1.zx7
+len_h3f1 equ $ - h3f1
+
+h3f3:	defw	$5001
+	incbin	player/h3f3.zx7
+len_h3f3 equ $ - h3f3
+
+h4f1:	defw	$5001
+	incbin	player/h4f1.zx7
+len_h4f1 equ $ - h4f1
+
+h4f3:	defw	$5001
+	incbin	player/h4f3.zx7
+len_h4f3 equ $ - h4f3
+
+h5f1:	defw	$5001
+	incbin	player/h5f1.zx7
+len_h5f1 equ $ - h5f1
+
+h5f3:	defw	$5001
+	incbin	player/h5f3.zx7
+len_h5f3 equ $ - h5f3
+
+h6f1:	defw	$5001
+	incbin	player/h6f1.zx7
+len_h6f1 equ $ - h6f1
+
+h6f3:	defw	$5001
+	incbin	player/h6f3.zx7
+len_h6f3 equ $ - h6f3
+
+	assert	$ < stack - $100
+
+	end	start

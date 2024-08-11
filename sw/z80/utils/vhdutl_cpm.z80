@@ -72,8 +72,8 @@ SETCOLS     LD      HL,DIRCOLS
             RET
 DSPBUFFEREND
             LD      HL,DSPBUFFER+79
-	        RET
-DEPART		RET
+            RET
+DEPART      RET
 ENDJ
 
             INCLUDE utlcore.z80

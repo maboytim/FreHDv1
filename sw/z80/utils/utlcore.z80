@@ -37,8 +37,8 @@ DRIVEINFO   EQU     0CH
 
 ; Other Vecoven Interface Constants
 
-RTCMSGSIZE  EQU     6
-DRVINFOSIZE	EQU		19
+RTCMSGSIZE      EQU          6
+DRVINFOSIZE     EQU          19     ; 6+12+1
 DSPBUFFERLEN    EQU          81
 
 START       
@@ -143,7 +143,7 @@ MNT7        CALL    CLRDSPBUFFER
             LD      A,(HPARM+1)     ; Halt after change requested?
             CP      0FFH
             JR      NZ,MNTNOHLT     ; No so just report mount successfull
-MNTHLT      LD      HL,MSGMNTHLT+2    ; Yes... so report mount successfull
+MNTHLT      LD      HL,MSGMNTHLT+2  ; Yes... so report mount successfull
             LD      BC,(MSGMNTHLT)
             LDIR
             CALL    DSPDSPBUFFER
@@ -151,7 +151,7 @@ MNTHLT2     JR      MNTHLT2         ; ... and Halt
             RET
 MNTNOHLT    CALL    DSPDSPBUFFER
             RET
-MNTDISP     LD      A,DRIVEINFO	    ; Request Drive Info
+MNTDISP     LD      A,DRIVEINFO     ; Request Drive Info
             OUT     (COMMAND2),A
             CALL    WAIT
             IN      A,(SIZE2)       ; Read the DRIVEINFO structure
@@ -163,53 +163,53 @@ MNTDISP     LD      A,DRIVEINFO	    ; Request Drive Info
             LD      HL,MNTTITLE
             CALL    DSPLY
             LD      A,'-'
-            CALL    LDDSPBUFFER		; Header
+            CALL    LDDSPBUFFER     ; Header
             CALL    DSPDSPBUFFER
-            LD		IX,BUFFER
+            LD      IX,BUFFER
             LD      A,1             ; Unit Counter
             LD      (TEMP),A
             IN      A,(SIZE2)
-MNTDSP2     PUSH	AF              ; Process the DRIVEINFO structure
-            LD		A,(IX+0)        ; Available?
-            CP		0
-            JP		Z,MNTDSP4       ; No
+MNTDSP2     PUSH    AF              ; Process the DRIVEINFO structure
+            LD      A,(IX+0)        ; Available?
+            CP      0
+            JP      Z,MNTDSP4       ; No
             CALL    CLRDSPBUFFER
-            LD		HL,DSPBUFFER+20 ; Indicate Write Protected
-            LD		(HL),'N'        ; Default No
+            LD      HL,DSPBUFFER+20 ; Indicate Write Protected
+            LD      (HL),'N'        ; Default No
             LD      A,(IX+1)        ; Write Protect (=1)
-            CP		1
-            JR		NZ,MNTDSP21
-            LD		(HL),'Y'
+            CP      1
+            JR      NZ,MNTDSP21
+            LD      (HL),'Y'
 MNTDSP21    LD      HL,DSPBUFFER+40 ; Indicate Fast Mode
             LD      (HL),'Y'        ; Default Yes
             LD      A,(IX+0)        ; Fast Seek?
             CP      1               ; No (=1)
             JR      NZ,MNTDSP22
             LD      (HL),'N'        ; No
-MNTDSP22    LD		A,(IX+2)        ; Cylinders MSB
-            LD		H,A
-            LD		A,(IX+3)        ; Cylinders LSB
-            LD		L,A
-            LD		DE,NUMBUFFER    ; Convert to string
-            CALL	NUM2DEC
-            LD		HL,NUMBUFFER    ; Clear leading 2 zeros
-            LD		BC,2 << 8
-            CALL	CLRLEADZERO
-            LD		HL,NUMBUFFER    ; Insert into display buffer
-            LD		DE,DSPBUFFER+27
-            LD		BC,5
-            LDIR
-            LD		A,(IX+4)        ; Heads
-            LD		H,0
+MNTDSP22    LD      A,(IX+2)        ; Cylinders MSB
+            LD      H,A
+            LD      A,(IX+3)        ; Cylinders LSB
             LD      L,A
-            LD		DE,NUMBUFFER
-            CALL	NUM2DEC
-            LD		HL,NUMBUFFER    ; Clear leading 4 zeros
-            LD		BC,4 << 8
-            CALL	CLRLEADZERO	    
-            LD		HL,NUMBUFFER+3  ; Insert last 2 digits into display buffer
-            LD		DE,DSPBUFFER+37
-            LD		BC,2
+            LD      DE,NUMBUFFER    ; Convert to string
+            CALL    NUM2DEC
+            LD      HL,NUMBUFFER    ; Clear leading 2 zeros
+            LD      BC,2 << 8
+            CALL    CLRLEADZERO
+            LD      HL,NUMBUFFER    ; Insert into display buffer
+            LD      DE,DSPBUFFER+27
+            LD      BC,5
+            LDIR
+            LD      A,(IX+4)        ; Heads
+            LD      H,0
+            LD      L,A
+            LD      DE,NUMBUFFER
+            CALL    NUM2DEC
+            LD      HL,NUMBUFFER    ; Clear leading 4 zeros
+            LD      BC,4 << 8
+            CALL    CLRLEADZERO    
+            LD      HL,NUMBUFFER+3  ; Insert last 2 digits into display buffer
+            LD      DE,DSPBUFFER+37
+            LD      BC,2
             LDIR
             LD      A,(TEMP)        ; Unit counter
             LD      HL,0
@@ -225,14 +225,14 @@ MNTDSP22    LD		A,(IX+2)        ; Cylinders MSB
             LD      BC,6
             ADD     HL,BC
             PUSH    HL
-            LD		BC,0
+            LD      BC,0
 MNTDSP2A    LD      A,(HL)          ; Find first 00h to know length of the name    
             CP      0
             JR      Z,MNTDSP2B      ; First 00h found
             INC     HL
-            INC	    BC
+            INC     BC
             JR      MNTDSP2A
-MNTDSP2B    POP     HL      	    ; Name into display buffer
+MNTDSP2B    POP     HL              ; Name into display buffer
             LD      DE,DSPBUFFER+6
             LDIR
             CALL    DSPDSPBUFFER    ; Display line
@@ -241,16 +241,16 @@ MNTDSP4     LD      BC,DRVINFOSIZE  ; Move index to next entry
             LD      A,(TEMP)
             INC     A
             LD      (TEMP),A
-            POP	    AF
+            POP     AF
             SUB     DRVINFOSIZE     ; Check if more drives to process
-            JP      NZ,MNTDSP2		; No zero so back for another drive
+            JP      NZ,MNTDSP2      ; No zero so back for another drive
             CALL    DONESTUFF
             RET
 
-GETVERSION 	CALL    DONESTUFF
+GETVERSION  CALL    DONESTUFF
 
-			INCLUDE	GETVERSION.Z80
-			
+            INCLUDE GETVERSION.Z80
+
 GETDIR      CALL    DONESTUFF
             CALL    SETCOLS         ; Setup column count
             LD      A,2             ; Default to the "current" directory
@@ -309,17 +309,17 @@ GETDIR6     LD      HL,BUFFER+9     ; Display the filename
 GETDIRX     LD      HL,BUFFER       ; Force a new line at the end
             LD      (HL),CR
             CALL    DSPLY
-			JR		DONE
+            JR      DONE
 GETDIRERROR CALL    UERROR          ; Report the error
             RET
             
 GETRTC      CALL    DONESTUFF
             CALL    DS1307RD        ; Read DS1307
-			JR		DONE
+            JR      DONE
 
 SETRTC      CALL    DONESTUFF
             CALL    DS1307WR        ; Write to the interface
-DONE        JP		DEPART			; exit via jump table
+DONE        JP      DEPART          ; exit via jump table
 
 PRMERROR    LD      A,(ACTIONS)     ; Do anything?
             CP      0
@@ -451,24 +451,24 @@ WAIT2       RET
 ; Uses DE and BC
 
 LDDSPBUFFER
-            LD      HL,DSPBUFFER	; Load buffer with character passed in A
+            LD      HL,DSPBUFFER    ; Load buffer with character passed in A
             LD      (HL),A
-            JP     CLRDSPBUFFER2
+            JP      CLRDSPBUFFER2
 CLRDSPBUFFER
-            LD      HL,DSPBUFFER	; Load buffer with spaces
+            LD      HL,DSPBUFFER    ; Load buffer with spaces
             LD      (HL),SPC
-CLRDSPBUFFER2	    
+CLRDSPBUFFER2
             PUSH    HL
             POP     DE
-    	    INC     DE
-	        LD      BC,DSPBUFFERLEN-1
-	        LDIR
-	        CALL    DSPBUFFEREND
+            INC     DE
+            LD      BC,DSPBUFFERLEN-1
+            LDIR
+            CALL    DSPBUFFEREND
             LD      (HL),CR
             RET
 
 DSPDSPBUFFER
-            LD      HL,DSPBUFFER	;
+            LD      HL,DSPBUFFER    ;
             CALL    DSPLY
             RET
 
@@ -482,17 +482,17 @@ CLRLEADZERO
             LD      (HL),SPC
 CLRLEADZERO2
             INC     HL
-    	    DJNZ    CLRLEADZERO
+            DJNZ    CLRLEADZERO
             RET
 
 ; Number handling routines from http://baze.au.com/misc/z80bits.html
 
-NUM2DEC     LD	    BC,-10000
+NUM2DEC     LD      BC,-10000
             CALL    NUM1
             LD      BC,-1000
             CALL    NUM1
-            LD  	BC,-100
-            CALL	NUM1
+            LD      BC,-100
+            CALL    NUM1
             LD      C,-10
             CALL    NUM1
             LD      C,B
@@ -505,7 +505,7 @@ NUM2        INC     A
             LD      (DE),A
             INC     DE
             LD      A,0
-    	    LD	    (DE),A
+            LD      (DE),A
             RET
 
 DONESTUFF   LD      HL,ACTIONS      ; Need to know if we have done anything
@@ -538,4 +538,4 @@ DIRCOLS     DB      0
 TEMP        DB      0
 MNTFLAGS    DB      0
 
-			INCLUDE	FATFSERR.Z80
+            INCLUDE FATFSERR.Z80

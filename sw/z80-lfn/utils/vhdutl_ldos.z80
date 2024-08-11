@@ -41,7 +41,7 @@ TIME        LD      HL,4217h
             RET
 PARAM       LD      HL,(PARM)       ; Use internal parameter parsing for compability
             DEC     HL              ; with non-LDOS Model III operating systems
-            CALL	PARAM0
+            CALL    PARAM0
             RET
 DSP         NOP
             CALL    @DSP
@@ -55,10 +55,10 @@ DSPBUFFEREND
 SETUP       LD      A,10H
             OUT     (0ECH),A        ; Enable External IO Port (required for NewDOS/80)
             RET                     ; if the Hard Disk drivers have not been loaded
-DEPART		NOP
-			NOP
-			NOP
-			RET
+DEPART      NOP
+            NOP
+            NOP
+            RET
 ENDJ
 
 ; Model I jump table
@@ -88,10 +88,10 @@ SETUP_1     NOP
             NOP
             NOP
             RET
-DEPART_1	NOP
-			NOP
-			NOP
-			RET
+DEPART_1    NOP
+            NOP
+            NOP
+            RET
 ENDJ1
 
 ; Model 4 jump table
@@ -126,8 +126,8 @@ SETUP_6     NOP
             NOP
             NOP
             RET
-DEPART_6	LD		HL,0
-			RET
+DEPART_6    LD      HL,0
+            RET
 ENDJ6
 
 VHDUTL

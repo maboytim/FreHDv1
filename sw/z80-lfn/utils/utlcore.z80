@@ -1,19 +1,12 @@
 ; VHDUTL - Core - Shared by Versions for all OS's
 
-; Bugfix updates by: mayboytim
-; Fault: I found 3 bugs in the VHDUTL 2.03 in the FreHD utils.
-; They appear to be in the trs80gp version as well.
-; The first bug can be demonstrated by skipping a drive when mounting.
-; For example if drives 2,3,4 are mounted but not 1 then the list of the mounts (MNT) will be blank.
-; Additional 2 are, Corrupt name after adding 'drive 1' and no command line error on missing drive name. 
-; The above fixes were found in 2.03 (zip file) and merged with updates from this master 2.04 version.
-
 ; Misc Constants
 
 CR          EQU     0DH
 LF          EQU     0AH
 ETX         EQU     03H
 SPC         EQU     20H
+FF_LFN_BUF  EQU     23              ; Length of LFN's not including terminating NULL
 
 ; Directory Attributes
 
@@ -30,15 +23,18 @@ AM_ARC      EQU     020H            ; Archive
 GETVER      EQU     0
 GETTIME     EQU     1
 SETTIME     EQU     2
-OPENDIR     EQU     8
+;OPENDIR     EQU     8
+OPENDIRLFN  EQU     8+16            ; +16 = return LFN's
 READDIR     EQU     9
 MOUNTDRIVE  EQU     0AH
-DRIVEINFO   EQU     0CH
+;DRIVEINFO   EQU     0CH
+DRIVEINFOLFN EQU    0CH+16          ; +16 = return LFN's
 
 ; Other Vecoven Interface Constants
 
-RTCMSGSIZE  EQU     6
-DRVINFOSIZE	EQU		19
+RTCMSGSIZE      EQU          6
+DRVINFOSIZE     EQU          19     ; 6+12+1
+DRVINFOLFNSIZE  EQU          6+FF_LFN_BUF+1 ; =30
 DSPBUFFERLEN    EQU          81
 
 START       
@@ -143,7 +139,7 @@ MNT7        CALL    CLRDSPBUFFER
             LD      A,(HPARM+1)     ; Halt after change requested?
             CP      0FFH
             JR      NZ,MNTNOHLT     ; No so just report mount successfull
-MNTHLT      LD      HL,MSGMNTHLT+2    ; Yes... so report mount successfull
+MNTHLT      LD      HL,MSGMNTHLT+2  ; Yes... so report mount successfull
             LD      BC,(MSGMNTHLT)
             LDIR
             CALL    DSPDSPBUFFER
@@ -151,7 +147,7 @@ MNTHLT2     JR      MNTHLT2         ; ... and Halt
             RET
 MNTNOHLT    CALL    DSPDSPBUFFER
             RET
-MNTDISP     LD      A,DRIVEINFO	    ; Request Drive Info
+MNTDISP     LD      A,DRIVEINFOLFN  ; Request Drive Info
             OUT     (COMMAND2),A
             CALL    WAIT
             IN      A,(SIZE2)       ; Read the DRIVEINFO structure
@@ -159,57 +155,60 @@ MNTDISP     LD      A,DRIVEINFO	    ; Request Drive Info
             LD      C,DATA2
             LD      HL,BUFFER
             INIR
+            RRA                    ; Compute entry size in case of SFN response
+            RRA
+            AND     3FH
+            LD      (MNTDSP4+1),A
             CALL    CLRDSPBUFFER
             LD      HL,MNTTITLE
             CALL    DSPLY
             LD      A,'-'
-            CALL    LDDSPBUFFER		; Header
+            CALL    LDDSPBUFFER     ; Header
             CALL    DSPDSPBUFFER
-            LD		IX,BUFFER
+            LD      IX,BUFFER
             LD      A,1             ; Unit Counter
             LD      (TEMP),A
-            IN      A,(SIZE2)
-MNTDSP2     PUSH	AF              ; Process the DRIVEINFO structure
-            LD		A,(IX+0)        ; Available?
-            CP		0
-            JP		Z,MNTDSP4       ; No
+MNTDSP2                             ; Process the DRIVEINFO structure
+            LD      A,(IX+0)        ; Available?
+            CP      0
+            JP      Z,MNTDSP4       ; No
             CALL    CLRDSPBUFFER
-            LD		HL,DSPBUFFER+20 ; Indicate Write Protected
-            LD		(HL),'N'        ; Default No
+            LD      HL,DSPBUFFER+31 ; Indicate Write Protected
+            LD      (HL),'N'        ; Default No
             LD      A,(IX+1)        ; Write Protect (=1)
-            CP		1
-            JR		NZ,MNTDSP21
-            LD		(HL),'Y'
-MNTDSP21    LD      HL,DSPBUFFER+40 ; Indicate Fast Mode
+            CP      1
+            JR      NZ,MNTDSP21
+            LD      (HL),'Y'
+MNTDSP21    LD      HL,DSPBUFFER+51 ; Indicate Fast Mode
             LD      (HL),'Y'        ; Default Yes
             LD      A,(IX+0)        ; Fast Seek?
             CP      1               ; No (=1)
             JR      NZ,MNTDSP22
             LD      (HL),'N'        ; No
-MNTDSP22    LD		A,(IX+2)        ; Cylinders MSB
-            LD		H,A
-            LD		A,(IX+3)        ; Cylinders LSB
-            LD		L,A
-            LD		DE,NUMBUFFER    ; Convert to string
-            CALL	NUM2DEC
-            LD		HL,NUMBUFFER    ; Clear leading 2 zeros
-            LD		BC,2 << 8
-            CALL	CLRLEADZERO
-            LD		HL,NUMBUFFER    ; Insert into display buffer
-            LD		DE,DSPBUFFER+27
-            LD		BC,5
-            LDIR
-            LD		A,(IX+4)        ; Heads
-            LD		H,0
+MNTDSP22    LD      A,(IX+2)        ; Cylinders MSB
+            LD      H,A
+            LD      A,(IX+3)        ; Cylinders LSB
             LD      L,A
-            LD		DE,NUMBUFFER
-            CALL	NUM2DEC
-            LD		HL,NUMBUFFER    ; Clear leading 4 zeros
-            LD		BC,4 << 8
-            CALL	CLRLEADZERO	    
-            LD		HL,NUMBUFFER+3  ; Insert last 2 digits into display buffer
-            LD		DE,DSPBUFFER+37
-            LD		BC,2
+            LD      DE,NUMBUFFER    ; Convert to string
+            CALL    NUM2DEC
+            LD      HL,NUMBUFFER    ; Clear leading 2 zeros
+            LD      BC,2 << 8
+            CALL    CLRLEADZERO
+            LD      HL,NUMBUFFER    ; Insert into display buffer
+            LD      DE,DSPBUFFER+38
+            LD      BC,5
+            LDIR
+            LD      A,(IX+4)        ; Heads
+            LD      H,0
+            LD      L,A
+            LD      DE,NUMBUFFER
+            CALL    NUM2DEC
+            LD      HL,NUMBUFFER    ; Clear leading 4 zeros
+            LD      BC,4 << 8
+            CALL    CLRLEADZERO    
+            LD      HL,NUMBUFFER+3  ; Insert last 2 digits into display buffer
+            LD      DE,DSPBUFFER+48
+            LD      BC,2
             LDIR
             LD      A,(TEMP)        ; Unit counter
             LD      HL,0
@@ -225,37 +224,36 @@ MNTDSP22    LD		A,(IX+2)        ; Cylinders MSB
             LD      BC,6
             ADD     HL,BC
             PUSH    HL
-            LD		BC,0
+            LD      BC,0
 MNTDSP2A    LD      A,(HL)          ; Find first 00h to know length of the name    
             CP      0
             JR      Z,MNTDSP2B      ; First 00h found
             INC     HL
-            INC	    BC
+            INC     BC
             JR      MNTDSP2A
-MNTDSP2B    POP     HL      	    ; Name into display buffer
+MNTDSP2B    POP     HL              ; Name into display buffer
             LD      DE,DSPBUFFER+6
             LDIR
             CALL    DSPDSPBUFFER    ; Display line
-MNTDSP4     LD      BC,DRVINFOSIZE  ; Move index to next entry
+MNTDSP4     LD      BC,DRVINFOLFNSIZE ; Move index to next entry
             ADD     IX,BC
             LD      A,(TEMP)
             INC     A
             LD      (TEMP),A
-            POP	    AF
-            SUB     DRVINFOSIZE     ; Check if more drives to process
-            JP      NZ,MNTDSP2		; No zero so back for another drive
+            CP      4+1             ; Check if more drives to process
+            JP      NZ,MNTDSP2      ; No zero so back for another drive
             CALL    DONESTUFF
             RET
 
-GETVERSION 	CALL    DONESTUFF
+GETVERSION  CALL    DONESTUFF
 
-			INCLUDE	GETVERSION.Z80
-			
+            INCLUDE GETVERSION.Z80
+
 GETDIR      CALL    DONESTUFF
             CALL    SETCOLS         ; Setup column count
             LD      A,2             ; Default to the "current" directory
             OUT     (SIZE2),A
-            LD      A,OPENDIR
+            LD      A,OPENDIRLFN
             OUT     (COMMAND2),A
             CALL    WAIT
             LD      A,"/"
@@ -280,46 +278,76 @@ GETDIR2     LD      A,READDIR       ; Request directory entry
             LD      C,DATA2
             LD      HL,BUFFER 
             INIR
-            LD      A,(BUFFER+8)    ; Check File attribute for Volume label/hidden/directory
-            AND     AM_VOL OR AM_HID OR AM_DIR
+            LD      A,(BUFFER+8)    ; Check File attribute for Volume label/hidden
+            AND     AM_VOL OR AM_HID
             JR      NZ,GETDIR2      ; Yes so ignore this file
-            LD      HL,BUFFER+24    ; ETX at the end to make printing easy
-            LD      (HL),ETX        ; This is 4 bytes after the end of the 8.3 filename because we want 16 columns
+            LD      C,0
             LD      HL,BUFFER+9     ; Find first 00h and then make all characters SPC until ETX
-GETDIR3     LD      A,(HL)          
+GETDIR2x    LD      A,(HL)
             CP      0
-            JR      Z,GETDIR4       ; First 00h found
+            JR      Z,GETDIR2z      ; First 00h found
+            CP      ' '
+            JR      NZ,GETDIR2y
+            LD      (HL),8Ch          
+GETDIR2y    INC     C
             INC     HL
-            JR      GETDIR3
-GETDIR4     LD      (HL),SPC        ; Replace with SPC
-            INC     HL              ; and keep going until we get to ETX
+            JR      GETDIR2x
+GETDIR2z    LD      A,(BUFFER+8)    ; Check File attribute for directory
+            AND     AM_DIR
+            JR      Z,GETDIR3
+            LD      (HL),'/'        ; Append / to directory name
+            INC     HL
+            INC     C
+GETDIR3     PUSH    HL              ; Save pointer to end of name
+GETDIR4     LD      (HL),SPC        ; Pad with spaces up to column width
+            INC     HL
+            INC     C
+            LD      A,C
+            AND     15
+            JR      NZ,GETDIR4 
+            LD      (HL),ETX        ; ETX at the end to make printing easy
+            RRC     C               ; Get number of columns needed
+            RRC     C
+            RRC     C
+            RRC     C
+            LD      HL,DIRCOLS      ; Get columns remaining
             LD      A,(HL)
-            CP      ETX
-            JR      Z,GETDIR5
-            JR      GETDIR4
-GETDIR5     LD      HL,DIRCOLS      ; Used another column
-            DEC     (HL)
-            JR      NZ,GETDIR6      ; Last column for the row?
-            CALL    SETCOLS         ; Yes so reset and CR at the end of this filename
-            LD      HL,BUFFER+22
+            SUB     C               ; Subtract columns needed
+            JR      NC,GETDIR5      ; Go if it fits on the line
+
+            LD      HL,BUFFER+8     ; Doesn't fit so start a new line
             LD      (HL),CR
+            PUSH    BC              ; Save
+            CALL    DSPLY
+            POP     BC              ; Restore
+            CALL    SETCOLS         ; Reset columns
+            LD      A,(HL)
+            SUB     C               ; Subtract columns needed
+
+GETDIR5     LD      (HL),A          ; Save columns remaining
+            POP     HL              ; Restore pointer to end of filename
+            JR      NZ,GETDIR6      ; Go if this is not the end of the line
+
+            LD      (HL),CR         ; Replace padding with CR
+            CALL    SETCOLS         ; Reset columns
+
 GETDIR6     LD      HL,BUFFER+9     ; Display the filename
             CALL    DSPLY
             JR      GETDIR2         ; Check for more files
 GETDIRX     LD      HL,BUFFER       ; Force a new line at the end
             LD      (HL),CR
             CALL    DSPLY
-			JR		DONE
+            JR      DONE
 GETDIRERROR CALL    UERROR          ; Report the error
             RET
             
 GETRTC      CALL    DONESTUFF
             CALL    DS1307RD        ; Read DS1307
-			JR		DONE
+            JR      DONE
 
 SETRTC      CALL    DONESTUFF
             CALL    DS1307WR        ; Write to the interface
-DONE        JP		DEPART			; exit via jump table
+DONE        JP      DEPART          ; exit via jump table
 
 PRMERROR    LD      A,(ACTIONS)     ; Do anything?
             CP      0
@@ -385,7 +413,7 @@ VHPARM      LD      HL,0            ; Address set when parameters are loaded
             LD      (VHPARM+1),HL
 VHPARM2     LD      A,(TEMP)        ; Count characters
             INC     A
-            CP      14              ; Max characters for name + terminator + 1   
+            CP      FF_LFN_BUF+1+1  ; Max characters for name + terminator + 1   
             JR      Z,VHPARMFAIL    ; Exceeded so return empty string         
             LD      (TEMP),A
             LD      A,(HL)          ;
@@ -451,24 +479,24 @@ WAIT2       RET
 ; Uses DE and BC
 
 LDDSPBUFFER
-            LD      HL,DSPBUFFER	; Load buffer with character passed in A
+            LD      HL,DSPBUFFER    ; Load buffer with character passed in A
             LD      (HL),A
-            JP     CLRDSPBUFFER2
+            JP      CLRDSPBUFFER2
 CLRDSPBUFFER
-            LD      HL,DSPBUFFER	; Load buffer with spaces
+            LD      HL,DSPBUFFER    ; Load buffer with spaces
             LD      (HL),SPC
-CLRDSPBUFFER2	    
+CLRDSPBUFFER2
             PUSH    HL
             POP     DE
-    	    INC     DE
-	        LD      BC,DSPBUFFERLEN-1
-	        LDIR
-	        CALL    DSPBUFFEREND
+            INC     DE
+            LD      BC,DSPBUFFERLEN-1
+            LDIR
+            CALL    DSPBUFFEREND
             LD      (HL),CR
             RET
 
 DSPDSPBUFFER
-            LD      HL,DSPBUFFER	;
+            LD      HL,DSPBUFFER    ;
             CALL    DSPLY
             RET
 
@@ -482,17 +510,17 @@ CLRLEADZERO
             LD      (HL),SPC
 CLRLEADZERO2
             INC     HL
-    	    DJNZ    CLRLEADZERO
+            DJNZ    CLRLEADZERO
             RET
 
 ; Number handling routines from http://baze.au.com/misc/z80bits.html
 
-NUM2DEC     LD	    BC,-10000
+NUM2DEC     LD      BC,-10000
             CALL    NUM1
             LD      BC,-1000
             CALL    NUM1
-            LD  	BC,-100
-            CALL	NUM1
+            LD      BC,-100
+            CALL    NUM1
             LD      C,-10
             CALL    NUM1
             LD      C,B
@@ -505,7 +533,7 @@ NUM2        INC     A
             LD      (DE),A
             INC     DE
             LD      A,0
-    	    LD	    (DE),A
+            LD      (DE),A
             RET
 
 DONESTUFF   LD      HL,ACTIONS      ; Need to know if we have done anything
@@ -530,12 +558,12 @@ MSGMNTOK    DB      11,0,'Mounted OK.'
 MSGMNTHLT   DB      13,0,'  Press Reset'
 MSGMNTFAIL  DB      'Mount Failed',CR
 MSGDIRERROR DB      'Error Reading Directory',CR
-MNTTITLE    DB      'Addr  Disk File     WP Cylinders  Heads Fast',CR
-BUFFER      DS      4*(6+12+1)      ; =76, 6+12+1=infodrive_size, was 64
+MNTTITLE    DB      'Addr  Disk File                WP Cylinders  Heads Fast',CR
+BUFFER      DS      4*(6+FF_LFN_BUF+1) ; =120, originally 76
 NUMBUFFER   DS      16
 DSPBUFFER   DS      DSPBUFFERLEN
 DIRCOLS     DB      0
 TEMP        DB      0
 MNTFLAGS    DB      0
 
-			INCLUDE	FATFSERR.Z80
+            INCLUDE FATFSERR.Z80
