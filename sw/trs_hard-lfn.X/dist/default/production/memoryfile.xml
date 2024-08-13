@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+  <executable name="dist/default/production\trs_hard-lfn.X.production.hex">
+    <memory name="program">
+      <units>bytes</units>
+      <length>131072</length>
+      <used>45592</used>
+      <free>85480</free>
+    </memory>
+    <memory name="data">
+      <units>bytes</units>
+      <length>12800</length>
+      <used>2895</used>
+      <free>9905</free>
+    </memory>
+  </executable>
+</project>
