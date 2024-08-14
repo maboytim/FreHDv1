@@ -247,6 +247,7 @@ patch_table:
 	dw	newdos25
 	dw	m1ldos531
 	dw	m1newdos25
+	dw	multidos
 
 ;*=*=*
 ;	LDOS 6.3.1 patch
@@ -277,3 +278,8 @@ cpm:	LAST_PATCH
 ;	M1 NEWDOS 2.5 patch
 ;*=*=*
 	include m1newdos25.asm
+
+;*=*=*
+;	MULTIDOS doesn't need to be patched !
+;*=*=*
+multidos:	LAST_PATCH
