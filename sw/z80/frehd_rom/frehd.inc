@@ -107,5 +107,6 @@ OS_CPM		equ 2h
 OS_NEWDOS25	equ 3h
 OS_M1LDOS531	equ 4h
 OS_M1NEWDOS25	equ 5h
-MAX_OS		equ 6h
+OS_MULTIDOS	equ 6h
+MAX_OS		equ 7h
 

@@ -38,11 +38,9 @@ FA_CREATE_ALWAYS equ 08h
 FA_OPEN_ALWAYS   equ 10h
 	
 
-	ORG	5000h
+	ORG	4fffh
 
 	db	0feh
-
-	PHASE	5000h
 
 	cp	0ffh			; trick to pass one parameter from ROM
 	jr	+			; skip the jump table
