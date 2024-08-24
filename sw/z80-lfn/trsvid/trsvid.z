@@ -1628,8 +1628,13 @@ dshort:
 	ld	a,(hl)
 	or	a
 	jr	z,.ntlfn
-	ld	a,'+'
-	ld	(de),a
+	inc	hl
+	ld	b,(hl)
+	inc	b
+	dec	b
+	jr	z,.lfn1
+	ld	a,'*'
+.lfn1	ld	(de),a
 .ntlfn	pop	af
 	cp	'/'
 	jr	nz,.ndd

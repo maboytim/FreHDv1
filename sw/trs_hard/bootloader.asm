@@ -681,7 +681,7 @@ jump_table
 
 
 ;;;
-;;; Compute CRC16 of 0800..FFFF
+;;; Compute CRC16 of 0800..FFFD
 ;;;
 do_crc16
 	movlw	low (BOOTLOADER_END+1)

@@ -12,6 +12,9 @@
       <logicalFolder name="MCC Generated Files"
                      displayName="MCC Generated Files"
                      projectFiles="true">
+        <logicalFolder name="nvm" displayName="nvm" projectFiles="true">
+          <itemPath>mcc_generated_files/nvm/nvm.h</itemPath>
+        </logicalFolder>
         <logicalFolder name="spi" displayName="spi" projectFiles="true">
           <itemPath>mcc_generated_files/spi/spi_polling_types.h</itemPath>
           <itemPath>mcc_generated_files/spi/spi1.h</itemPath>
@@ -46,6 +49,8 @@
       <itemPath>sw_i2c.h</itemPath>
       <itemPath>serial.h</itemPath>
       <itemPath>HardwareProfile.h</itemPath>
+      <itemPath>crc.h</itemPath>
+      <itemPath>bootloader.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -69,6 +74,11 @@
       <logicalFolder name="MCC Generated Files"
                      displayName="MCC Generated Files"
                      projectFiles="true">
+        <logicalFolder name="nvm" displayName="nvm" projectFiles="true">
+          <logicalFolder name="src" displayName="src" projectFiles="true">
+            <itemPath>mcc_generated_files/nvm/src/nvm.c</itemPath>
+          </logicalFolder>
+        </logicalFolder>
         <logicalFolder name="spi" displayName="spi" projectFiles="true">
           <logicalFolder name="src" displayName="src" projectFiles="true">
             <itemPath>mcc_generated_files/spi/src/spi1.c</itemPath>
@@ -106,6 +116,7 @@
       <itemPath>loader.c</itemPath>
       <itemPath>loader_eeprom.c</itemPath>
       <itemPath>serial.c</itemPath>
+      <itemPath>eeprom.c</itemPath>
     </logicalFolder>
   </logicalFolder>
   <sourceRootList>
@@ -1350,7 +1361,17 @@
         <XC8-config-global>
         </XC8-config-global>
       </item>
-      <item path="loader_eeprom.c" ex="true" overriding="false">
+      <item path="loader.c" ex="true" overriding="false">
+        <HI-TECH-COMP>
+        </HI-TECH-COMP>
+        <HI-TECH-LINK>
+        </HI-TECH-LINK>
+        <XC8-CO>
+        </XC8-CO>
+        <XC8-config-global>
+        </XC8-config-global>
+      </item>
+      <item path="loader_eeprom.c" ex="false" overriding="false">
         <HI-TECH-COMP>
         </HI-TECH-COMP>
         <HI-TECH-LINK>

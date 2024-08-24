@@ -1,0 +1,910 @@
+[p GLOBOPT AUTOSTATIC IEEE_FLT IEEE_DBL LFSROK EMI_WORD ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 18F47Q83 ]
+[d frameptr 1249 ]
+"53 C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/nvm/src/nvm.c
+[e E22826 . `uc
+NVM_OK 0
+NVM_ERROR 1
+]
+"496 C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+[e E22829 . `uc
+NVM_OK 0
+NVM_ERROR 1
+]
+"124
+[v _boot_int_lo boot_int_lo `IIL(v  1 e 1 0 ]
+"188
+[v _update_status update_status `(v  1 e 1 0 ]
+[v i1_update_status update_status `(v  1 e 1 0 ]
+"202
+[v _read_byte read_byte `(uc  1 e 1 0 ]
+"215
+[v _pic_init pic_init `(v  1 e 1 0 ]
+"274
+[v _main main `(v  1 e 1 0 ]
+"317
+[v _b_process b_process `(v  1 e 1 0 ]
+"489
+[v _erase_flash erase_flash `(v  1 e 1 0 ]
+"504
+[v _erase_eeprom erase_eeprom `(v  1 e 1 0 ]
+"517
+[v _b_last b_last `(v  1 e 1 0 ]
+"532
+[v _b_write_block b_write_block `(v  1 e 1 0 ]
+"4 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\fleq.c
+[v ___fleq __fleq `(b  1 e 0 0 ]
+"62 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\float.c
+[v ___ftpack __ftpack `(f  1 e 4 0 ]
+"86 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\ftadd.c
+[v ___ftadd __ftadd `(f  1 e 4 0 ]
+"54 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\ftdiv.c
+[v ___ftdiv __ftdiv `(f  1 e 4 0 ]
+"62 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\ftmul.c
+[v ___ftmul __ftmul `(f  1 e 4 0 ]
+"19 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\ftsub.c
+[v ___ftsub __ftsub `(f  1 e 4 0 ]
+"10 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\sprcadd.c
+[v ___fladd __fladd `(d  1 e 4 0 ]
+"245
+[v ___flsub __flsub `(d  1 e 4 0 ]
+"11 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\sprcdiv.c
+[v ___fldiv __fldiv `(d  1 e 4 0 ]
+"8 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\sprcmul.c
+[v ___flmul __flmul `(d  1 e 4 0 ]
+"15 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\Umul32.c
+[v ___lmul __lmul `(ul  1 e 4 0 ]
+"91 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\Umul64.c
+[v ___omul __omul `(uo  1 e 8 0 ]
+"43 C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/nvm/src/nvm.c
+[v _NVM_Initialize NVM_Initialize `(v  1 e 1 0 ]
+"48
+[v _NVM_IsBusy NVM_IsBusy `(a  1 e 1 0 ]
+"65
+[v _NVM_StatusClear NVM_StatusClear `(v  1 e 1 0 ]
+"70
+[v _NVM_UnlockKeySet NVM_UnlockKeySet `(v  1 e 1 0 ]
+"76
+[v _NVM_UnlockKeyClear NVM_UnlockKeyClear `(v  1 e 1 0 ]
+"183
+[v _FLASH_RowWrite FLASH_RowWrite `(E22826  1 e 1 0 ]
+"240
+[v _FLASH_PageErase FLASH_PageErase `(E22826  1 e 1 0 ]
+"309
+[v _EEPROM_Write EEPROM_Write `(v  1 e 1 0 ]
+"37 C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/system/src/clock.c
+[v _CLOCK_Initialize CLOCK_Initialize `(v  1 e 1 0 ]
+"38 C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/system/src/pins.c
+[v _PIN_MANAGER_Initialize PIN_MANAGER_Initialize `(v  1 e 1 0 ]
+"41 C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/system/src/system.c
+[v _SYSTEM_Initialize SYSTEM_Initialize `(v  1 e 1 0 ]
+"54 C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/timer/src/tmr0.c
+[v _TMR0_Initialize TMR0_Initialize `(v  1 e 1 0 ]
+"81
+[v _TMR0_Start TMR0_Start `(v  1 e 1 0 ]
+"86
+[v _TMR0_Stop TMR0_Stop `(v  1 e 1 0 ]
+"116
+[v _TMR0_PeriodCountSet TMR0_PeriodCountSet `(v  1 e 1 0 ]
+"135
+[v _TMR0_OverflowCallbackRegister TMR0_OverflowCallbackRegister `(v  1 e 1 0 ]
+"140
+[v _TMR0_DefaultOverflowCallback TMR0_DefaultOverflowCallback `(v  1 s 1 TMR0_DefaultOverflowCallback ]
+"36 C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
+[v _usart_init usart_init `(v  1 e 1 0 ]
+"100
+[v _serial_tx_int serial_tx_int `(v  1 e 1 0 ]
+"120
+[v _usart_send usart_send `(v  1 e 1 0 ]
+"138
+[v _serial_rx_int serial_rx_int `(v  1 e 1 0 ]
+"178
+[v _usart_puts usart_puts `(v  1 e 1 0 ]
+"193
+[v _usart_puts_r usart_puts_r `(v  1 e 1 0 ]
+"200
+[v _usart_puts2_r usart_puts2_r `(v  1 e 1 0 ]
+"207
+[v _usart_put_hex usart_put_hex `(v  1 e 1 0 ]
+"226
+[v _usart_put_short usart_put_short `(v  1 e 1 0 ]
+"232
+[v _usart_put_long usart_put_long `(v  1 e 1 0 ]
+"90 C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+[v _boot_version boot_version `Cus  1 e 2 @6 ]
+"96
+[v _timeout timeout `VNEuc  1 e 1 0 ]
+"97
+[v _crc crc `NSSus  1 e 2 0 ]
+"98
+[v _flags flags `VNSSEuc  1 e 1 0 ]
+"101
+[v _checksum checksum `Nuc  1 e 1 0 ]
+"102
+[v _count count `Nuc  1 e 1 0 ]
+"103
+[v _addr addr `Nul  1 e 4 0 ]
+"104
+[v _type type `Nuc  1 e 1 0 ]
+"107
+[v _BUFX BUFX `[256]uc  1 e 256 0 ]
+"108
+[v _fsr2 fsr2 `Nuc  1 e 1 0 ]
+"109
+[v _tblptr tblptr `Num  1 e 3 0 ]
+[s S28 . 1 `uc 1 GO 1 0 :1:0 
+]
+"596 C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-Q_DFP/1.24.430/xc8\pic\include\proc\pic18f47q83.h
+[s S30 . 1 `uc 1 NOT_DONE 1 0 :1:0 
+]
+[s S32 . 1 `uc 1 nDONE 1 0 :1:0 
+]
+[u S34 . 1 `S28 1 . 1 0 `S30 1 . 1 0 `S32 1 . 1 0 ]
+[v _NVMCON0bits NVMCON0bits `VES34  1 e 1 @64 ]
+[s S48 . 1 `uc 1 CMD 1 0 :3:0 
+`uc 1 . 1 0 :4:3 
+`uc 1 WRERR 1 0 :1:7 
+]
+"631
+[s S52 . 1 `uc 1 NVMCMD 1 0 :3:0 
+]
+[u S54 . 1 `S48 1 . 1 0 `S52 1 . 1 0 ]
+[v _NVMCON1bits NVMCON1bits `VES54  1 e 1 @65 ]
+"651
+[v _NVMLOCK NVMLOCK `VEuc  1 e 1 @66 ]
+"672
+[v _NVMADR NVMADR `VEum  1 e 3 @67 ]
+"680
+[v _NVMADRL NVMADRL `VEuc  1 e 1 @67 ]
+"750
+[v _NVMADRH NVMADRH `VEuc  1 e 1 @68 ]
+"820
+[v _NVMADRU NVMADRU `VEuc  1 e 1 @69 ]
+"885
+[v _NVMDATL NVMDATL `VEuc  1 e 1 @70 ]
+"955
+[v _NVMDATH NVMDATH `VEuc  1 e 1 @71 ]
+[s S308 . 1 `uc 1 SPI1RXIE 1 0 :1:0 
+`uc 1 SPI1TXIE 1 0 :1:1 
+`uc 1 SPI1IE 1 0 :1:2 
+`uc 1 TMR2IE 1 0 :1:3 
+`uc 1 TMR1IE 1 0 :1:4 
+`uc 1 TMR1GIE 1 0 :1:5 
+`uc 1 CCP1IE 1 0 :1:6 
+`uc 1 TMR0IE 1 0 :1:7 
+]
+"1487
+[u S317 . 1 `S308 1 . 1 0 ]
+[v _PIE3bits PIE3bits `VES317  1 e 1 @1185 ]
+[s S508 . 1 `uc 1 U1RXIE 1 0 :1:0 
+`uc 1 U1TXIE 1 0 :1:1 
+`uc 1 U1EIE 1 0 :1:2 
+`uc 1 U1IE 1 0 :1:3 
+`uc 1 CANRXIE 1 0 :1:4 
+`uc 1 CANTXIE 1 0 :1:5 
+`uc 1 PWM1PIE 1 0 :1:6 
+`uc 1 PWM1IE 1 0 :1:7 
+]
+"1549
+[u S517 . 1 `S508 1 . 1 0 ]
+[v _PIE4bits PIE4bits `VES517  1 e 1 @1186 ]
+[s S947 . 1 `uc 1 INT1IE 1 0 :1:0 
+`uc 1 CLC2IE 1 0 :1:1 
+`uc 1 CWG1IE 1 0 :1:2 
+`uc 1 NCO1IE 1 0 :1:3 
+`uc 1 DMA2SCNTIE 1 0 :1:4 
+`uc 1 DMA2DCNTIE 1 0 :1:5 
+`uc 1 DMA2ORIE 1 0 :1:6 
+`uc 1 DMA2AIE 1 0 :1:7 
+]
+"1673
+[u S956 . 1 `S947 1 . 1 0 ]
+[v _PIE6bits PIE6bits `VES956  1 e 1 @1188 ]
+[s S287 . 1 `uc 1 SPI1RXIF 1 0 :1:0 
+`uc 1 SPI1TXIF 1 0 :1:1 
+`uc 1 SPI1IF 1 0 :1:2 
+`uc 1 TMR2IF 1 0 :1:3 
+`uc 1 TMR1IF 1 0 :1:4 
+`uc 1 TMR1GIF 1 0 :1:5 
+`uc 1 CCP1IF 1 0 :1:6 
+`uc 1 TMR0IF 1 0 :1:7 
+]
+"2472
+[u S296 . 1 `S287 1 . 1 0 ]
+[v _PIR3bits PIR3bits `VES296  1 e 1 @1201 ]
+[s S787 . 1 `uc 1 U1RXIF 1 0 :1:0 
+`uc 1 U1TXIF 1 0 :1:1 
+`uc 1 U1EIF 1 0 :1:2 
+`uc 1 U1IF 1 0 :1:3 
+`uc 1 CANRXIF 1 0 :1:4 
+`uc 1 CANTXIF 1 0 :1:5 
+`uc 1 PWM1PIF 1 0 :1:6 
+`uc 1 PWM1IF 1 0 :1:7 
+]
+"2534
+[u S796 . 1 `S787 1 . 1 0 ]
+[v _PIR4bits PIR4bits `VES796  1 e 1 @1202 ]
+[s S658 . 1 `uc 1 INT1IF 1 0 :1:0 
+`uc 1 CLC2IF 1 0 :1:1 
+`uc 1 CWG1IF 1 0 :1:2 
+`uc 1 NCO1IF 1 0 :1:3 
+`uc 1 DMA2SCNTIF 1 0 :1:4 
+`uc 1 DMA2DCNTIF 1 0 :1:5 
+`uc 1 DMA2ORIF 1 0 :1:6 
+`uc 1 DMA2AIF 1 0 :1:7 
+]
+"2658
+[u S667 . 1 `S658 1 . 1 0 ]
+[v _PIR6bits PIR6bits `VES667  1 e 1 @1204 ]
+"3246
+[v _LATA LATA `VEuc  1 e 1 @1214 ]
+[s S889 . 1 `uc 1 LATA0 1 0 :1:0 
+`uc 1 LATA1 1 0 :1:1 
+`uc 1 LATA2 1 0 :1:2 
+`uc 1 LATA3 1 0 :1:3 
+`uc 1 LATA4 1 0 :1:4 
+`uc 1 LATA5 1 0 :1:5 
+`uc 1 LATA6 1 0 :1:6 
+`uc 1 LATA7 1 0 :1:7 
+]
+"3263
+[u S898 . 1 `S889 1 . 1 0 ]
+[v _LATAbits LATAbits `VES898  1 e 1 @1214 ]
+"3308
+[v _LATB LATB `VEuc  1 e 1 @1215 ]
+[s S709 . 1 `uc 1 LATB0 1 0 :1:0 
+`uc 1 LATB1 1 0 :1:1 
+`uc 1 LATB2 1 0 :1:2 
+`uc 1 LATB3 1 0 :1:3 
+`uc 1 LATB4 1 0 :1:4 
+`uc 1 LATB5 1 0 :1:5 
+`uc 1 LATB6 1 0 :1:6 
+`uc 1 LATB7 1 0 :1:7 
+]
+"3325
+[u S718 . 1 `S709 1 . 1 0 ]
+[v _LATBbits LATBbits `VES718  1 e 1 @1215 ]
+"3370
+[v _LATC LATC `VEuc  1 e 1 @1216 ]
+[s S813 . 1 `uc 1 LATC0 1 0 :1:0 
+`uc 1 LATC1 1 0 :1:1 
+`uc 1 LATC2 1 0 :1:2 
+`uc 1 LATC3 1 0 :1:3 
+`uc 1 LATC4 1 0 :1:4 
+`uc 1 LATC5 1 0 :1:5 
+`uc 1 LATC6 1 0 :1:6 
+`uc 1 LATC7 1 0 :1:7 
+]
+"3387
+[u S822 . 1 `S813 1 . 1 0 ]
+[v _LATCbits LATCbits `VES822  1 e 1 @1216 ]
+"3432
+[v _LATD LATD `VEuc  1 e 1 @1217 ]
+"3492
+[v _SPI1RXB SPI1RXB `VEuc  1 e 1 @128 ]
+"3494
+[v _LATE LATE `VEuc  1 e 1 @1218 ]
+"3526
+[v _TRISA TRISA `VEuc  1 e 1 @1222 ]
+[s S835 . 1 `uc 1 TRISA0 1 0 :1:0 
+`uc 1 TRISA1 1 0 :1:1 
+`uc 1 TRISA2 1 0 :1:2 
+`uc 1 TRISA3 1 0 :1:3 
+`uc 1 TRISA4 1 0 :1:4 
+`uc 1 TRISA5 1 0 :1:5 
+`uc 1 TRISA6 1 0 :1:6 
+`uc 1 TRISA7 1 0 :1:7 
+]
+"3543
+[u S844 . 1 `S835 1 . 1 0 ]
+[v _TRISAbits TRISAbits `VES844  1 e 1 @1222 ]
+"3562
+[v _SPI1TXB SPI1TXB `VEuc  1 e 1 @129 ]
+"3588
+[v _TRISB TRISB `VEuc  1 e 1 @1223 ]
+[s S856 . 1 `uc 1 TRISB0 1 0 :1:0 
+`uc 1 TRISB1 1 0 :1:1 
+`uc 1 TRISB2 1 0 :1:2 
+`uc 1 TRISB3 1 0 :1:3 
+`uc 1 TRISB4 1 0 :1:4 
+`uc 1 TRISB5 1 0 :1:5 
+`uc 1 TRISB6 1 0 :1:6 
+`uc 1 TRISB7 1 0 :1:7 
+]
+"3605
+[u S865 . 1 `S856 1 . 1 0 ]
+[v _TRISBbits TRISBbits `VES865  1 e 1 @1223 ]
+"3639
+[v _SPI1TCNTL SPI1TCNTL `VEuc  1 e 1 @130 ]
+"3650
+[v _TRISC TRISC `VEuc  1 e 1 @1224 ]
+[s S436 . 1 `uc 1 TRISC0 1 0 :1:0 
+`uc 1 TRISC1 1 0 :1:1 
+`uc 1 TRISC2 1 0 :1:2 
+`uc 1 TRISC3 1 0 :1:3 
+`uc 1 TRISC4 1 0 :1:4 
+`uc 1 TRISC5 1 0 :1:5 
+`uc 1 TRISC6 1 0 :1:6 
+`uc 1 TRISC7 1 0 :1:7 
+]
+"3667
+[u S445 . 1 `S436 1 . 1 0 ]
+[v _TRISCbits TRISCbits `VES445  1 e 1 @1224 ]
+"3679
+[v _SPI1CON0 SPI1CON0 `VEuc  1 e 1 @132 ]
+[s S997 . 1 `uc 1 BMODE 1 0 :1:0 
+`uc 1 MST 1 0 :1:1 
+`uc 1 LSBF 1 0 :1:2 
+`uc 1 . 1 0 :4:3 
+`uc 1 EN 1 0 :1:7 
+]
+"3700
+[s S1003 . 1 `uc 1 SPI1BMODE 1 0 :1:0 
+`uc 1 SPI1MST 1 0 :1:1 
+`uc 1 SPI1LSBF 1 0 :1:2 
+`uc 1 . 1 0 :4:3 
+`uc 1 SPI1SPIEN 1 0 :1:7 
+]
+[u S1009 . 1 `S997 1 . 1 0 `S1003 1 . 1 0 ]
+[v _SPI1CON0bits SPI1CON0bits `VES1009  1 e 1 @132 ]
+"3712
+[v _TRISD TRISD `VEuc  1 e 1 @1225 ]
+"3745
+[v _SPI1CON1 SPI1CON1 `VEuc  1 e 1 @133 ]
+"3774
+[v _TRISE TRISE `VEuc  1 e 1 @1226 ]
+[s S457 . 1 `uc 1 TRISE0 1 0 :1:0 
+`uc 1 TRISE1 1 0 :1:1 
+`uc 1 TRISE2 1 0 :1:2 
+]
+"3786
+[u S461 . 1 `S457 1 . 1 0 ]
+[v _TRISEbits TRISEbits `VES461  1 e 1 @1226 ]
+"3806
+[v _PORTA PORTA `VEuc  1 e 1 @1230 ]
+[s S679 . 1 `uc 1 RA0 1 0 :1:0 
+`uc 1 RA1 1 0 :1:1 
+`uc 1 RA2 1 0 :1:2 
+`uc 1 RA3 1 0 :1:3 
+`uc 1 RA4 1 0 :1:4 
+`uc 1 RA5 1 0 :1:5 
+`uc 1 RA6 1 0 :1:6 
+`uc 1 RA7 1 0 :1:7 
+]
+"3823
+[u S688 . 1 `S679 1 . 1 0 ]
+[v _PORTAbits PORTAbits `VES688  1 e 1 @1230 ]
+"3847
+[v _SPI1CON2 SPI1CON2 `VEuc  1 e 1 @134 ]
+[s S730 . 1 `uc 1 RB0 1 0 :1:0 
+`uc 1 RB1 1 0 :1:1 
+`uc 1 RB2 1 0 :1:2 
+`uc 1 RB3 1 0 :1:3 
+`uc 1 RB4 1 0 :1:4 
+`uc 1 RB5 1 0 :1:5 
+`uc 1 RB6 1 0 :1:6 
+`uc 1 RB7 1 0 :1:7 
+]
+"3885
+[u S739 . 1 `S730 1 . 1 0 ]
+[v _PORTBbits PORTBbits `VES739  1 e 1 @1231 ]
+"3992
+[v _PORTD PORTD `VEuc  1 e 1 @1233 ]
+"4047
+[v _SPI1BAUD SPI1BAUD `VEuc  1 e 1 @137 ]
+[s S71 . 1 `uc 1 INT0EDG 1 0 :1:0 
+`uc 1 INT1EDG 1 0 :1:1 
+`uc 1 INT2EDG 1 0 :1:2 
+`uc 1 . 1 0 :2:3 
+`uc 1 IPEN 1 0 :1:5 
+`uc 1 GIEL 1 0 :1:6 
+`uc 1 GIE 1 0 :1:7 
+]
+"4112
+[s S79 . 1 `uc 1 . 1 0 :7:0 
+`uc 1 GIEH 1 0 :1:7 
+]
+[u S82 . 1 `S71 1 . 1 0 `S79 1 . 1 0 ]
+[v _INTCON0bits INTCON0bits `VES82  1 e 1 @1238 ]
+"4301
+[v _SPI1CLK SPI1CLK `VEuc  1 e 1 @140 ]
+"5028
+[v _TABLAT TABLAT `VEuc  1 e 1 @1269 ]
+"5057
+[v _TBLPTRL TBLPTRL `VEuc  1 e 1 @1270 ]
+"5077
+[v _TBLPTRH TBLPTRH `VEuc  1 e 1 @1271 ]
+"5097
+[v _TBLPTRU TBLPTRU `VEuc  1 e 1 @1272 ]
+"5294
+[v _ACTCON ACTCON `VEuc  1 e 1 @172 ]
+"5335
+[v _OSCCON1 OSCCON1 `VEuc  1 e 1 @173 ]
+"5475
+[v _OSCCON3 OSCCON3 `VEuc  1 e 1 @175 ]
+"5515
+[v _OSCTUNE OSCTUNE `VEuc  1 e 1 @176 ]
+"5573
+[v _OSCFRQ OSCFRQ `VEuc  1 e 1 @177 ]
+"5775
+[v _OSCEN OSCEN `VEuc  1 e 1 @179 ]
+"11202
+[v _LATB6 LATB6 `VEb  1 e 0 @9726 ]
+"11205
+[v _LATB7 LATB7 `VEb  1 e 0 @9727 ]
+"17442
+[v _TRISB6 TRISB6 `VEb  1 e 0 @9790 ]
+"17445
+[v _TRISB7 TRISB7 `VEb  1 e 0 @9791 ]
+"24401
+[v _RC3PPS RC3PPS `VEuc  1 e 1 @532 ]
+"24501
+[v _RC5PPS RC5PPS `VEuc  1 e 1 @534 ]
+"24551
+[v _RC6PPS RC6PPS `VEuc  1 e 1 @535 ]
+"28616
+[v _SPI1SCKPPS SPI1SCKPPS `VEuc  1 e 1 @618 ]
+"28682
+[v _SPI1SDIPPS SPI1SDIPPS `VEuc  1 e 1 @619 ]
+"29144
+[v _U1RXPPS U1RXPPS `VEuc  1 e 1 @626 ]
+"29840
+[v _RC4I2C RC4I2C `VEuc  1 e 1 @646 ]
+"29972
+[v _RC3I2C RC3I2C `VEuc  1 e 1 @647 ]
+"30104
+[v _RB2I2C RB2I2C `VEuc  1 e 1 @648 ]
+"30236
+[v _RB1I2C RB1I2C `VEuc  1 e 1 @649 ]
+"31578
+[v _U1RXB U1RXB `VEuc  1 e 1 @673 ]
+"31616
+[v _U1RXCHK U1RXCHK `VEuc  1 e 1 @674 ]
+"31636
+[v _U1TXB U1TXB `VEuc  1 e 1 @675 ]
+"31674
+[v _U1TXCHK U1TXCHK `VEuc  1 e 1 @676 ]
+"31701
+[v _U1P1L U1P1L `VEuc  1 e 1 @677 ]
+"31721
+[v _U1P1H U1P1H `VEuc  1 e 1 @678 ]
+"31748
+[v _U1P2L U1P2L `VEuc  1 e 1 @679 ]
+"31768
+[v _U1P2H U1P2H `VEuc  1 e 1 @680 ]
+"31795
+[v _U1P3L U1P3L `VEuc  1 e 1 @681 ]
+"31815
+[v _U1P3H U1P3H `VEuc  1 e 1 @682 ]
+"31835
+[v _U1CON0 U1CON0 `VEuc  1 e 1 @683 ]
+"31963
+[v _U1CON1 U1CON1 `VEuc  1 e 1 @684 ]
+"32043
+[v _U1CON2 U1CON2 `VEuc  1 e 1 @685 ]
+"32192
+[v _U1BRGL U1BRGL `VEuc  1 e 1 @686 ]
+"32212
+[v _U1BRGH U1BRGH `VEuc  1 e 1 @687 ]
+"32232
+[v _U1FIFO U1FIFO `VEuc  1 e 1 @688 ]
+"32362
+[v _U1UIR U1UIR `VEuc  1 e 1 @689 ]
+"32418
+[v _U1ERRIR U1ERRIR `VEuc  1 e 1 @690 ]
+[s S544 . 1 `uc 1 TXCIF 1 0 :1:0 
+`uc 1 RXFOIF 1 0 :1:1 
+`uc 1 RXBKIF 1 0 :1:2 
+`uc 1 FERIF 1 0 :1:3 
+`uc 1 CERIF 1 0 :1:4 
+`uc 1 ABDOVF 1 0 :1:5 
+`uc 1 PERIF 1 0 :1:6 
+`uc 1 TXMTIF 1 0 :1:7 
+]
+"32445
+[s S553 . 1 `uc 1 U1TXCIF 1 0 :1:0 
+`uc 1 U1RXFOIF 1 0 :1:1 
+`uc 1 U1RXBKIF 1 0 :1:2 
+`uc 1 U1FERIF 1 0 :1:3 
+`uc 1 U1CERIF 1 0 :1:4 
+`uc 1 U1ABDOVF 1 0 :1:5 
+`uc 1 U1PERIF 1 0 :1:6 
+`uc 1 U1TXMTIF 1 0 :1:7 
+]
+[u S562 . 1 `S544 1 . 1 0 `S553 1 . 1 0 ]
+[v _U1ERRIRbits U1ERRIRbits `VES562  1 e 1 @690 ]
+"32530
+[v _U1ERRIE U1ERRIE `VEuc  1 e 1 @691 ]
+"38653
+[v _TMR0L TMR0L `VEuc  1 e 1 @792 ]
+"38791
+[v _TMR0H TMR0H `VEuc  1 e 1 @793 ]
+"39045
+[v _T0CON0 T0CON0 `VEuc  1 e 1 @794 ]
+[s S330 . 1 `uc 1 OUTPS 1 0 :4:0 
+`uc 1 MD16 1 0 :1:4 
+`uc 1 OUT 1 0 :1:5 
+`uc 1 . 1 0 :1:6 
+`uc 1 EN 1 0 :1:7 
+]
+"39079
+[s S336 . 1 `uc 1 T0OUTPS 1 0 :4:0 
+`uc 1 T0MD16 1 0 :1:4 
+`uc 1 T0OUT 1 0 :1:5 
+`uc 1 . 1 0 :1:6 
+`uc 1 T0EN 1 0 :1:7 
+]
+"39079
+[s S342 . 1 `uc 1 OUTPS0 1 0 :1:0 
+`uc 1 OUTPS1 1 0 :1:1 
+`uc 1 OUTPS2 1 0 :1:2 
+`uc 1 OUTPS3 1 0 :1:3 
+`uc 1 T016BIT 1 0 :1:4 
+]
+"39079
+[s S348 . 1 `uc 1 T0OUTPS0 1 0 :1:0 
+`uc 1 T0OUTPS1 1 0 :1:1 
+`uc 1 T0OUTPS2 1 0 :1:2 
+`uc 1 T0OUTPS3 1 0 :1:3 
+]
+"39079
+[u S353 . 1 `S330 1 . 1 0 `S336 1 . 1 0 `S342 1 . 1 0 `S348 1 . 1 0 ]
+"39079
+"39079
+[v _T0CON0bits T0CON0bits `VES353  1 e 1 @794 ]
+"39169
+[v _T0CON1 T0CON1 `VEuc  1 e 1 @795 ]
+[s S972 . 1 `uc 1 SPI1RXIP 1 0 :1:0 
+`uc 1 SPI1TXIP 1 0 :1:1 
+`uc 1 SPI1IP 1 0 :1:2 
+`uc 1 TMR2IP 1 0 :1:3 
+`uc 1 TMR1IP 1 0 :1:4 
+`uc 1 TMR1GIP 1 0 :1:5 
+`uc 1 CCP1IP 1 0 :1:6 
+`uc 1 TMR0IP 1 0 :1:7 
+]
+"48106
+[u S981 . 1 `S972 1 . 1 0 ]
+"48106
+"48106
+[v _IPR3bits IPR3bits `VES981  1 e 1 @869 ]
+[s S468 . 1 `uc 1 U1RXIP 1 0 :1:0 
+`uc 1 U1TXIP 1 0 :1:1 
+`uc 1 U1EIP 1 0 :1:2 
+`uc 1 U1IP 1 0 :1:3 
+`uc 1 CANRXIP 1 0 :1:4 
+`uc 1 CANTXIP 1 0 :1:5 
+`uc 1 PWM1PIP 1 0 :1:6 
+`uc 1 PWM1IP 1 0 :1:7 
+]
+"48168
+[u S477 . 1 `S468 1 . 1 0 ]
+"48168
+"48168
+[v _IPR4bits IPR4bits `VES477  1 e 1 @870 ]
+[s S926 . 1 `uc 1 INT1IP 1 0 :1:0 
+`uc 1 CLC2IP 1 0 :1:1 
+`uc 1 CWG1IP 1 0 :1:2 
+`uc 1 NCO1IP 1 0 :1:3 
+`uc 1 DMA2SCNTIP 1 0 :1:4 
+`uc 1 DMA2DCNTIP 1 0 :1:5 
+`uc 1 DMA2ORIP 1 0 :1:6 
+`uc 1 DMA2AIP 1 0 :1:7 
+]
+"48292
+[u S935 . 1 `S926 1 . 1 0 ]
+"48292
+"48292
+[v _IPR6bits IPR6bits `VES935  1 e 1 @872 ]
+"59445
+[v _ANSELA ANSELA `VEuc  1 e 1 @1024 ]
+"59507
+[v _WPUA WPUA `VEuc  1 e 1 @1025 ]
+"59569
+[v _ODCONA ODCONA `VEuc  1 e 1 @1026 ]
+"59631
+[v _SLRCONA SLRCONA `VEuc  1 e 1 @1027 ]
+"59693
+[v _INLVLA INLVLA `VEuc  1 e 1 @1028 ]
+"59755
+[v _IOCAP IOCAP `VEuc  1 e 1 @1029 ]
+"59817
+[v _IOCAN IOCAN `VEuc  1 e 1 @1030 ]
+"59879
+[v _IOCAF IOCAF `VEuc  1 e 1 @1031 ]
+"59941
+[v _ANSELB ANSELB `VEuc  1 e 1 @1032 ]
+"60003
+[v _WPUB WPUB `VEuc  1 e 1 @1033 ]
+"60065
+[v _ODCONB ODCONB `VEuc  1 e 1 @1034 ]
+"60127
+[v _SLRCONB SLRCONB `VEuc  1 e 1 @1035 ]
+"60189
+[v _INLVLB INLVLB `VEuc  1 e 1 @1036 ]
+"60251
+[v _IOCBP IOCBP `VEuc  1 e 1 @1037 ]
+"60313
+[v _IOCBN IOCBN `VEuc  1 e 1 @1038 ]
+"60375
+[v _IOCBF IOCBF `VEuc  1 e 1 @1039 ]
+"60437
+[v _ANSELC ANSELC `VEuc  1 e 1 @1040 ]
+"60499
+[v _WPUC WPUC `VEuc  1 e 1 @1041 ]
+"60561
+[v _ODCONC ODCONC `VEuc  1 e 1 @1042 ]
+"60623
+[v _SLRCONC SLRCONC `VEuc  1 e 1 @1043 ]
+"60685
+[v _INLVLC INLVLC `VEuc  1 e 1 @1044 ]
+"60747
+[v _IOCCP IOCCP `VEuc  1 e 1 @1045 ]
+"60809
+[v _IOCCN IOCCN `VEuc  1 e 1 @1046 ]
+"60871
+[v _IOCCF IOCCF `VEuc  1 e 1 @1047 ]
+"60933
+[v _ANSELD ANSELD `VEuc  1 e 1 @1048 ]
+"60995
+[v _WPUD WPUD `VEuc  1 e 1 @1049 ]
+"61057
+[v _ODCOND ODCOND `VEuc  1 e 1 @1050 ]
+"61119
+[v _SLRCOND SLRCOND `VEuc  1 e 1 @1051 ]
+"61181
+[v _INLVLD INLVLD `VEuc  1 e 1 @1052 ]
+"61243
+[v _ANSELE ANSELE `VEuc  1 e 1 @1056 ]
+"61275
+[v _WPUE WPUE `VEuc  1 e 1 @1057 ]
+"61313
+[v _ODCONE ODCONE `VEuc  1 e 1 @1058 ]
+"61345
+[v _SLRCONE SLRCONE `VEuc  1 e 1 @1059 ]
+"61377
+[v _INLVLE INLVLE `VEuc  1 e 1 @1060 ]
+"61415
+[v _IOCEP IOCEP `VEuc  1 e 1 @1061 ]
+"61436
+[v _IOCEN IOCEN `VEuc  1 e 1 @1062 ]
+"61457
+[v _IOCEF IOCEF `VEuc  1 e 1 @1063 ]
+"40 C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/nvm/src/nvm.c
+[v _unlockKeyLow unlockKeyLow `VNEuc  1 s 1 unlockKeyLow ]
+"41
+[v _unlockKeyHigh unlockKeyHigh `VNEuc  1 s 1 unlockKeyHigh ]
+"36 C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/timer/src/tmr0.c
+[v _timerTMR0ReloadVal16bit timerTMR0ReloadVal16bit `VEus  1 e 2 0 ]
+"47
+[v _TMR0_OverflowCallback TMR0_OverflowCallback `*.37(v  1 s 2 TMR0_OverflowCallback ]
+"28 C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
+[v _serial_out serial_out `[128]uc  1 s 128 serial_out ]
+"29
+[v _serial_in serial_in `[128]uc  1 s 128 serial_in ]
+"31
+[v _tx_count tx_count `uc  1 s 1 tx_count ]
+[v _tx_in tx_in `uc  1 s 1 tx_in ]
+[v _tx_out tx_out `uc  1 s 1 tx_out ]
+"32
+[v _rx_count rx_count `uc  1 s 1 rx_count ]
+[v _rx_in rx_in `uc  1 s 1 rx_in ]
+[v _rx_out rx_out `uc  1 s 1 rx_out ]
+"33
+[v _discard discard `uc  1 s 1 discard ]
+"274 C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+[v _main main `(v  1 e 1 0 ]
+{
+"306
+} 0
+"36 C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
+[v _usart_init usart_init `(v  1 e 1 0 ]
+{
+"97
+} 0
+"215 C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+[v _pic_init pic_init `(v  1 e 1 0 ]
+{
+"271
+} 0
+"317
+[v _b_process b_process `(v  1 e 1 0 ]
+{
+"319
+[v b_process@status status `uc  1 a 1 35 ]
+"484
+} 0
+"226 C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
+[v _usart_put_short usart_put_short `(v  1 e 1 0 ]
+{
+[v usart_put_short@x x `s  1 p 2 11 ]
+"230
+} 0
+"188 C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+[v _update_status update_status `(v  1 e 1 0 ]
+{
+[v update_status@status status `uc  1 a 1 wreg ]
+[v update_status@status status `uc  1 a 1 wreg ]
+"190
+[v update_status@status status `uc  1 a 1 8 ]
+"197
+} 0
+"202
+[v _read_byte read_byte `(uc  1 e 1 0 ]
+{
+"204
+[v read_byte@lo lo `uc  1 a 1 9 ]
+[v read_byte@hi hi `uc  1 a 1 8 ]
+"212
+} 0
+"489
+[v _erase_flash erase_flash `(v  1 e 1 0 ]
+{
+"499
+} 0
+"240 C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/nvm/src/nvm.c
+[v _FLASH_PageErase FLASH_PageErase `(E22826  1 e 1 0 ]
+{
+"243
+[v FLASH_PageErase@globalInterruptBitValue globalInterruptBitValue `uc  1 a 1 14 ]
+"240
+[v FLASH_PageErase@address address `um  1 p 3 8 ]
+"281
+} 0
+"504 C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+[v _erase_eeprom erase_eeprom `(v  1 e 1 0 ]
+{
+"506
+[v erase_eeprom@addr addr `us  1 a 2 21 ]
+"514
+} 0
+"200 C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
+[v _usart_puts2_r usart_puts2_r `(v  1 e 1 0 ]
+{
+[v usart_puts2_r@str str `*.36Cuc  1 p 3 12 ]
+"205
+} 0
+"193
+[v _usart_puts_r usart_puts_r `(v  1 e 1 0 ]
+{
+[v usart_puts_r@str str `*.36Cuc  1 p 3 9 ]
+"198
+} 0
+"48 C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/nvm/src/nvm.c
+[v _NVM_IsBusy NVM_IsBusy `(a  1 e 1 0 ]
+{
+"51
+} 0
+"309
+[v _EEPROM_Write EEPROM_Write `(v  1 e 1 0 ]
+{
+"312
+[v EEPROM_Write@globalInterruptBitValue globalInterruptBitValue `uc  1 a 1 17 ]
+"309
+[v EEPROM_Write@address address `um  1 p 3 10 ]
+[v EEPROM_Write@data data `uc  1 p 1 13 ]
+"345
+} 0
+"517 C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+[v _b_last b_last `(v  1 e 1 0 ]
+{
+"527
+} 0
+"532
+[v _b_write_block b_write_block `(v  1 e 1 0 ]
+{
+"549
+} 0
+"232 C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
+[v _usart_put_long usart_put_long `(v  1 e 1 0 ]
+{
+[v usart_put_long@x x `l  1 p 4 11 ]
+"238
+} 0
+"207
+[v _usart_put_hex usart_put_hex `(v  1 e 1 0 ]
+{
+[v usart_put_hex@c c `uc  1 a 1 wreg ]
+"209
+[v usart_put_hex@x x `uc  1 a 1 10 ]
+"207
+[v usart_put_hex@c c `uc  1 a 1 wreg ]
+"211
+[v usart_put_hex@c c `uc  1 a 1 9 ]
+"223
+} 0
+"120
+[v _usart_send usart_send `(v  1 e 1 0 ]
+{
+[v usart_send@data data `uc  1 a 1 wreg ]
+[v usart_send@data data `uc  1 a 1 wreg ]
+[v usart_send@data data `uc  1 a 1 8 ]
+"131
+} 0
+"183 C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/nvm/src/nvm.c
+[v _FLASH_RowWrite FLASH_RowWrite `(E22826  1 e 1 0 ]
+{
+"185
+[v FLASH_RowWrite@bufferRamPtr bufferRamPtr `*.39uc  1 a 2 19 ]
+"186
+[v FLASH_RowWrite@flashDataCount flashDataCount `us  1 a 2 16 ]
+"189
+[v FLASH_RowWrite@globalInterruptBitValue globalInterruptBitValue `uc  1 a 1 18 ]
+"183
+[v FLASH_RowWrite@address address `um  1 p 3 8 ]
+[v FLASH_RowWrite@dataBuffer dataBuffer `*.39uc  1 p 2 11 ]
+"238
+} 0
+"76
+[v _NVM_UnlockKeyClear NVM_UnlockKeyClear `(v  1 e 1 0 ]
+{
+"80
+} 0
+"41 C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/system/src/system.c
+[v _SYSTEM_Initialize SYSTEM_Initialize `(v  1 e 1 0 ]
+{
+"50
+} 0
+"54 C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/timer/src/tmr0.c
+[v _TMR0_Initialize TMR0_Initialize `(v  1 e 1 0 ]
+{
+"79
+} 0
+"135
+[v _TMR0_OverflowCallbackRegister TMR0_OverflowCallbackRegister `(v  1 e 1 0 ]
+{
+[v TMR0_OverflowCallbackRegister@CallbackHandler CallbackHandler `*.37(v  1 p 2 8 ]
+"138
+} 0
+"38 C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/system/src/pins.c
+[v _PIN_MANAGER_Initialize PIN_MANAGER_Initialize `(v  1 e 1 0 ]
+{
+"137
+} 0
+"43 C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/nvm/src/nvm.c
+[v _NVM_Initialize NVM_Initialize `(v  1 e 1 0 ]
+{
+"46
+} 0
+"65
+[v _NVM_StatusClear NVM_StatusClear `(v  1 e 1 0 ]
+{
+"68
+} 0
+"37 C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/system/src/clock.c
+[v _CLOCK_Initialize CLOCK_Initialize `(v  1 e 1 0 ]
+{
+"52
+} 0
+"70 C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/nvm/src/nvm.c
+[v _NVM_UnlockKeySet NVM_UnlockKeySet `(v  1 e 1 0 ]
+{
+[v NVM_UnlockKeySet@unlockKey unlockKey `us  1 p 2 8 ]
+"74
+} 0
+"124 C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+[v _boot_int_lo boot_int_lo `IIL(v  1 e 1 0 ]
+{
+"183
+} 0
+"188
+[v i1_update_status update_status `(v  1 e 1 0 ]
+{
+[v i1update_status@status status `uc  1 a 1 wreg ]
+[v i1update_status@status status `uc  1 a 1 wreg ]
+"190
+[v i1update_status@status status `uc  1 a 1 0 ]
+"197
+} 0
+"100 C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
+[v _serial_tx_int serial_tx_int `(v  1 e 1 0 ]
+{
+"112
+} 0
+"138
+[v _serial_rx_int serial_rx_int `(v  1 e 1 0 ]
+{
+"160
+} 0

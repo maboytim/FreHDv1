@@ -24,7 +24,7 @@
 #include "trs_extra.h"
 #include "ds1307.h"
 #include "eeprom.h"
-#include "bootloader.inc"
+#include "bootloader.h"
 #include "version.h"
 
 #define DEFAULT_STATUS (TRS_HARD_READY | TRS_HARD_SEEKDONE | TRS_HARD_DRQ)
@@ -65,8 +65,8 @@ UCHAR trs_extra_version(UCHAR step)
 	state_size2 = 6;
 	extra_buffer[0] = VERSION_MAJOR;
 	extra_buffer[1] = VERSION_MINOR;
-	extra_buffer[2] = *((UCHAR *) 0x6);
-	extra_buffer[3] = *((UCHAR *) 0x7);
+	extra_buffer[2] = *((const UCHAR *) 0x6);
+	extra_buffer[3] = *((const UCHAR *) 0x7);
 	extra_buffer[4] = *((const UCHAR *) FLASH_CRC_ADDR);
 	extra_buffer[5] = *((const UCHAR *) FLASH_CRC_ADDR+1);	
 
@@ -319,9 +319,9 @@ UCHAR trs_extra_bootloader(UCHAR step)
 		state_size2 = 2;	
 	} else {
 		if (extra_buffer[0] == 0x15 && extra_buffer[1] == 0x04) {
-//			ee_write8(EEPROM_CRC_ADDR, 0xff); MAB!! fixme
-//			ee_write8(EEPROM_CRC_ADDR+1, 0xff);
-//			asm("RESET;");
+			ee_write8(EEPROM_CRC_ADDR, 0xff);
+			ee_write8(EEPROM_CRC_ADDR+1, 0xff);
+			asm("RESET");
 			// not reached
 		}
 	}	

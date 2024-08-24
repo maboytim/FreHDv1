@@ -1,5 +1,13 @@
 ; VHDUTL - Core - Shared by Versions for all OS's
 
+; Bugfix updates by: mayboytim
+; Fault: I found 3 bugs in the VHDUTL 2.03 in the FreHD utils.
+; They appear to be in the trs80gp version as well.
+; The first bug can be demonstrated by skipping a drive when mounting.
+; For example if drives 2,3,4 are mounted but not 1 then the list of the mounts (MNT) will be blank.
+; Additional 2 are, Corrupt name after adding 'drive 1' and no command line error on missing drive name. 
+; The above fixes were found in 2.03 (zip file) and merged with updates from this master 2.04 version.
+
 ; Misc Constants
 
 CR          EQU     0DH

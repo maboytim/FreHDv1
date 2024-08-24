@@ -42,6 +42,7 @@
 #include "../system/config_bits.h"
 #include "../system/clock.h"
 #include "../system/pins.h"
+#include "../nvm/nvm.h"
 #include "../spi/spi1.h"
 #include "../timer/tmr2.h"
 #include "../uart/uart1.h"

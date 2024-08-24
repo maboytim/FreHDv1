@@ -7,13 +7,13 @@
 #define EEPROM_CRC_ADDR		0x3FE
 #endif
 
-#define FLASH_CRC_ADDR		0xFFFE
+#define FLASH_CRC_ADDR		0x1FFFE
 
 #define BOOTLOADER_MAJOR	0x1
 #define BOOTLOADER_MINOR	0x2
 
-#define BOOTLOADER_END		0x7FF
-#define APP_STARTUP		0x800
-#define APP_LO_INT		0x806
-#define APP_HI_INT		0x80C
-#define APP_HI_INT2		0x900
+#define BOOTLOADER_END		0xFFF
+#define APP_STARTUP		0x1000
+//#define APP_LO_INT		0x1006
+//#define APP_HI_INT		0x100C
+//#define APP_HI_INT2		0x1100

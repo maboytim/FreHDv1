@@ -77,6 +77,7 @@ while (<$F>) {
 
 	if ($type == 4) {
 	    # upper address
+	    $addr2 = hex(unpack('H4' x 4, $data2));
 	    $addr &= 0x0000ffff;
 	    $addr |= ($addr2 << 16);
 	} elsif ($type == 0) {

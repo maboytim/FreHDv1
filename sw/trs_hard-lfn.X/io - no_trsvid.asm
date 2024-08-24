@@ -51,7 +51,7 @@
 #define RLED		LATB,6
 
 
-		psect	UDATA
+		psect	appintdata,class=UDATA
 save_fsr0:	ds	3
 		
 
@@ -69,11 +69,9 @@ save_fsr0:	ds	3
 ;;;   an action. During that time, the TRS must poll the status register and
 ;;;   wait until the action completes
 ;;; 
-;int_code	CODE APP_HI_INT
 
-	;psect	appintcode,class=CODE,space=0,reloc=2,abs,ovrld
-	psect	CODE
-	org	0x0020
+	psect	appintcode,class=CODE,space=0,reloc=2
+	;org	APP_HI_INT
 
 handle_int2:
 	GLOBAL	handle_int2
@@ -390,7 +388,7 @@ trr1:	movff	TBLPTRL,save_fsr0+0
 	movlw	high _loader_code
 	addwfc	TBLPTRH,f,c
 	clrf	TBLPTRU,c		; there are 3 active tblptr bytes
-	movlw	low (_loader_code shr 16);
+	movlw	low (_loader_code shr 16)
 	addwfc	TBLPTRU,f,c
 	tblrd	*
 	movf	TABLAT,w,c

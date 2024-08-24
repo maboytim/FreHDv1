@@ -17,8 +17,8 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "mcc_generated_files/system/system.h"
 #include "HardwareProfile.h"
+#include "mcc_generated_files/system/system.h"
 #include <string.h>
 #include "integer.h"
 #include "FatFS/ff.h"
@@ -31,7 +31,11 @@
 #include "action.h"
 #include "serial.h"
 #include "led.h"
+#include "bootloader.h"
+#include "crc.h"
 
+const USHORT crc16_val __at(FLASH_CRC_ADDR) = THECRC;
+const USHORT exit_boot __at(EEPROM_START_ADDRESS + EEPROM_CRC_ADDR) = THECRC;
 
 /* Global variables */
 #pragma udata fs_buffer
@@ -106,8 +110,12 @@ void handle_interrupt_low(void);
 
 asm(" global handle_int2");
 asm("psect intcode,class=CODE,space=0,reloc=2,abs,ovrld");
-asm(" org  0x0008");
+asm(" org  0x1000");
+asm(" goto start");
+asm(" org  0x1008");
 asm(" goto handle_int2");
+asm(" org  0x1018");
+asm(" goto _handle_interrupt_low");
 
 void __interrupt(low_priority) handle_interrupt_low(void)
 {
@@ -134,6 +142,18 @@ void __interrupt(low_priority) handle_interrupt_low(void)
 void pic_init(void)
 {
 	UCHAR i;
+
+	IVTLOCK = 0x55;
+	IVTLOCK = 0xAA;
+	IVTLOCKbits.IVTLOCKED = 0x00; // unlock IVT
+
+	IVTBASEU = 0;
+	IVTBASEH = 16;
+	IVTBASEL = 8;
+
+	IVTLOCK = 0x55;
+	IVTLOCK = 0xAA;
+	IVTLOCKbits.IVTLOCKED = 0x01; // lock IVT
 
 	/* SD Card */
 	SD_CS_TRIS = OUTPUT_PIN;
@@ -186,7 +206,7 @@ void pic_init(void)
 	SPI1BAUD = 0x01; // fast clock
 #endif
 	SPI1CLK = 0x00;
-    SPI1CON0bits.EN = 1;
+	SPI1CON0bits.EN = 1;
 
 	/* Interrupt priorities */
 	INTCON0bits.IPEN = 1;
