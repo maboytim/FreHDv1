@@ -51,17 +51,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=FatFS/diskio.c FatFS/ff.c FatFS/ffunicode.c FatFS/diskio2.c mcc_generated_files/nvm/src/nvm.c mcc_generated_files/system/src/pins.c mcc_generated_files/system/src/system.c mcc_generated_files/system/src/config_bits.c mcc_generated_files/system/src/clock.c mcc_generated_files/timer/src/tmr2.c main.c trs_hard.c trs_extra.c ds1307.c sw_i2c.c dsk.c io.asm led.c loader_eeprom.c serial.c eeprom.c
+SOURCEFILES_QUOTED_IF_SPACED=FatFS/diskio.c FatFS/ff.c FatFS/ffunicode.c mcc_generated_files/nvm/src/nvm.c mcc_generated_files/system/src/pins.c mcc_generated_files/system/src/system.c mcc_generated_files/system/src/config_bits.c mcc_generated_files/system/src/clock.c mcc_generated_files/timer/src/tmr2.c main.c trs_hard.c trs_extra.c ds1307.c sw_i2c.c dsk.c io.asm led.c loader_eeprom.c serial.c eeprom.c FatFS/diskio2.asm
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/FatFS/diskio.p1 ${OBJECTDIR}/FatFS/ff.p1 ${OBJECTDIR}/FatFS/ffunicode.p1 ${OBJECTDIR}/FatFS/diskio2.p1 ${OBJECTDIR}/mcc_generated_files/nvm/src/nvm.p1 ${OBJECTDIR}/mcc_generated_files/system/src/pins.p1 ${OBJECTDIR}/mcc_generated_files/system/src/system.p1 ${OBJECTDIR}/mcc_generated_files/system/src/config_bits.p1 ${OBJECTDIR}/mcc_generated_files/system/src/clock.p1 ${OBJECTDIR}/mcc_generated_files/timer/src/tmr2.p1 ${OBJECTDIR}/main.p1 ${OBJECTDIR}/trs_hard.p1 ${OBJECTDIR}/trs_extra.p1 ${OBJECTDIR}/ds1307.p1 ${OBJECTDIR}/sw_i2c.p1 ${OBJECTDIR}/dsk.p1 ${OBJECTDIR}/io.o ${OBJECTDIR}/led.p1 ${OBJECTDIR}/loader_eeprom.p1 ${OBJECTDIR}/serial.p1 ${OBJECTDIR}/eeprom.p1
-POSSIBLE_DEPFILES=${OBJECTDIR}/FatFS/diskio.p1.d ${OBJECTDIR}/FatFS/ff.p1.d ${OBJECTDIR}/FatFS/ffunicode.p1.d ${OBJECTDIR}/FatFS/diskio2.p1.d ${OBJECTDIR}/mcc_generated_files/nvm/src/nvm.p1.d ${OBJECTDIR}/mcc_generated_files/system/src/pins.p1.d ${OBJECTDIR}/mcc_generated_files/system/src/system.p1.d ${OBJECTDIR}/mcc_generated_files/system/src/config_bits.p1.d ${OBJECTDIR}/mcc_generated_files/system/src/clock.p1.d ${OBJECTDIR}/mcc_generated_files/timer/src/tmr2.p1.d ${OBJECTDIR}/main.p1.d ${OBJECTDIR}/trs_hard.p1.d ${OBJECTDIR}/trs_extra.p1.d ${OBJECTDIR}/ds1307.p1.d ${OBJECTDIR}/sw_i2c.p1.d ${OBJECTDIR}/dsk.p1.d ${OBJECTDIR}/io.o.d ${OBJECTDIR}/led.p1.d ${OBJECTDIR}/loader_eeprom.p1.d ${OBJECTDIR}/serial.p1.d ${OBJECTDIR}/eeprom.p1.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/FatFS/diskio.p1 ${OBJECTDIR}/FatFS/ff.p1 ${OBJECTDIR}/FatFS/ffunicode.p1 ${OBJECTDIR}/mcc_generated_files/nvm/src/nvm.p1 ${OBJECTDIR}/mcc_generated_files/system/src/pins.p1 ${OBJECTDIR}/mcc_generated_files/system/src/system.p1 ${OBJECTDIR}/mcc_generated_files/system/src/config_bits.p1 ${OBJECTDIR}/mcc_generated_files/system/src/clock.p1 ${OBJECTDIR}/mcc_generated_files/timer/src/tmr2.p1 ${OBJECTDIR}/main.p1 ${OBJECTDIR}/trs_hard.p1 ${OBJECTDIR}/trs_extra.p1 ${OBJECTDIR}/ds1307.p1 ${OBJECTDIR}/sw_i2c.p1 ${OBJECTDIR}/dsk.p1 ${OBJECTDIR}/io.o ${OBJECTDIR}/led.p1 ${OBJECTDIR}/loader_eeprom.p1 ${OBJECTDIR}/serial.p1 ${OBJECTDIR}/eeprom.p1 ${OBJECTDIR}/FatFS/diskio2.o
+POSSIBLE_DEPFILES=${OBJECTDIR}/FatFS/diskio.p1.d ${OBJECTDIR}/FatFS/ff.p1.d ${OBJECTDIR}/FatFS/ffunicode.p1.d ${OBJECTDIR}/mcc_generated_files/nvm/src/nvm.p1.d ${OBJECTDIR}/mcc_generated_files/system/src/pins.p1.d ${OBJECTDIR}/mcc_generated_files/system/src/system.p1.d ${OBJECTDIR}/mcc_generated_files/system/src/config_bits.p1.d ${OBJECTDIR}/mcc_generated_files/system/src/clock.p1.d ${OBJECTDIR}/mcc_generated_files/timer/src/tmr2.p1.d ${OBJECTDIR}/main.p1.d ${OBJECTDIR}/trs_hard.p1.d ${OBJECTDIR}/trs_extra.p1.d ${OBJECTDIR}/ds1307.p1.d ${OBJECTDIR}/sw_i2c.p1.d ${OBJECTDIR}/dsk.p1.d ${OBJECTDIR}/io.o.d ${OBJECTDIR}/led.p1.d ${OBJECTDIR}/loader_eeprom.p1.d ${OBJECTDIR}/serial.p1.d ${OBJECTDIR}/eeprom.p1.d ${OBJECTDIR}/FatFS/diskio2.o.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/FatFS/diskio.p1 ${OBJECTDIR}/FatFS/ff.p1 ${OBJECTDIR}/FatFS/ffunicode.p1 ${OBJECTDIR}/FatFS/diskio2.p1 ${OBJECTDIR}/mcc_generated_files/nvm/src/nvm.p1 ${OBJECTDIR}/mcc_generated_files/system/src/pins.p1 ${OBJECTDIR}/mcc_generated_files/system/src/system.p1 ${OBJECTDIR}/mcc_generated_files/system/src/config_bits.p1 ${OBJECTDIR}/mcc_generated_files/system/src/clock.p1 ${OBJECTDIR}/mcc_generated_files/timer/src/tmr2.p1 ${OBJECTDIR}/main.p1 ${OBJECTDIR}/trs_hard.p1 ${OBJECTDIR}/trs_extra.p1 ${OBJECTDIR}/ds1307.p1 ${OBJECTDIR}/sw_i2c.p1 ${OBJECTDIR}/dsk.p1 ${OBJECTDIR}/io.o ${OBJECTDIR}/led.p1 ${OBJECTDIR}/loader_eeprom.p1 ${OBJECTDIR}/serial.p1 ${OBJECTDIR}/eeprom.p1
+OBJECTFILES=${OBJECTDIR}/FatFS/diskio.p1 ${OBJECTDIR}/FatFS/ff.p1 ${OBJECTDIR}/FatFS/ffunicode.p1 ${OBJECTDIR}/mcc_generated_files/nvm/src/nvm.p1 ${OBJECTDIR}/mcc_generated_files/system/src/pins.p1 ${OBJECTDIR}/mcc_generated_files/system/src/system.p1 ${OBJECTDIR}/mcc_generated_files/system/src/config_bits.p1 ${OBJECTDIR}/mcc_generated_files/system/src/clock.p1 ${OBJECTDIR}/mcc_generated_files/timer/src/tmr2.p1 ${OBJECTDIR}/main.p1 ${OBJECTDIR}/trs_hard.p1 ${OBJECTDIR}/trs_extra.p1 ${OBJECTDIR}/ds1307.p1 ${OBJECTDIR}/sw_i2c.p1 ${OBJECTDIR}/dsk.p1 ${OBJECTDIR}/io.o ${OBJECTDIR}/led.p1 ${OBJECTDIR}/loader_eeprom.p1 ${OBJECTDIR}/serial.p1 ${OBJECTDIR}/eeprom.p1 ${OBJECTDIR}/FatFS/diskio2.o
 
 # Source Files
-SOURCEFILES=FatFS/diskio.c FatFS/ff.c FatFS/ffunicode.c FatFS/diskio2.c mcc_generated_files/nvm/src/nvm.c mcc_generated_files/system/src/pins.c mcc_generated_files/system/src/system.c mcc_generated_files/system/src/config_bits.c mcc_generated_files/system/src/clock.c mcc_generated_files/timer/src/tmr2.c main.c trs_hard.c trs_extra.c ds1307.c sw_i2c.c dsk.c io.asm led.c loader_eeprom.c serial.c eeprom.c
+SOURCEFILES=FatFS/diskio.c FatFS/ff.c FatFS/ffunicode.c mcc_generated_files/nvm/src/nvm.c mcc_generated_files/system/src/pins.c mcc_generated_files/system/src/system.c mcc_generated_files/system/src/config_bits.c mcc_generated_files/system/src/clock.c mcc_generated_files/timer/src/tmr2.c main.c trs_hard.c trs_extra.c ds1307.c sw_i2c.c dsk.c io.asm led.c loader_eeprom.c serial.c eeprom.c FatFS/diskio2.asm
 
 
 
@@ -111,14 +111,6 @@ ${OBJECTDIR}/FatFS/ffunicode.p1: FatFS/ffunicode.c  nbproject/Makefile-${CND_CON
 	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1  -mdebugger=pickit5   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -memi=wordwrite -O1 -maddrqual=require -DUART_DEBUG=1 -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-download -mno-default-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/FatFS/ffunicode.p1 FatFS/ffunicode.c 
 	@-${MV} ${OBJECTDIR}/FatFS/ffunicode.d ${OBJECTDIR}/FatFS/ffunicode.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/FatFS/ffunicode.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
-	
-${OBJECTDIR}/FatFS/diskio2.p1: FatFS/diskio2.c  nbproject/Makefile-${CND_CONF}.mk 
-	@${MKDIR} "${OBJECTDIR}/FatFS" 
-	@${RM} ${OBJECTDIR}/FatFS/diskio2.p1.d 
-	@${RM} ${OBJECTDIR}/FatFS/diskio2.p1 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1  -mdebugger=pickit5   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -memi=wordwrite -O1 -maddrqual=require -DUART_DEBUG=1 -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-download -mno-default-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/FatFS/diskio2.p1 FatFS/diskio2.c 
-	@-${MV} ${OBJECTDIR}/FatFS/diskio2.d ${OBJECTDIR}/FatFS/diskio2.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/FatFS/diskio2.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
 ${OBJECTDIR}/mcc_generated_files/nvm/src/nvm.p1: mcc_generated_files/nvm/src/nvm.c  nbproject/Makefile-${CND_CONF}.mk 
 	@${MKDIR} "${OBJECTDIR}/mcc_generated_files/nvm/src" 
@@ -273,14 +265,6 @@ ${OBJECTDIR}/FatFS/ffunicode.p1: FatFS/ffunicode.c  nbproject/Makefile-${CND_CON
 	@-${MV} ${OBJECTDIR}/FatFS/ffunicode.d ${OBJECTDIR}/FatFS/ffunicode.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/FatFS/ffunicode.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/FatFS/diskio2.p1: FatFS/diskio2.c  nbproject/Makefile-${CND_CONF}.mk 
-	@${MKDIR} "${OBJECTDIR}/FatFS" 
-	@${RM} ${OBJECTDIR}/FatFS/diskio2.p1.d 
-	@${RM} ${OBJECTDIR}/FatFS/diskio2.p1 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -memi=wordwrite -O1 -maddrqual=require -DUART_DEBUG=1 -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-download -mno-default-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/FatFS/diskio2.p1 FatFS/diskio2.c 
-	@-${MV} ${OBJECTDIR}/FatFS/diskio2.d ${OBJECTDIR}/FatFS/diskio2.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/FatFS/diskio2.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
-	
 ${OBJECTDIR}/mcc_generated_files/nvm/src/nvm.p1: mcc_generated_files/nvm/src/nvm.c  nbproject/Makefile-${CND_CONF}.mk 
 	@${MKDIR} "${OBJECTDIR}/mcc_generated_files/nvm/src" 
 	@${RM} ${OBJECTDIR}/mcc_generated_files/nvm/src/nvm.p1.d 
@@ -422,6 +406,14 @@ ${OBJECTDIR}/io.o: io.asm  nbproject/Makefile-${CND_CONF}.mk
 	@-${MV} ${OBJECTDIR}/io.d ${OBJECTDIR}/io.o.d 
 	@${FIXDEPS} ${OBJECTDIR}/io.o.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
+${OBJECTDIR}/FatFS/diskio2.o: FatFS/diskio2.asm  nbproject/Makefile-${CND_CONF}.mk 
+	@${MKDIR} "${OBJECTDIR}/FatFS" 
+	@${RM} ${OBJECTDIR}/FatFS/diskio2.o.d 
+	@${RM} ${OBJECTDIR}/FatFS/diskio2.o 
+	${MP_CC} -c $(MP_EXTRA_AS_PRE) -mcpu=$(MP_PROCESSOR_OPTION)  -D__DEBUG=1  -mdebugger=pickit5   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -memi=wordwrite -O1 -maddrqual=require -DUART_DEBUG=1 -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-download -mno-default-config-bits -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto   -o ${OBJECTDIR}/FatFS/diskio2.o  FatFS/diskio2.asm 
+	@-${MV} ${OBJECTDIR}/FatFS/diskio2.d ${OBJECTDIR}/FatFS/diskio2.o.d 
+	@${FIXDEPS} ${OBJECTDIR}/FatFS/diskio2.o.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
 else
 ${OBJECTDIR}/io.o: io.asm  nbproject/Makefile-${CND_CONF}.mk 
 	@${MKDIR} "${OBJECTDIR}" 
@@ -430,6 +422,14 @@ ${OBJECTDIR}/io.o: io.asm  nbproject/Makefile-${CND_CONF}.mk
 	${MP_CC} -c $(MP_EXTRA_AS_PRE) -mcpu=$(MP_PROCESSOR_OPTION)   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -memi=wordwrite -O1 -maddrqual=require -DUART_DEBUG=1 -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-download -mno-default-config-bits -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto   -o ${OBJECTDIR}/io.o  io.asm 
 	@-${MV} ${OBJECTDIR}/io.d ${OBJECTDIR}/io.o.d 
 	@${FIXDEPS} ${OBJECTDIR}/io.o.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/FatFS/diskio2.o: FatFS/diskio2.asm  nbproject/Makefile-${CND_CONF}.mk 
+	@${MKDIR} "${OBJECTDIR}/FatFS" 
+	@${RM} ${OBJECTDIR}/FatFS/diskio2.o.d 
+	@${RM} ${OBJECTDIR}/FatFS/diskio2.o 
+	${MP_CC} -c $(MP_EXTRA_AS_PRE) -mcpu=$(MP_PROCESSOR_OPTION)   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -memi=wordwrite -O1 -maddrqual=require -DUART_DEBUG=1 -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-download -mno-default-config-bits -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto   -o ${OBJECTDIR}/FatFS/diskio2.o  FatFS/diskio2.asm 
+	@-${MV} ${OBJECTDIR}/FatFS/diskio2.d ${OBJECTDIR}/FatFS/diskio2.o.d 
+	@${FIXDEPS} ${OBJECTDIR}/FatFS/diskio2.o.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
 endif
 

@@ -70,6 +70,7 @@
         <itemPath>FatFS/ff.c</itemPath>
         <itemPath>FatFS/ffunicode.c</itemPath>
         <itemPath>FatFS/diskio2.c</itemPath>
+        <itemPath>FatFS/diskio2.asm</itemPath>
       </logicalFolder>
       <logicalFolder name="MCC Generated Files"
                      displayName="MCC Generated Files"
@@ -165,6 +166,8 @@
         <makeCustomizationEnableLongLines>false</makeCustomizationEnableLongLines>
         <makeCustomizationNormalizeHexFile>false</makeCustomizationNormalizeHexFile>
       </makeCustomizationType>
+      <item path="FatFS/diskio2.c" ex="true" overriding="false">
+      </item>
       <HI-TECH-COMP>
         <property key="additional-warnings" value="true"/>
         <property key="asmlist" value="true"/>

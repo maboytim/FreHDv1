@@ -14,6 +14,4 @@
 
 #define BOOTLOADER_END		0xFFF
 #define APP_STARTUP		0x1000
-//#define APP_LO_INT		0x1006
-//#define APP_HI_INT		0x100C
-//#define APP_HI_INT2		0x1100
+//#define APP_HI_INT		0x1028
