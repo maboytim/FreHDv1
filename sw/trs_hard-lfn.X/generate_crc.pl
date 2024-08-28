@@ -29,7 +29,7 @@ my $project_dir = $ARGV[0];
 my $file = $project_dir . "FatFS.hex";
 my $boot_inc = $project_dir . "bootloader.inc";
 my $version_h = $project_dir . "version.h";
-my $crc_file = "crc.inc";
+my $crc_file = "crc.h";
 my $file_out = $project_dir . $crc_file;
 my $F;
 
@@ -44,7 +44,7 @@ my $old_crc = 0;
 if (-f $file_out) {
     open($F, "< $file_out") or die "Can't open $file_out : $!\n";
     while (<$F>) {
-	if (/^THECRC\s+equ\s+([0-9A-Fa-fx]+)/) {
+	if (/^#define\s+THECRC\s+([0-9A-Fa-fx]+)/) {
 	    $old_crc = hex($1);
 	}
     }
@@ -162,7 +162,7 @@ sub make_inc {
     my $crc = shift;
     
     open(my $OUT, " > $file") or die "Can't create $file : $!\n";
-    printf $OUT "THECRC\tequ\t0x%04x\n", $crc;
+    printf $OUT "#define\tTHECRC\t0x%04x\n", $crc;
     close($OUT);
     
     # print "Generated $crc_file\n";
