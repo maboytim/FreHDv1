@@ -22,6 +22,8 @@
 
 #include "stdint.h"
 
+#define EEPROM_START_ADDRESS       (0x380000U)
+
 void ee_write8(uint16_t address, uint8_t value);
 uint8_t ee_read8(uint16_t address);
 

@@ -32,6 +32,7 @@
 #include "serial.h"
 #include "led.h"
 #include "bootloader.h"
+#include "eeprom.h"
 #include "crc.h"
 
 const USHORT crc16_val __at(FLASH_CRC_ADDR) = THECRC;
@@ -154,6 +155,8 @@ void pic_init(void)
 	IVTLOCK = 0x55;
 	IVTLOCK = 0xAA;
 	IVTLOCKbits.IVTLOCKED = 0x01; // lock IVT
+
+    NVMCON1bits.WRERR = 0;
 
 	/* SD Card */
 	SD_CS_TRIS = OUTPUT_PIN;

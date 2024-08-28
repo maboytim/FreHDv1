@@ -476,16 +476,8 @@ FR_DISK_FULL 20
 [v _main main `(v  1 e 1 0 ]
 "43 C:\Users\matt\MPLABXProjects\trs_hard-lfn.X\mcc_generated_files/nvm/src/nvm.c
 [v _NVM_Initialize NVM_Initialize `(v  1 e 1 0 ]
-"48
-[v _NVM_IsBusy NVM_IsBusy `(a  1 e 1 0 ]
 "65
 [v _NVM_StatusClear NVM_StatusClear `(v  1 e 1 0 ]
-"70
-[v _NVM_UnlockKeySet NVM_UnlockKeySet `(v  1 e 1 0 ]
-"76
-[v _NVM_UnlockKeyClear NVM_UnlockKeyClear `(v  1 e 1 0 ]
-"309
-[v _EEPROM_Write EEPROM_Write `(v  1 e 1 0 ]
 "37 C:\Users\matt\MPLABXProjects\trs_hard-lfn.X\mcc_generated_files/system/src/clock.c
 [v _CLOCK_Initialize CLOCK_Initialize `(v  1 e 1 0 ]
 "38 C:\Users\matt\MPLABXProjects\trs_hard-lfn.X\mcc_generated_files/system/src/pins.c
@@ -1551,7 +1543,7 @@ FR_DISK_FULL 20
 [v trs_extra_bootloader@step step `uc  1 a 1 wreg ]
 [v trs_extra_bootloader@step step `uc  1 a 1 wreg ]
 "318
-[v trs_extra_bootloader@step step `uc  1 a 1 19 ]
+[v trs_extra_bootloader@step step `uc  1 a 1 8 ]
 "330
 } 0
 "295
@@ -1989,35 +1981,9 @@ FR_DISK_FULL 20
 "36 C:\Users\matt\MPLABXProjects\trs_hard-lfn.X\eeprom.c
 [v _ee_write8 ee_write8 `(v  1 e 1 0 ]
 {
-[v ee_write8@address address `us  1 p 2 13 ]
-[v ee_write8@value value `uc  1 p 1 15 ]
-"42
-} 0
-"70 C:\Users\matt\MPLABXProjects\trs_hard-lfn.X\mcc_generated_files/nvm/src/nvm.c
-[v _NVM_UnlockKeySet NVM_UnlockKeySet `(v  1 e 1 0 ]
-{
-[v NVM_UnlockKeySet@unlockKey unlockKey `us  1 p 2 5 ]
-"74
-} 0
-"76
-[v _NVM_UnlockKeyClear NVM_UnlockKeyClear `(v  1 e 1 0 ]
-{
-"80
-} 0
-"48
-[v _NVM_IsBusy NVM_IsBusy `(a  1 e 1 0 ]
-{
-"51
-} 0
-"309
-[v _EEPROM_Write EEPROM_Write `(v  1 e 1 0 ]
-{
-"312
-[v EEPROM_Write@globalInterruptBitValue globalInterruptBitValue `uc  1 a 1 12 ]
-"309
-[v EEPROM_Write@address address `um  1 p 3 5 ]
-[v EEPROM_Write@data data `uc  1 p 1 8 ]
-"345
+[v ee_write8@address address `us  1 p 2 5 ]
+[v ee_write8@value value `uc  1 p 1 7 ]
+"78
 } 0
 "292 C:\Users\matt\MPLABXProjects\trs_hard-lfn.X\trs_hard.c
 [v _read_sector read_sector `(E23069  1 s 1 read_sector ]

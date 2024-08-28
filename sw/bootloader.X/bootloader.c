@@ -111,7 +111,8 @@ __near uint24_t tblptr;
 
 void b_process(void);
 void update_status(uint8_t status);
-
+void do_write(uint8_t cmd);
+void do_write_ee(uint8_t data);
 
 //	
 // low priority interrupt
@@ -214,6 +215,8 @@ uint8_t read_byte(void)
 
 void pic_init(void)
 {
+	NVMCON1bits.WRERR = 0;
+
 	/* SD Card */
 	SD_CS_TRIS = OUTPUT_PIN;
 	SD_WP_TRIS = INPUT_PIN;
@@ -286,7 +289,6 @@ void main(void)
 	TRS_WAIT = 0; // assert wait trigger
 
     update_status(TRS_BOOT_READY); // we are ready !
-    NVM_UnlockKeySet(UNLOCK_KEY);
 
     while((flags & (1 << BF_FLASH_INVALID)) // flash valid ?
        || timeout) // timeout ?
@@ -297,11 +299,10 @@ void main(void)
 
     // exit_bootloader
     // restore eeprom CRC
-    EEPROM_Write((uint24_t)EEPROM_START_ADDRESS + (uint24_t)EEPROM_CRC_ADDR, crc);
-    while(NVM_IsBusy()) ;
-    EEPROM_Write((uint24_t)EEPROM_START_ADDRESS + (uint24_t)(EEPROM_CRC_ADDR + 1), crc >> 8);
-    while(NVM_IsBusy()) ;
-    NVM_UnlockKeyClear();
+    addr = (uint32_t)EEPROM_START_ADDRESS + (uint32_t)EEPROM_CRC_ADDR;
+    do_write_ee(crc);
+    addr++;
+    do_write_ee(crc >> 8);
     asm("reset");
 }
 
@@ -309,7 +310,6 @@ void erase_flash(void);
 void erase_eeprom(void);
 void b_last(void);
 void b_write_block(void);
-void do_write(void);
 
 //
 // process one line of the intel file
@@ -405,8 +405,8 @@ void b_process(void)
                                 {
                                     while(count)
                                     {
-                                        EEPROM_Write((uint24_t)addr++, read_byte());
-                                        while(NVM_IsBusy()) ;
+                                        do_write_ee(read_byte());
+                                        addr++;
                                         count--;
                                     }
                                 }
@@ -426,7 +426,6 @@ void b_process(void)
 
             case 1: // 01 = end of file
                 b_last();
-                NVM_UnlockKeyClear();
 
                 //INTCON0bits.GIE = 0; // disable interrupts
                 //INTCON0bits.GIEL = 0;
@@ -493,7 +492,7 @@ void erase_flash(void)
     flags |= 1 << BF_FLASH_INVALID;
 
     for(tblptr = (uint24_t)(BOOTLOADER_END+1); tblptr < (uint24_t)FLASH_CRC_ADDR; tblptr += (uint24_t)ERASE_BLOCKSIZE)
-        FLASH_PageErase(tblptr);
+        do_write(0x06); // erase
 
     tblptr = 0;
 }
@@ -503,13 +502,18 @@ void erase_flash(void)
 //
 void erase_eeprom(void)
 {
-    uint16_t addr;
     usart_puts2_r("Erasing EEPROM");
+    addr = (uint32_t)EEPROM_START_ADDRESS;
 
-    for(addr = 0; addr < EEPROM_SIZE; addr++)
+    count = 0;
+    for(type = EEPROM_SIZE >> 8; type; type--)
     {
-        EEPROM_Write((uint24_t)EEPROM_START_ADDRESS + (uint24_t)addr, 0xFF);
-        while(NVM_IsBusy()) ;
+        do
+        {
+            do_write_ee(0xFF);
+            addr++;
+            count--;
+        } while(count);
     }
 }
 
@@ -541,8 +545,7 @@ void b_write_block(void)
             usart_put_long(tblptr & ~(BLOCKSIZE - 1)); usart_send('-'); usart_put_long(tblptr); usart_send('\r'); usart_send('\n');
 
             flags |= 1 << BF_FLASH_INVALID;
-//            do_write();
-            FLASH_RowWrite(tblptr & ~(BLOCKSIZE - 1), (flash_data_t *)BUFFER_RAM_START_ADDRESS);
+            do_write(0x05); // write
         }
         tblptr++;
     }
@@ -551,13 +554,14 @@ void b_write_block(void)
 //
 // write magic sequence
 //
-void do_write(void)
+void do_write(uint8_t cmd)
 {
-    //Load NVMADR with the start address of the memory page
-    NVMADR = tblptr - 1;
+    //Load NVMADR with the any address in the memory page. NVMADRL is ignored
+    NVMADRU = (uint8_t) (tblptr >> 16);
+    NVMADRH = (uint8_t) (tblptr >> 8);
 
-    //Set the page write command
-    NVMCON1bits.NVMCMD = 0x05;
+    //Set the page write or erase command
+    NVMCON1bits.NVMCMD = cmd;
 
     //Disable global interrupt
     INTCON0bits.GIE = 0;
@@ -567,7 +571,7 @@ void do_write(void)
     asm("asmopt off"); //turn off assembler optimizations
     asm("banksel(_NVMLOCK)"); //select the bank of the NVMLOCK register
     NVMLOCK = 0x55; //assign 'unlockKeyLow' to NVMLOCK.
-    asm("MOVF 0xAA,w,c"); //load 'unlockKeyHigh' into the W register
+    asm("MOVLW 0xAA"); //load 'unlockKeyHigh' into the W register
     asm("MOVWF (_NVMLOCK&0xFF),b"); //move the W register to NVMLOCK
 
     //Start page write 
@@ -579,4 +583,44 @@ void do_write(void)
 
     //Clear the NVM Command
     NVMCON1bits.NVMCMD = 0x00;
+}
+
+//
+// write magic sequence
+//
+void do_write_ee(uint8_t data)
+{
+    //Load NVMADR with the target address of the byte
+    NVMADRU = (uint8_t) (addr >> 16);
+    NVMADRH = (uint8_t) (addr >> 8);
+    NVMADRL = (uint8_t) addr;
+
+    //Load NVMDAT with the desired value
+    NVMDATL = data;
+
+    //Set the byte write command
+    NVMCON1bits.NVMCMD = 0x03;
+
+    //Disable global interrupt
+    INTCON0bits.GIE = 0;
+    
+    //Perform the unlock sequence 
+    asm("asmopt push"); //save the current selection of optimizations
+    asm("asmopt off"); //turn off assembler optimizations
+    asm("banksel(_NVMLOCK)"); //select the bank of the NVMLOCK register
+    NVMLOCK = 0x55; //assign 'unlockKeyLow' to NVMLOCK.
+    asm("MOVLW 0xAA"); //load 'unlockKeyHigh' into the W register
+    asm("MOVWF (_NVMLOCK&0xFF),b"); //move the W register to NVMLOCK
+
+    //Start byte write
+    asm("bsf (_NVMCON0bits&0xFF)," ___mkstr(_NVMCON0_GO_POSN) ",b"); //Set GO bit   
+    asm("asmopt pop"); //restore assembler optimization settings
+
+    //Restore global interrupt enable bit value
+    INTCON0bits.GIE = 1;
+
+    //Clear the NVM Command
+    NVMCON1bits.NVMCMD = 0x00;
+
+    while(NVMCON0bits.GO) ;
 }

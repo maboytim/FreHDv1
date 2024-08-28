@@ -18,7 +18,6 @@
  */
 
 #include "HardwareProfile.h"
-#include "mcc_generated_files/nvm/nvm.h"
 #include "eeprom.h"
 
 /*
@@ -35,9 +34,38 @@ uint8_t ee_read8(uint16_t address)
  */
 void ee_write8(uint16_t address, uint8_t value)
 {
-	NVM_UnlockKeySet(UNLOCK_KEY);
-	EEPROM_Write(EEPROM_START_ADDRESS+(uint24_t)address, value);
-	NVM_UnlockKeyClear();
-	while(NVM_IsBusy()) ;
+    //Load NVMADR with the target address of the byte
+    NVMADRU = (uint8_t) (EEPROM_START_ADDRESS >> 16);
+    NVMADRH = (uint8_t) (address >> 8);
+    NVMADRL = (uint8_t) address;
+
+    //Load NVMDAT with the desired value
+    NVMDATL = value;
+
+    //Set the byte write command
+    NVMCON1bits.NVMCMD = 0x03;
+
+    //Disable global interrupt
+    INTCON0bits.GIE = 0;
+    
+    //Perform the unlock sequence 
+    asm("asmopt push"); //save the current selection of optimizations
+    asm("asmopt off"); //turn off assembler optimizations
+    asm("banksel(_NVMLOCK)"); //select the bank of the NVMLOCK register
+    NVMLOCK = 0x55; //assign 'unlockKeyLow' to NVMLOCK.
+    asm("MOVLW 0xAA"); //load 'unlockKeyHigh' into the W register
+    asm("MOVWF (_NVMLOCK&0xFF),b"); //move the W register to NVMLOCK
+
+    //Start byte write
+    asm("bsf (_NVMCON0bits&0xFF)," ___mkstr(_NVMCON0_GO_POSN) ",b"); //Set GO bit   
+    asm("asmopt pop"); //restore assembler optimization settings
+
+    //Restore global interrupt enable bit value
+    INTCON0bits.GIE = 1;
+
+    //Clear the NVM Command
+    NVMCON1bits.NVMCMD = 0x00;
+
+    while(NVMCON0bits.GO) ;
 }
 

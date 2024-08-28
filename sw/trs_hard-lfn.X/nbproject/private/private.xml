@@ -7,8 +7,14 @@
             <file>file:/C:/Users/matt/MPLABXProjects/trs_hard-lfn.X/crc.h</file>
             <file>file:/C:/Users/matt/MPLABXProjects/trs_hard-lfn.X/FatFS/diskio2.c</file>
             <file>file:/C:/Users/matt/MPLABXProjects/trs_hard-lfn.X/trs_extra.c</file>
-            <file>file:/C:/Users/matt/MPLABXProjects/trs_hard-lfn.X/FatFS/diskio2.asm</file>
             <file>file:/C:/Users/matt/MPLABXProjects/trs_hard-lfn.X/io.asm</file>
+            <file>file:/C:/Users/matt/MPLABXProjects/trs_hard-lfn.X/eeprom.c</file>
+            <file>file:/C:/Users/matt/MPLABXProjects/trs_hard-lfn.X/mcc_generated_files/nvm/src/nvm.c</file>
+            <file>file:/C:/Users/matt/MPLABXProjects/trs_hard-lfn.X/mcc_generated_files/nvm/nvm.h</file>
+            <file>file:/C:/Users/matt/MPLABXProjects/trs_hard-lfn.X/version.h</file>
+            <file>file:/C:/Users/matt/MPLABXProjects/trs_hard-lfn.X/mcc_generated_files/system/src/system.c</file>
+            <file>file:/C:/Users/matt/MPLABXProjects/trs_hard-lfn.X/eeprom.h</file>
+            <file>file:/C:/Users/matt/MPLABXProjects/trs_hard-lfn.X/mcc_generated_files/system/system.h</file>
         </group>
     </open-files>
 </project-private>
