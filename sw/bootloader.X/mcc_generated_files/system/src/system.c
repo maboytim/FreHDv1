@@ -42,7 +42,7 @@ void SYSTEM_Initialize(void)
 {
     CLOCK_Initialize();
     PIN_MANAGER_Initialize();
-    NVM_Initialize();
+    //NVM_Initialize();
     //SPI1_Host_Initialize();
     Timer0_Initialize();
     //UART1_Initialize();

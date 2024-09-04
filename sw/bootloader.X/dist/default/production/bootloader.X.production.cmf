@@ -13,52 +13,46 @@
 %PSECTS
 $dist/default/production\bootloader.X.production.o
 ivt0x8 CODE 0 8 8 14 1 2
-cinit CODE 0 B06 B06 4C 1 2
+cinit CODE 0 95A 95A 4C 1 2
 const CONST 0 C4 C4 2A 1 2
-text0 CODE 0 7F0 7F0 90 1 2
-text1 CODE 0 880 880 78 1 2
-text2 CODE 0 8F8 8F8 5C 1 2
-text3 CODE 0 EE EE 3F6 1 2
-text4 CODE 0 D7C D7C E 1 2
-text5 CODE 0 CDA CDA 1E 1 2
-text6 CODE 0 B52 B52 44 1 2
-text7 CODE 0 954 954 5A 1 2
-text8 CODE 0 AB4 AB4 52 1 2
-text9 CODE 0 A60 A60 54 1 2
-nvCOMRAM COMRAM 1 540 540 5 1 1
-text10 CODE 0 CF8 CF8 1E 1 2
-text11 CODE 0 9AE 9AE 5A 1 2
-text12 CODE 0 D8A D8A E 1 2
-text13 CODE 0 A08 A08 58 1 2
-text14 CODE 0 B96 B96 44 1 2
-text15 CODE 0 75C 75C 94 1 2
-text16 CODE 0 D50 D50 1A 1 2
-text17 CODE 0 BDA BDA 3A 1 2
-text18 CODE 0 C7C C7C 30 1 2
-text19 CODE 0 6BE 6BE 9E 1 2
-text20 CODE 0 D98 D98 A 1 2
-text21 CODE 0 D6A D6A 12 1 2
-text22 CODE 0 C4A C4A 32 1 2
-text23 CODE 0 DA2 DA2 A 1 2
-text24 CODE 0 5D6 5D6 E8 1 2
-text25 CODE 0 DB6 DB6 6 1 2
-text26 CODE 0 DBC DBC 6 1 2
-text27 CODE 0 D34 D34 1C 1 2
-text28 CODE 0 DAC DAC A 1 2
-text29 CODE 0 4E4 4E4 F2 1 2
-text30 CODE 0 D16 D16 1E 1 2
-text31 CODE 0 CAC CAC 2E 1 2
-text32 CODE 0 C14 C14 36 1 2
-cstackCOMRAM COMRAM 1 501 501 24 1 1
+text0 CODE 0 796 796 6C 1 2
+text1 CODE 0 71E 71E 78 1 2
+text2 CODE 0 802 802 60 1 2
+text3 CODE 0 EE EE 3DA 1 2
+text4 CODE 0 C3E C3E E 1 2
+text5 CODE 0 BAE BAE 1E 1 2
+text6 CODE 0 9EC 9EC 44 1 2
+text7 CODE 0 8BC 8BC 50 1 2
+text8 CODE 0 90C 90C 4E 1 2
+text9 CODE 0 BCC BCC 1E 1 2
+nvCOMRAM COMRAM 1 534 534 5 1 1
+text10 CODE 0 862 862 5A 1 2
+text11 CODE 0 A74 A74 3A 1 2
+text12 CODE 0 A30 A30 44 1 2
+text13 CODE 0 6A2 6A2 7C 1 2
+text14 CODE 0 C24 C24 1A 1 2
+text15 CODE 0 AAE AAE 3A 1 2
+text16 CODE 0 B50 B50 30 1 2
+text17 CODE 0 9A6 9A6 46 1 2
+text18 CODE 0 C4C C4C E 1 2
+text19 CODE 0 B1E B1E 32 1 2
+text20 CODE 0 C5A C5A A 1 2
+text21 CODE 0 5BA 5BA E8 1 2
+text22 CODE 0 C08 C08 1C 1 2
+text23 CODE 0 4C8 4C8 F2 1 2
+text24 CODE 0 BEA BEA 1E 1 2
+text25 CODE 0 B80 B80 2E 1 2
+text26 CODE 0 AE8 AE8 36 1 2
+cstackCOMRAM COMRAM 1 501 501 1E 1 1
 bssBANK5 BANK5 1 560 560 80 1 1
 bssBANK6 BANK6 1 600 600 80 1 1
 bssBANK7 BANK7 1 700 700 100 1 1
-bssCOMRAM COMRAM 1 525 525 1B 1 1
+bssCOMRAM COMRAM 1 51F 51F 15 1 1
 _boot_version_text CODE 0 6 6 2 1 2
 config CONFIG 4 300000 300000 23 1 1
 $build/default/production/powerup.o
 powerup CODE 0 1C 1C A4 1 2
-$C:\Users\matt\AppData\Local\Temp\xcAsbhc.\driver_tmp_9.o
+$C:\Users\matt\AppData\Local\Temp\xcAs2g4.\driver_tmp_9.o
 init CODE 0 C0 C0 4 1 2
 reset_vec CODE 0 0 0 4 1 2
 config CONFIG 4 300000 300000 23 1 1
@@ -78,10 +72,10 @@ BANK6 680-6FF 1
 BANK8 800-8FF 1
 BANK9 900-9FF 1
 CONST 4-5 1
-CONST DC2-FFF 1
+CONST C64-FFF 1
 IDLOC 200000-20003F 1
 CODE 4-5 1
-CODE DC2-FFF 1
+CODE C64-FFF 1
 BANK10 A00-AFF 1
 BANK11 B00-BFF 1
 BANK12 C00-CFF 1
@@ -127,13 +121,13 @@ BANK51 3300-33FF 1
 BANK52 3400-34FF 1
 BANK53 3500-35FF 1
 BANK54 3600-36FF 1
-BIGRAM 545-55F 1
+BIGRAM 539-55F 1
 BIGRAM 5E0-5FF 1
 BIGRAM 680-6FF 1
 BIGRAM 800-36FF 1
 BIGSFR 0-4FF 1
 BIGSFR 3700-3FFF 1
-COMRAM 545-55F 1
+COMRAM 539-55F 1
 CONFIG 300023-300023 1
 EEDATA 380000-3803FF 1
 # %LINETAB Section
@@ -150,516 +144,476 @@ EEDATA 380000-3803FF 1
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production\bootloader.X.production.o
-C14 text32 CODE >138:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
-C14 text32 CODE >140:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
-C18 text32 CODE >145:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
-C1C text32 CODE >146:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
-C22 text32 CODE >147:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
-C32 text32 CODE >148:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
-C3C text32 CODE >149:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
-C40 text32 CODE >151:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
-C44 text32 CODE >155:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
-C44 text32 CODE >157:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
-C48 text32 CODE >160:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
-CAC text31 CODE >100:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
-CAC text31 CODE >102:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
-CB2 text31 CODE >104:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
-CB4 text31 CODE >105:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
-CB6 text31 CODE >107:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
-CC8 text31 CODE >108:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
-CD2 text31 CODE >109:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
-CD6 text31 CODE >111:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
-CD8 text31 CODE >112:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
-D16 text30 CODE >188:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-D18 text30 CODE >190:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-D1E text30 CODE >191:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-D22 text30 CODE >192:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-D26 text30 CODE >193:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-D2A text30 CODE >194:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-D2C text30 CODE >195:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-D30 text30 CODE >196:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-D32 text30 CODE >197:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-4E4 text29 CODE >124:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-4F8 text29 CODE >126:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-4FC text29 CODE >128:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-4FE text29 CODE >129:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-502 text29 CODE >131:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-514 text29 CODE >132:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-518 text29 CODE >134:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-51A text29 CODE >135:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-522 text29 CODE >142:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-52E text29 CODE >144:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-550 text29 CODE >146:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-55A text29 CODE >148:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-56C text29 CODE >149:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-56E text29 CODE >150:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-578 text29 CODE >152:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-57C text29 CODE >154:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-586 text29 CODE >156:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-58A text29 CODE >157:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-58C text29 CODE >160:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-590 text29 CODE >161:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-590 text29 CODE >162:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-594 text29 CODE >164:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-596 text29 CODE >165:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-59A text29 CODE >166:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-59C text29 CODE >167:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-59E text29 CODE >168:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-59E text29 CODE >169:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-5A4 text29 CODE >171:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-5A6 text29 CODE >172:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-5AA text29 CODE >173:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-5AC text29 CODE >175:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-5B2 text29 CODE >177:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-5B6 text29 CODE >179:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-5BC text29 CODE >181:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-5C0 text29 CODE >183:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-DAC text28 CODE >70:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/nvm/src/nvm.c
-DAC text28 CODE >72:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/nvm/src/nvm.c
-DB0 text28 CODE >73:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/nvm/src/nvm.c
-DB4 text28 CODE >74:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/nvm/src/nvm.c
-D34 text27 CODE >37:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/system/src/clock.c
-D34 text27 CODE >41:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/system/src/clock.c
-D3A text27 CODE >43:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/system/src/clock.c
-D3E text27 CODE >45:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/system/src/clock.c
-D42 text27 CODE >47:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/system/src/clock.c
-D46 text27 CODE >49:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/system/src/clock.c
-D4A text27 CODE >51:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/system/src/clock.c
-D4E text27 CODE >52:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/system/src/clock.c
-DBC text26 CODE >65:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/nvm/src/nvm.c
-DBC text26 CODE >67:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/nvm/src/nvm.c
-DC0 text26 CODE >68:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/nvm/src/nvm.c
-DB6 text25 CODE >43:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/nvm/src/nvm.c
-DB6 text25 CODE >45:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/nvm/src/nvm.c
-DBA text25 CODE >46:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/nvm/src/nvm.c
-5D6 text24 CODE >38:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/system/src/pins.c
-5D6 text24 CODE >43:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/system/src/pins.c
-5DA text24 CODE >44:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/system/src/pins.c
-5DE text24 CODE >45:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/system/src/pins.c
-5E2 text24 CODE >46:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/system/src/pins.c
-5E6 text24 CODE >47:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/system/src/pins.c
-5EA text24 CODE >52:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/system/src/pins.c
-5EE text24 CODE >53:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/system/src/pins.c
-5F2 text24 CODE >54:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/system/src/pins.c
-5F6 text24 CODE >55:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/system/src/pins.c
-5F8 text24 CODE >56:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/system/src/pins.c
-5FC text24 CODE >61:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/system/src/pins.c
-602 text24 CODE >62:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/system/src/pins.c
-606 text24 CODE >63:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/system/src/pins.c
-60A text24 CODE >64:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/system/src/pins.c
-60E text24 CODE >65:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/system/src/pins.c
-612 text24 CODE >70:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/system/src/pins.c
-616 text24 CODE >71:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/system/src/pins.c
-61A text24 CODE >72:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/system/src/pins.c
-61E text24 CODE >73:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/system/src/pins.c
-620 text24 CODE >74:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/system/src/pins.c
-624 text24 CODE >79:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/system/src/pins.c
-62A text24 CODE >80:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/system/src/pins.c
-62E text24 CODE >81:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/system/src/pins.c
-632 text24 CODE >82:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/system/src/pins.c
-636 text24 CODE >87:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/system/src/pins.c
-63C text24 CODE >88:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/system/src/pins.c
-640 text24 CODE >89:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/system/src/pins.c
-644 text24 CODE >90:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/system/src/pins.c
-648 text24 CODE >91:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/system/src/pins.c
-64C text24 CODE >96:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/system/src/pins.c
-650 text24 CODE >97:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/system/src/pins.c
-652 text24 CODE >98:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/system/src/pins.c
-656 text24 CODE >99:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/system/src/pins.c
-658 text24 CODE >100:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/system/src/pins.c
-65C text24 CODE >105:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/system/src/pins.c
-660 text24 CODE >106:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/system/src/pins.c
-664 text24 CODE >107:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/system/src/pins.c
-668 text24 CODE >108:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/system/src/pins.c
-66C text24 CODE >109:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/system/src/pins.c
-670 text24 CODE >113:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/system/src/pins.c
-676 text24 CODE >114:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/system/src/pins.c
-67A text24 CODE >115:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/system/src/pins.c
-67E text24 CODE >116:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/system/src/pins.c
-682 text24 CODE >117:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/system/src/pins.c
-686 text24 CODE >118:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/system/src/pins.c
-68A text24 CODE >123:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/system/src/pins.c
-690 text24 CODE >124:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/system/src/pins.c
-694 text24 CODE >125:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/system/src/pins.c
-698 text24 CODE >126:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/system/src/pins.c
-69C text24 CODE >127:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/system/src/pins.c
-6A0 text24 CODE >128:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/system/src/pins.c
-6A4 text24 CODE >129:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/system/src/pins.c
-6A8 text24 CODE >130:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/system/src/pins.c
-6AC text24 CODE >131:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/system/src/pins.c
-6B0 text24 CODE >132:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/system/src/pins.c
-6B4 text24 CODE >133:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/system/src/pins.c
-6B8 text24 CODE >134:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/system/src/pins.c
-6BC text24 CODE >137:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/system/src/pins.c
-DA2 text23 CODE >135:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/timer/src/tmr0.c
-DA2 text23 CODE >137:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/timer/src/tmr0.c
-DAA text23 CODE >138:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/timer/src/tmr0.c
-C4A text22 CODE >54:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/timer/src/tmr0.c
-C4A text22 CODE >57:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/timer/src/tmr0.c
-C50 text22 CODE >60:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/timer/src/tmr0.c
-C54 text22 CODE >63:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/timer/src/tmr0.c
-C58 text22 CODE >66:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/timer/src/tmr0.c
-C64 text22 CODE >69:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/timer/src/tmr0.c
-C70 text22 CODE >72:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/timer/src/tmr0.c
-C72 text22 CODE >75:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/timer/src/tmr0.c
-C74 text22 CODE >78:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/timer/src/tmr0.c
-C7A text22 CODE >79:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/timer/src/tmr0.c
-D6A text21 CODE >41:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/system/src/system.c
-D6A text21 CODE >43:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/system/src/system.c
-D6E text21 CODE >44:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/system/src/system.c
-D72 text21 CODE >45:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/system/src/system.c
-D76 text21 CODE >47:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/system/src/system.c
-D7A text21 CODE >50:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/system/src/system.c
-D98 text20 CODE >76:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/nvm/src/nvm.c
-D98 text20 CODE >78:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/nvm/src/nvm.c
-D9C text20 CODE >79:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/nvm/src/nvm.c
-DA0 text20 CODE >80:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/nvm/src/nvm.c
-6BE text19 CODE >183:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/nvm/src/nvm.c
-6BE text19 CODE >185:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/nvm/src/nvm.c
-6C6 text19 CODE >186:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/nvm/src/nvm.c
-6CE text19 CODE >189:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/nvm/src/nvm.c
-6D6 text19 CODE >191:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/nvm/src/nvm.c
-6E2 text19 CODE >197:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/nvm/src/nvm.c
-6FE text19 CODE >195:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/nvm/src/nvm.c
-70E text19 CODE >202:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/nvm/src/nvm.c
-712 text19 CODE >203:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/nvm/src/nvm.c
-72E text19 CODE >204:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/nvm/src/nvm.c
-732 text19 CODE >207:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/nvm/src/nvm.c
-73A text19 CODE >210:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/nvm/src/nvm.c
-73C text19 CODE >215:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/nvm/src/nvm.c
-73E text19 CODE >216:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/nvm/src/nvm.c
-742 text19 CODE >217:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/nvm/src/nvm.c
-744 text19 CODE >218:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/nvm/src/nvm.c
-746 text19 CODE >221:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/nvm/src/nvm.c
-748 text19 CODE >225:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/nvm/src/nvm.c
-752 text19 CODE >228:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/nvm/src/nvm.c
-758 text19 CODE >230:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/nvm/src/nvm.c
-75A text19 CODE >238:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/nvm/src/nvm.c
-C7C text18 CODE >120:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
-C7E text18 CODE >122:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
-C84 text18 CODE >123:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
-C86 text18 CODE >124:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
-C96 text18 CODE >125:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
-CA0 text18 CODE >126:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
-CA4 text18 CODE >128:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
-CA6 text18 CODE >129:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
-CA8 text18 CODE >130:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
-CAA text18 CODE >131:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
-BDA text17 CODE >207:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
-BDC text17 CODE >211:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
-BE4 text17 CODE >212:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
-BEA text17 CODE >213:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
-BEE text17 CODE >215:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
-BF2 text17 CODE >216:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
-BF8 text17 CODE >217:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
-BFE text17 CODE >218:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
-C04 text17 CODE >219:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
-C08 text17 CODE >221:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
-C0C text17 CODE >222:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
-C12 text17 CODE >223:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
-D50 text16 CODE >232:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
-D50 text16 CODE >234:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
-D56 text16 CODE >235:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
-D5C text16 CODE >236:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
-D62 text16 CODE >237:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
-D68 text16 CODE >238:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
-75C text15 CODE >532:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-75C text15 CODE >534:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-760 text15 CODE >536:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-762 text15 CODE >537:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-76E text15 CODE >538:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-77A text15 CODE >541:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-7C2 text15 CODE >543:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-7C4 text15 CODE >545:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-7E2 text15 CODE >547:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-7EE text15 CODE >549:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-B96 text14 CODE >517:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-B96 text14 CODE >519:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-B9C text14 CODE >523:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-BB8 text14 CODE >521:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-BD4 text14 CODE >525:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-BD8 text14 CODE >527:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-A08 text13 CODE >309:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/nvm/src/nvm.c
-A08 text13 CODE >312:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/nvm/src/nvm.c
-A10 text13 CODE >315:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/nvm/src/nvm.c
-A14 text13 CODE >316:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/nvm/src/nvm.c
-A30 text13 CODE >317:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/nvm/src/nvm.c
-A34 text13 CODE >320:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/nvm/src/nvm.c
-A38 text13 CODE >323:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/nvm/src/nvm.c
-A40 text13 CODE >326:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/nvm/src/nvm.c
-A42 text13 CODE >331:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/nvm/src/nvm.c
-A44 text13 CODE >332:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/nvm/src/nvm.c
-A48 text13 CODE >333:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/nvm/src/nvm.c
-A4A text13 CODE >334:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/nvm/src/nvm.c
-A4C text13 CODE >337:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/nvm/src/nvm.c
-A4E text13 CODE >341:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/nvm/src/nvm.c
-A58 text13 CODE >344:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/nvm/src/nvm.c
-A5E text13 CODE >345:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/nvm/src/nvm.c
-D8A text12 CODE >48:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/nvm/src/nvm.c
-D8A text12 CODE >50:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/nvm/src/nvm.c
-D96 text12 CODE >51:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/nvm/src/nvm.c
-9AE text11 CODE >193:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
-9AE text11 CODE >195:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
-9B0 text11 CODE >196:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
-9E0 text11 CODE >195:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
-CF8 text10 CODE >200:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
-CF8 text10 CODE >202:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
-D08 text10 CODE >203:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
-D0E text10 CODE >204:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
-D14 text10 CODE >205:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
-A60 text9 CODE >504:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-A60 text9 CODE >507:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-A70 text9 CODE >509:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-A78 text9 CODE >511:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-A9C text9 CODE >512:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-AA6 text9 CODE >513:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-AB4 text8 CODE >240:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/nvm/src/nvm.c
-AB4 text8 CODE >243:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/nvm/src/nvm.c
-ABC text8 CODE >246:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/nvm/src/nvm.c
-AC0 text8 CODE >247:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/nvm/src/nvm.c
-ADC text8 CODE >250:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/nvm/src/nvm.c
-AE4 text8 CODE >253:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/nvm/src/nvm.c
-AE6 text8 CODE >258:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/nvm/src/nvm.c
-AE8 text8 CODE >259:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/nvm/src/nvm.c
-AEC text8 CODE >260:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/nvm/src/nvm.c
-AEE text8 CODE >261:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/nvm/src/nvm.c
-AF0 text8 CODE >264:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/nvm/src/nvm.c
-AF2 text8 CODE >268:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/nvm/src/nvm.c
-AFC text8 CODE >271:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/nvm/src/nvm.c
-B02 text8 CODE >273:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/nvm/src/nvm.c
-B04 text8 CODE >281:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/nvm/src/nvm.c
-954 text7 CODE >489:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-954 text7 CODE >491:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-964 text7 CODE >493:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-966 text7 CODE >495:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-982 text7 CODE >496:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-9A0 text7 CODE >498:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-9AC text7 CODE >499:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-B52 text6 CODE >202:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-B52 text6 CODE >205:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-B66 text6 CODE >206:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-B6C text6 CODE >207:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-B70 text6 CODE >208:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-B84 text6 CODE >209:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-B8A text6 CODE >210:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-B8E text6 CODE >211:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-B94 text6 CODE >212:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-CDA text5 CODE >188:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-CDC text5 CODE >190:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-CE2 text5 CODE >191:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-CE6 text5 CODE >192:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-CEA text5 CODE >193:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-CEE text5 CODE >194:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-CF0 text5 CODE >195:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-CF4 text5 CODE >196:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-CF6 text5 CODE >197:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-D7C text4 CODE >226:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
-D7C text4 CODE >228:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
-D82 text4 CODE >229:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
-D88 text4 CODE >230:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
-EE text3 CODE >317:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-EE text3 CODE >319:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-F2 text3 CODE >321:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-F4 text3 CODE >323:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-102 text3 CODE >324:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-118 text3 CODE >328:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-11C text3 CODE >329:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-138 text3 CODE >334:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-13E text3 CODE >335:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-142 text3 CODE >336:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-146 text3 CODE >337:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-148 text3 CODE >338:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-14E text3 CODE >337:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-156 text3 CODE >339:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-15C text3 CODE >344:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-160 text3 CODE >345:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-166 text3 CODE >346:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-176 text3 CODE >347:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-1A4 text3 CODE >348:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-1AE text3 CODE >349:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-1B4 text3 CODE >350:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-1B6 text3 CODE >352:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-1B6 text3 CODE >357:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-1BA text3 CODE >359:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-1E4 text3 CODE >362:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-22A text3 CODE >366:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-23C text3 CODE >370:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-24C text3 CODE >373:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-268 text3 CODE >374:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-26A text3 CODE >378:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-28C text3 CODE >379:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-28E text3 CODE >380:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-290 text3 CODE >381:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-29C text3 CODE >384:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-2B6 text3 CODE >385:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-2BA text3 CODE >368:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-2C2 text3 CODE >390:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-2C4 text3 CODE >391:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-2C8 text3 CODE >396:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-2CC text3 CODE >398:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-314 text3 CODE >402:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-34E text3 CODE >404:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-392 text3 CODE >408:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-3B4 text3 CODE >409:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-3BE text3 CODE >410:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-3C0 text3 CODE >406:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-3C8 text3 CODE >414:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-3CC text3 CODE >417:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-3D0 text3 CODE >428:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-3D4 text3 CODE >429:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-3D8 text3 CODE >434:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-3DA text3 CODE >435:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-3DC text3 CODE >446:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-3E4 text3 CODE >448:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-3F4 text3 CODE >449:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-41E text3 CODE >450:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-44A text3 CODE >451:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-44C text3 CODE >453:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-450 text3 CODE >460:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-492 text3 CODE >462:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-49A text3 CODE >463:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-4A0 text3 CODE >465:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-4A6 text3 CODE >474:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-4B2 text3 CODE >474:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-4BA text3 CODE >474:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-4C0 text3 CODE >474:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-4C6 text3 CODE >474:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-4CC text3 CODE >474:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-4D2 text3 CODE >477:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-4D6 text3 CODE >480:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-4D6 text3 CODE >482:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-4DA text3 CODE >483:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-4E2 text3 CODE >484:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-8F8 text2 CODE >215:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-8F8 text2 CODE >218:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-8FA text2 CODE >219:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-8FC text2 CODE >220:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-8FE text2 CODE >221:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-900 text2 CODE >222:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-902 text2 CODE >223:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-904 text2 CODE >224:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-906 text2 CODE >227:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-908 text2 CODE >228:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-90A text2 CODE >232:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-90E text2 CODE >233:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-910 text2 CODE >234:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-912 text2 CODE >235:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-914 text2 CODE >236:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-916 text2 CODE >237:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-918 text2 CODE >238:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-91C text2 CODE >239:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-91E text2 CODE >240:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-920 text2 CODE >243:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-922 text2 CODE >246:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-926 text2 CODE >247:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-92A text2 CODE >248:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-92E text2 CODE >249:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-932 text2 CODE >254:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-936 text2 CODE >255:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-938 text2 CODE >258:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-93E text2 CODE >259:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-942 text2 CODE >260:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-946 text2 CODE >262:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-94A text2 CODE >266:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-94E text2 CODE >267:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-950 text2 CODE >270:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-952 text2 CODE >271:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-880 text1 CODE >36:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
-880 text1 CODE >38:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
-882 text1 CODE >39:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
-884 text1 CODE >40:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
-886 text1 CODE >41:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
-888 text1 CODE >43:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
-88C text1 CODE >45:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
-88E text1 CODE >47:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
-894 text1 CODE >49:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
-898 text1 CODE >51:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
-89C text1 CODE >53:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
-8A0 text1 CODE >55:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
-8A4 text1 CODE >57:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
-8A8 text1 CODE >59:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
-8AC text1 CODE >61:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
-8B0 text1 CODE >63:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
-8B4 text1 CODE >65:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
-8B8 text1 CODE >67:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
-8BC text1 CODE >69:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
-8C0 text1 CODE >71:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
-8C4 text1 CODE >74:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
-8C8 text1 CODE >80:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
-8CC text1 CODE >82:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
-8D0 text1 CODE >84:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
-8D4 text1 CODE >86:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
-8D8 text1 CODE >88:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
-8DC text1 CODE >89:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
-8DE text1 CODE >91:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
-8E2 text1 CODE >92:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
-8E6 text1 CODE >93:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
-8EA text1 CODE >94:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
-8EE text1 CODE >95:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
-8F2 text1 CODE >96:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
-8F6 text1 CODE >97:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
-7F0 text0 CODE >274:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-7F0 text0 CODE >276:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-7F4 text0 CODE >277:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-7F8 text0 CODE >278:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-7FC text0 CODE >280:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-80C text0 CODE >281:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-810 text0 CODE >283:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-812 text0 CODE >284:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-814 text0 CODE >286:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-816 text0 CODE >288:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-81C text0 CODE >289:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-828 text0 CODE >291:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-82A text0 CODE >294:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-82C text0 CODE >295:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-830 text0 CODE >291:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-83A text0 CODE >300:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-84E text0 CODE >301:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-858 text0 CODE >302:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-86C text0 CODE >303:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-876 text0 CODE >304:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-87A text0 CODE >305:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-87C text0 CODE >306:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-B06 cinit CODE >17375:C:\Users\matt\AppData\Local\Temp\xcAsbhc.\driver_tmp_1.s
-B06 cinit CODE >17377:C:\Users\matt\AppData\Local\Temp\xcAsbhc.\driver_tmp_1.s
-B06 cinit CODE >17380:C:\Users\matt\AppData\Local\Temp\xcAsbhc.\driver_tmp_1.s
-B06 cinit CODE >17453:C:\Users\matt\AppData\Local\Temp\xcAsbhc.\driver_tmp_1.s
-B0A cinit CODE >17454:C:\Users\matt\AppData\Local\Temp\xcAsbhc.\driver_tmp_1.s
-B0E cinit CODE >17455:C:\Users\matt\AppData\Local\Temp\xcAsbhc.\driver_tmp_1.s
-B0E cinit CODE >17456:C:\Users\matt\AppData\Local\Temp\xcAsbhc.\driver_tmp_1.s
-B10 cinit CODE >17457:C:\Users\matt\AppData\Local\Temp\xcAsbhc.\driver_tmp_1.s
-B12 cinit CODE >17458:C:\Users\matt\AppData\Local\Temp\xcAsbhc.\driver_tmp_1.s
-B14 cinit CODE >17459:C:\Users\matt\AppData\Local\Temp\xcAsbhc.\driver_tmp_1.s
-B16 cinit CODE >17460:C:\Users\matt\AppData\Local\Temp\xcAsbhc.\driver_tmp_1.s
-B18 cinit CODE >17461:C:\Users\matt\AppData\Local\Temp\xcAsbhc.\driver_tmp_1.s
-B1A cinit CODE >17464:C:\Users\matt\AppData\Local\Temp\xcAsbhc.\driver_tmp_1.s
-B1E cinit CODE >17465:C:\Users\matt\AppData\Local\Temp\xcAsbhc.\driver_tmp_1.s
-B20 cinit CODE >17466:C:\Users\matt\AppData\Local\Temp\xcAsbhc.\driver_tmp_1.s
-B20 cinit CODE >17467:C:\Users\matt\AppData\Local\Temp\xcAsbhc.\driver_tmp_1.s
-B22 cinit CODE >17468:C:\Users\matt\AppData\Local\Temp\xcAsbhc.\driver_tmp_1.s
-B24 cinit CODE >17469:C:\Users\matt\AppData\Local\Temp\xcAsbhc.\driver_tmp_1.s
-B26 cinit CODE >17472:C:\Users\matt\AppData\Local\Temp\xcAsbhc.\driver_tmp_1.s
-B2A cinit CODE >17473:C:\Users\matt\AppData\Local\Temp\xcAsbhc.\driver_tmp_1.s
-B2C cinit CODE >17474:C:\Users\matt\AppData\Local\Temp\xcAsbhc.\driver_tmp_1.s
-B2C cinit CODE >17475:C:\Users\matt\AppData\Local\Temp\xcAsbhc.\driver_tmp_1.s
-B2E cinit CODE >17476:C:\Users\matt\AppData\Local\Temp\xcAsbhc.\driver_tmp_1.s
-B30 cinit CODE >17477:C:\Users\matt\AppData\Local\Temp\xcAsbhc.\driver_tmp_1.s
-B32 cinit CODE >17480:C:\Users\matt\AppData\Local\Temp\xcAsbhc.\driver_tmp_1.s
-B36 cinit CODE >17481:C:\Users\matt\AppData\Local\Temp\xcAsbhc.\driver_tmp_1.s
-B38 cinit CODE >17482:C:\Users\matt\AppData\Local\Temp\xcAsbhc.\driver_tmp_1.s
-B38 cinit CODE >17483:C:\Users\matt\AppData\Local\Temp\xcAsbhc.\driver_tmp_1.s
-B3A cinit CODE >17484:C:\Users\matt\AppData\Local\Temp\xcAsbhc.\driver_tmp_1.s
-B3C cinit CODE >17485:C:\Users\matt\AppData\Local\Temp\xcAsbhc.\driver_tmp_1.s
-B3E cinit CODE >17493:C:\Users\matt\AppData\Local\Temp\xcAsbhc.\driver_tmp_1.s
-B40 cinit CODE >17494:C:\Users\matt\AppData\Local\Temp\xcAsbhc.\driver_tmp_1.s
-B42 cinit CODE >17495:C:\Users\matt\AppData\Local\Temp\xcAsbhc.\driver_tmp_1.s
-B44 cinit CODE >17496:C:\Users\matt\AppData\Local\Temp\xcAsbhc.\driver_tmp_1.s
-B46 cinit CODE >17497:C:\Users\matt\AppData\Local\Temp\xcAsbhc.\driver_tmp_1.s
-B48 cinit CODE >17498:C:\Users\matt\AppData\Local\Temp\xcAsbhc.\driver_tmp_1.s
-B4A cinit CODE >17499:C:\Users\matt\AppData\Local\Temp\xcAsbhc.\driver_tmp_1.s
-B4C cinit CODE >17505:C:\Users\matt\AppData\Local\Temp\xcAsbhc.\driver_tmp_1.s
-B4C cinit CODE >17507:C:\Users\matt\AppData\Local\Temp\xcAsbhc.\driver_tmp_1.s
-B4E cinit CODE >17508:C:\Users\matt\AppData\Local\Temp\xcAsbhc.\driver_tmp_1.s
+AE8 text26 CODE >138:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
+AE8 text26 CODE >140:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
+AEC text26 CODE >145:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
+AF0 text26 CODE >146:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
+AF6 text26 CODE >147:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
+B06 text26 CODE >148:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
+B10 text26 CODE >149:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
+B14 text26 CODE >151:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
+B18 text26 CODE >155:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
+B18 text26 CODE >157:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
+B1C text26 CODE >160:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
+B80 text25 CODE >100:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
+B80 text25 CODE >102:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
+B86 text25 CODE >104:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
+B88 text25 CODE >105:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
+B8A text25 CODE >107:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
+B9C text25 CODE >108:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
+BA6 text25 CODE >109:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
+BAA text25 CODE >111:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
+BAC text25 CODE >112:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
+BEA text24 CODE >189:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+BEC text24 CODE >191:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+BF2 text24 CODE >192:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+BF6 text24 CODE >193:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+BFA text24 CODE >194:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+BFE text24 CODE >195:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+C00 text24 CODE >196:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+C04 text24 CODE >197:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+C06 text24 CODE >198:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+4C8 text23 CODE >125:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+4DC text23 CODE >127:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+4E0 text23 CODE >129:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+4E2 text23 CODE >130:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+4E6 text23 CODE >132:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+4F8 text23 CODE >133:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+4FC text23 CODE >135:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+4FE text23 CODE >136:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+506 text23 CODE >143:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+512 text23 CODE >145:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+534 text23 CODE >147:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+53E text23 CODE >149:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+550 text23 CODE >150:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+552 text23 CODE >151:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+55C text23 CODE >153:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+560 text23 CODE >155:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+56A text23 CODE >157:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+56E text23 CODE >158:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+570 text23 CODE >161:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+574 text23 CODE >162:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+574 text23 CODE >163:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+578 text23 CODE >165:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+57A text23 CODE >166:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+57E text23 CODE >167:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+580 text23 CODE >168:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+582 text23 CODE >169:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+582 text23 CODE >170:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+588 text23 CODE >172:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+58A text23 CODE >173:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+58E text23 CODE >174:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+590 text23 CODE >176:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+596 text23 CODE >178:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+59A text23 CODE >180:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+5A0 text23 CODE >182:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+5A4 text23 CODE >184:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+C08 text22 CODE >37:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/system/src/clock.c
+C08 text22 CODE >41:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/system/src/clock.c
+C0E text22 CODE >43:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/system/src/clock.c
+C12 text22 CODE >45:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/system/src/clock.c
+C16 text22 CODE >47:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/system/src/clock.c
+C1A text22 CODE >49:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/system/src/clock.c
+C1E text22 CODE >51:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/system/src/clock.c
+C22 text22 CODE >52:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/system/src/clock.c
+5BA text21 CODE >38:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/system/src/pins.c
+5BA text21 CODE >43:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/system/src/pins.c
+5BE text21 CODE >44:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/system/src/pins.c
+5C2 text21 CODE >45:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/system/src/pins.c
+5C6 text21 CODE >46:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/system/src/pins.c
+5CA text21 CODE >47:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/system/src/pins.c
+5CE text21 CODE >52:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/system/src/pins.c
+5D2 text21 CODE >53:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/system/src/pins.c
+5D6 text21 CODE >54:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/system/src/pins.c
+5DA text21 CODE >55:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/system/src/pins.c
+5DC text21 CODE >56:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/system/src/pins.c
+5E0 text21 CODE >61:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/system/src/pins.c
+5E6 text21 CODE >62:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/system/src/pins.c
+5EA text21 CODE >63:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/system/src/pins.c
+5EE text21 CODE >64:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/system/src/pins.c
+5F2 text21 CODE >65:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/system/src/pins.c
+5F6 text21 CODE >70:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/system/src/pins.c
+5FA text21 CODE >71:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/system/src/pins.c
+5FE text21 CODE >72:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/system/src/pins.c
+602 text21 CODE >73:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/system/src/pins.c
+604 text21 CODE >74:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/system/src/pins.c
+608 text21 CODE >79:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/system/src/pins.c
+60E text21 CODE >80:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/system/src/pins.c
+612 text21 CODE >81:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/system/src/pins.c
+616 text21 CODE >82:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/system/src/pins.c
+61A text21 CODE >87:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/system/src/pins.c
+620 text21 CODE >88:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/system/src/pins.c
+624 text21 CODE >89:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/system/src/pins.c
+628 text21 CODE >90:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/system/src/pins.c
+62C text21 CODE >91:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/system/src/pins.c
+630 text21 CODE >96:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/system/src/pins.c
+634 text21 CODE >97:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/system/src/pins.c
+636 text21 CODE >98:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/system/src/pins.c
+63A text21 CODE >99:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/system/src/pins.c
+63C text21 CODE >100:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/system/src/pins.c
+640 text21 CODE >105:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/system/src/pins.c
+644 text21 CODE >106:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/system/src/pins.c
+648 text21 CODE >107:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/system/src/pins.c
+64C text21 CODE >108:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/system/src/pins.c
+650 text21 CODE >109:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/system/src/pins.c
+654 text21 CODE >113:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/system/src/pins.c
+65A text21 CODE >114:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/system/src/pins.c
+65E text21 CODE >115:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/system/src/pins.c
+662 text21 CODE >116:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/system/src/pins.c
+666 text21 CODE >117:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/system/src/pins.c
+66A text21 CODE >118:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/system/src/pins.c
+66E text21 CODE >123:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/system/src/pins.c
+674 text21 CODE >124:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/system/src/pins.c
+678 text21 CODE >125:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/system/src/pins.c
+67C text21 CODE >126:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/system/src/pins.c
+680 text21 CODE >127:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/system/src/pins.c
+684 text21 CODE >128:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/system/src/pins.c
+688 text21 CODE >129:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/system/src/pins.c
+68C text21 CODE >130:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/system/src/pins.c
+690 text21 CODE >131:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/system/src/pins.c
+694 text21 CODE >132:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/system/src/pins.c
+698 text21 CODE >133:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/system/src/pins.c
+69C text21 CODE >134:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/system/src/pins.c
+6A0 text21 CODE >137:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/system/src/pins.c
+C5A text20 CODE >135:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/timer/src/tmr0.c
+C5A text20 CODE >137:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/timer/src/tmr0.c
+C62 text20 CODE >138:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/timer/src/tmr0.c
+B1E text19 CODE >54:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/timer/src/tmr0.c
+B1E text19 CODE >57:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/timer/src/tmr0.c
+B24 text19 CODE >60:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/timer/src/tmr0.c
+B28 text19 CODE >63:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/timer/src/tmr0.c
+B2C text19 CODE >66:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/timer/src/tmr0.c
+B38 text19 CODE >69:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/timer/src/tmr0.c
+B44 text19 CODE >72:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/timer/src/tmr0.c
+B46 text19 CODE >75:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/timer/src/tmr0.c
+B48 text19 CODE >78:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/timer/src/tmr0.c
+B4E text19 CODE >79:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/timer/src/tmr0.c
+C4C text18 CODE >41:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/system/src/system.c
+C4C text18 CODE >43:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/system/src/system.c
+C50 text18 CODE >44:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/system/src/system.c
+C54 text18 CODE >47:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/system/src/system.c
+C58 text18 CODE >50:C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/system/src/system.c
+9A6 text17 CODE >565:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+9A8 text17 CODE >568:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+9AC text17 CODE >569:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+9C8 text17 CODE >572:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+9D2 text17 CODE >575:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+9D4 text17 CODE >580:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+9D6 text17 CODE >581:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+9DC text17 CODE >582:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+9DE text17 CODE >583:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+9E0 text17 CODE >586:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+9E2 text17 CODE >590:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+9E4 text17 CODE >593:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+9EA text17 CODE >594:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+B50 text16 CODE >120:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
+B52 text16 CODE >122:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
+B58 text16 CODE >123:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
+B5A text16 CODE >124:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
+B6A text16 CODE >125:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
+B74 text16 CODE >126:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
+B78 text16 CODE >128:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
+B7A text16 CODE >129:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
+B7C text16 CODE >130:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
+B7E text16 CODE >131:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
+AAE text15 CODE >207:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
+AB0 text15 CODE >211:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
+AB8 text15 CODE >212:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
+ABE text15 CODE >213:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
+AC2 text15 CODE >215:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
+AC6 text15 CODE >216:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
+ACC text15 CODE >217:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
+AD2 text15 CODE >218:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
+AD8 text15 CODE >219:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
+ADC text15 CODE >221:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
+AE0 text15 CODE >222:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
+AE6 text15 CODE >223:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
+C24 text14 CODE >232:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
+C24 text14 CODE >234:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
+C2A text14 CODE >235:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
+C30 text14 CODE >236:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
+C36 text14 CODE >237:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
+C3C text14 CODE >238:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
+6A2 text13 CODE >543:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+6A2 text13 CODE >545:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+6A6 text13 CODE >547:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+6A8 text13 CODE >548:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+6B4 text13 CODE >549:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+6C0 text13 CODE >553:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+708 text13 CODE >555:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+70A text13 CODE >556:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+710 text13 CODE >558:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+71C text13 CODE >560:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+A30 text12 CODE >528:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+A30 text12 CODE >530:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+A36 text12 CODE >534:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+A52 text12 CODE >532:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+A6E text12 CODE >536:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+A72 text12 CODE >538:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+A74 text11 CODE >599:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+A76 text11 CODE >602:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+A7A text11 CODE >603:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+A7E text11 CODE >604:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+A82 text11 CODE >607:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+A86 text11 CODE >610:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+A90 text11 CODE >613:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+A92 text11 CODE >618:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+A94 text11 CODE >619:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+A9A text11 CODE >620:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+A9C text11 CODE >621:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+A9E text11 CODE >624:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+AA0 text11 CODE >628:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+AA2 text11 CODE >631:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+AA8 text11 CODE >633:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+862 text10 CODE >193:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
+862 text10 CODE >195:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
+864 text10 CODE >196:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
+894 text10 CODE >195:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
+BCC text9 CODE >200:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
+BCC text9 CODE >202:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
+BDC text9 CODE >203:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
+BE2 text9 CODE >204:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
+BE8 text9 CODE >205:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
+90C text8 CODE >508:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+90C text8 CODE >511:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+91C text8 CODE >513:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+92C text8 CODE >515:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+930 text8 CODE >516:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+936 text8 CODE >520:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+93C text8 CODE >521:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+948 text8 CODE >522:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+94A text8 CODE >523:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+950 text8 CODE >524:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+8BC text7 CODE >492:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+8BC text7 CODE >495:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+8CC text7 CODE >497:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+8CE text7 CODE >499:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+8EA text7 CODE >500:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+8FE text7 CODE >502:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+90A text7 CODE >503:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+9EC text6 CODE >203:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+9EC text6 CODE >206:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+A00 text6 CODE >207:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+A06 text6 CODE >208:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+A0A text6 CODE >209:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+A1E text6 CODE >210:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+A24 text6 CODE >211:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+A28 text6 CODE >212:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+A2E text6 CODE >213:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+BAE text5 CODE >189:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+BB0 text5 CODE >191:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+BB6 text5 CODE >192:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+BBA text5 CODE >193:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+BBE text5 CODE >194:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+BC2 text5 CODE >195:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+BC4 text5 CODE >196:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+BC8 text5 CODE >197:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+BCA text5 CODE >198:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+C3E text4 CODE >226:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
+C3E text4 CODE >228:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
+C44 text4 CODE >229:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
+C4A text4 CODE >230:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
+EE text3 CODE >318:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+EE text3 CODE >320:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+F2 text3 CODE >322:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+F4 text3 CODE >324:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+102 text3 CODE >326:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+118 text3 CODE >331:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+11C text3 CODE >332:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+138 text3 CODE >337:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+13E text3 CODE >338:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+142 text3 CODE >339:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+146 text3 CODE >340:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+148 text3 CODE >341:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+14E text3 CODE >340:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+156 text3 CODE >342:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+15C text3 CODE >347:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+160 text3 CODE >348:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+166 text3 CODE >349:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+176 text3 CODE >350:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+1A4 text3 CODE >351:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+1AE text3 CODE >352:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+1B4 text3 CODE >353:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+1B6 text3 CODE >355:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+1B6 text3 CODE >360:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+1BA text3 CODE >362:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+1E4 text3 CODE >365:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+22A text3 CODE >369:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+23C text3 CODE >373:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+24C text3 CODE >376:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+268 text3 CODE >377:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+26A text3 CODE >381:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+28C text3 CODE >382:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+28E text3 CODE >383:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+290 text3 CODE >384:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+29C text3 CODE >387:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+2B6 text3 CODE >388:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+2BA text3 CODE >371:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+2C2 text3 CODE >393:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+2C4 text3 CODE >394:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+2C8 text3 CODE >399:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+2CC text3 CODE >401:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+314 text3 CODE >406:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+34E text3 CODE >408:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+392 text3 CODE >412:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+39A text3 CODE >413:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+3A6 text3 CODE >414:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+3A8 text3 CODE >410:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+3B0 text3 CODE >418:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+3B4 text3 CODE >421:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+3B8 text3 CODE >432:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+3BC text3 CODE >437:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+3BE text3 CODE >438:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+3C0 text3 CODE >449:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+3C8 text3 CODE >451:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+3D8 text3 CODE >452:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+402 text3 CODE >453:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+42E text3 CODE >454:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+430 text3 CODE >456:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+434 text3 CODE >463:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+476 text3 CODE >465:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+47E text3 CODE >466:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+484 text3 CODE >468:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+48A text3 CODE >477:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+496 text3 CODE >477:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+49E text3 CODE >477:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+4A4 text3 CODE >477:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+4AA text3 CODE >477:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+4B0 text3 CODE >477:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+4B6 text3 CODE >480:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+4BA text3 CODE >483:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+4BA text3 CODE >485:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+4BE text3 CODE >486:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+4C6 text3 CODE >487:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+802 text2 CODE >216:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+802 text2 CODE >218:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+806 text2 CODE >221:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+808 text2 CODE >222:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+80A text2 CODE >223:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+80C text2 CODE >224:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+80E text2 CODE >225:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+810 text2 CODE >226:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+812 text2 CODE >227:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+814 text2 CODE >230:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+816 text2 CODE >231:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+818 text2 CODE >235:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+81C text2 CODE >236:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+81E text2 CODE >237:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+820 text2 CODE >238:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+822 text2 CODE >239:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+824 text2 CODE >240:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+826 text2 CODE >241:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+82A text2 CODE >242:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+82C text2 CODE >243:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+82E text2 CODE >246:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+830 text2 CODE >249:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+834 text2 CODE >250:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+838 text2 CODE >251:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+83C text2 CODE >252:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+840 text2 CODE >257:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+844 text2 CODE >258:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+846 text2 CODE >261:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+84C text2 CODE >262:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+850 text2 CODE >263:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+854 text2 CODE >265:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+858 text2 CODE >269:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+85C text2 CODE >270:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+85E text2 CODE >273:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+860 text2 CODE >274:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+71E text1 CODE >36:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
+71E text1 CODE >38:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
+720 text1 CODE >39:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
+722 text1 CODE >40:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
+724 text1 CODE >41:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
+726 text1 CODE >43:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
+72A text1 CODE >45:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
+72C text1 CODE >47:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
+732 text1 CODE >49:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
+736 text1 CODE >51:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
+73A text1 CODE >53:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
+73E text1 CODE >55:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
+742 text1 CODE >57:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
+746 text1 CODE >59:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
+74A text1 CODE >61:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
+74E text1 CODE >63:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
+752 text1 CODE >65:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
+756 text1 CODE >67:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
+75A text1 CODE >69:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
+75E text1 CODE >71:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
+762 text1 CODE >74:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
+766 text1 CODE >80:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
+76A text1 CODE >82:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
+76E text1 CODE >84:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
+772 text1 CODE >86:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
+776 text1 CODE >88:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
+77A text1 CODE >89:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
+77C text1 CODE >91:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
+780 text1 CODE >92:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
+784 text1 CODE >93:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
+788 text1 CODE >94:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
+78C text1 CODE >95:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
+790 text1 CODE >96:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
+794 text1 CODE >97:C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
+796 text0 CODE >277:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+796 text0 CODE >279:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+79A text0 CODE >280:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+79E text0 CODE >282:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+7A2 text0 CODE >284:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+7B2 text0 CODE >285:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+7B6 text0 CODE >287:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+7B8 text0 CODE >288:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+7BA text0 CODE >290:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+7BC text0 CODE >292:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+7C2 text0 CODE >294:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+7C4 text0 CODE >297:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+7C6 text0 CODE >298:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+7CA text0 CODE >294:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+7D4 text0 CODE >303:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+7E4 text0 CODE >304:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+7EA text0 CODE >305:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+7F6 text0 CODE >306:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+7FC text0 CODE >307:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+7FE text0 CODE >308:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+95A cinit CODE >14961:C:\Users\matt\AppData\Local\Temp\xcAs2g4.\driver_tmp_1.s
+95A cinit CODE >14963:C:\Users\matt\AppData\Local\Temp\xcAs2g4.\driver_tmp_1.s
+95A cinit CODE >14966:C:\Users\matt\AppData\Local\Temp\xcAs2g4.\driver_tmp_1.s
+95A cinit CODE >15029:C:\Users\matt\AppData\Local\Temp\xcAs2g4.\driver_tmp_1.s
+95E cinit CODE >15030:C:\Users\matt\AppData\Local\Temp\xcAs2g4.\driver_tmp_1.s
+962 cinit CODE >15031:C:\Users\matt\AppData\Local\Temp\xcAs2g4.\driver_tmp_1.s
+962 cinit CODE >15032:C:\Users\matt\AppData\Local\Temp\xcAs2g4.\driver_tmp_1.s
+964 cinit CODE >15033:C:\Users\matt\AppData\Local\Temp\xcAs2g4.\driver_tmp_1.s
+966 cinit CODE >15034:C:\Users\matt\AppData\Local\Temp\xcAs2g4.\driver_tmp_1.s
+968 cinit CODE >15035:C:\Users\matt\AppData\Local\Temp\xcAs2g4.\driver_tmp_1.s
+96A cinit CODE >15036:C:\Users\matt\AppData\Local\Temp\xcAs2g4.\driver_tmp_1.s
+96C cinit CODE >15037:C:\Users\matt\AppData\Local\Temp\xcAs2g4.\driver_tmp_1.s
+96E cinit CODE >15040:C:\Users\matt\AppData\Local\Temp\xcAs2g4.\driver_tmp_1.s
+972 cinit CODE >15041:C:\Users\matt\AppData\Local\Temp\xcAs2g4.\driver_tmp_1.s
+974 cinit CODE >15042:C:\Users\matt\AppData\Local\Temp\xcAs2g4.\driver_tmp_1.s
+974 cinit CODE >15043:C:\Users\matt\AppData\Local\Temp\xcAs2g4.\driver_tmp_1.s
+976 cinit CODE >15044:C:\Users\matt\AppData\Local\Temp\xcAs2g4.\driver_tmp_1.s
+978 cinit CODE >15045:C:\Users\matt\AppData\Local\Temp\xcAs2g4.\driver_tmp_1.s
+97A cinit CODE >15048:C:\Users\matt\AppData\Local\Temp\xcAs2g4.\driver_tmp_1.s
+97E cinit CODE >15049:C:\Users\matt\AppData\Local\Temp\xcAs2g4.\driver_tmp_1.s
+980 cinit CODE >15050:C:\Users\matt\AppData\Local\Temp\xcAs2g4.\driver_tmp_1.s
+980 cinit CODE >15051:C:\Users\matt\AppData\Local\Temp\xcAs2g4.\driver_tmp_1.s
+982 cinit CODE >15052:C:\Users\matt\AppData\Local\Temp\xcAs2g4.\driver_tmp_1.s
+984 cinit CODE >15053:C:\Users\matt\AppData\Local\Temp\xcAs2g4.\driver_tmp_1.s
+986 cinit CODE >15056:C:\Users\matt\AppData\Local\Temp\xcAs2g4.\driver_tmp_1.s
+98A cinit CODE >15057:C:\Users\matt\AppData\Local\Temp\xcAs2g4.\driver_tmp_1.s
+98C cinit CODE >15058:C:\Users\matt\AppData\Local\Temp\xcAs2g4.\driver_tmp_1.s
+98C cinit CODE >15059:C:\Users\matt\AppData\Local\Temp\xcAs2g4.\driver_tmp_1.s
+98E cinit CODE >15060:C:\Users\matt\AppData\Local\Temp\xcAs2g4.\driver_tmp_1.s
+990 cinit CODE >15061:C:\Users\matt\AppData\Local\Temp\xcAs2g4.\driver_tmp_1.s
+992 cinit CODE >15069:C:\Users\matt\AppData\Local\Temp\xcAs2g4.\driver_tmp_1.s
+994 cinit CODE >15070:C:\Users\matt\AppData\Local\Temp\xcAs2g4.\driver_tmp_1.s
+996 cinit CODE >15071:C:\Users\matt\AppData\Local\Temp\xcAs2g4.\driver_tmp_1.s
+998 cinit CODE >15072:C:\Users\matt\AppData\Local\Temp\xcAs2g4.\driver_tmp_1.s
+99A cinit CODE >15073:C:\Users\matt\AppData\Local\Temp\xcAs2g4.\driver_tmp_1.s
+99C cinit CODE >15074:C:\Users\matt\AppData\Local\Temp\xcAs2g4.\driver_tmp_1.s
+99E cinit CODE >15075:C:\Users\matt\AppData\Local\Temp\xcAs2g4.\driver_tmp_1.s
+9A0 cinit CODE >15081:C:\Users\matt\AppData\Local\Temp\xcAs2g4.\driver_tmp_1.s
+9A0 cinit CODE >15083:C:\Users\matt\AppData\Local\Temp\xcAs2g4.\driver_tmp_1.s
+9A2 cinit CODE >15084:C:\Users\matt\AppData\Local\Temp\xcAs2g4.\driver_tmp_1.s
 $build/default/production/powerup.o
 1C powerup CODE >11:C:\Users\matt\MPLABXProjects\bootloader.X\powerup.asm
 1E powerup CODE >13:C:\Users\matt\MPLABXProjects\bootloader.X\powerup.asm
@@ -755,7 +709,6 @@ BE powerup CODE >110:C:\Users\matt\MPLABXProjects\bootloader.X\powerup.asm
 %SYMTAB
 _SPI1SCKPPS 26A 0 ABS 0 - dist/default/production\bootloader.X.production.o
 _SPI1SDIPPS 26B 0 ABS 0 - dist/default/production\bootloader.X.production.o
-__end_of_NVM_UnlockKeySet DB6 0 CODE 0 text28 dist/default/production\bootloader.X.production.o
 __Lmediumconst 0 0 MEDIUMCONST 0 mediumconst dist/default/production\bootloader.X.production.o
 i1update_status@status 501 0 COMRAM 1 cstackCOMRAM dist/default/production\bootloader.X.production.o
 __Hspace_0 3700 0 ABS 0 - dist/default/production\bootloader.X.production.o
@@ -763,22 +716,16 @@ __Hspace_1 800 0 ABS 0 - dist/default/production\bootloader.X.production.o
 __Hspace_2 0 0 ABS 0 - dist/default/production\bootloader.X.production.o
 __Hspace_3 0 0 ABS 0 - dist/default/production\bootloader.X.production.o
 __Hspace_4 600023 0 ABS 0 - dist/default/production\bootloader.X.production.o
-EEPROM_Write@data 50E 0 COMRAM 1 cstackCOMRAM dist/default/production\bootloader.X.production.o
-_unlockKeyLow 53C 0 COMRAM 1 bssCOMRAM dist/default/production\bootloader.X.production.o
-_timeout 533 0 COMRAM 1 bssCOMRAM dist/default/production\bootloader.X.production.o
+_timeout 529 0 COMRAM 1 bssCOMRAM dist/default/production\bootloader.X.production.o
 __Hibigdata 0 0 CODE 0 ibigdata dist/default/production\bootloader.X.production.o
-_usart_put_short D7C 0 CODE 0 text4 dist/default/production\bootloader.X.production.o
+_usart_put_short C3E 0 CODE 0 text4 dist/default/production\bootloader.X.production.o
 __Heeprom_data 0 0 EEDATA 0 eeprom_data dist/default/production\bootloader.X.production.o
-_pic_init 8F8 0 CODE 0 text2 dist/default/production\bootloader.X.production.o
-_TBLPTRH 4F7 0 ABS 0 - dist/default/production\bootloader.X.production.o
-_TBLPTRL 4F6 0 ABS 0 - dist/default/production\bootloader.X.production.o
-_TBLPTRU 4F8 0 ABS 0 - dist/default/production\bootloader.X.production.o
+_pic_init 802 0 CODE 0 text2 dist/default/production\bootloader.X.production.o
 __Hudata_bank5 0 0 ABS 0 udata_bank5 dist/default/production\bootloader.X.production.o
 __Hudata_bank6 0 0 ABS 0 udata_bank6 dist/default/production\bootloader.X.production.o
 __Hudata_bank7 0 0 ABS 0 udata_bank7 dist/default/production\bootloader.X.production.o
 __Hudata_bank8 0 0 ABS 0 udata_bank8 dist/default/production\bootloader.X.production.o
 __Hudata_bank9 0 0 ABS 0 udata_bank9 dist/default/production\bootloader.X.production.o
-FLASH_RowWrite@address 509 0 COMRAM 1 cstackCOMRAM dist/default/production\bootloader.X.production.o
 __L__absolute__ 0 0 ABS 0 __absolute__ dist/default/production\bootloader.X.production.o
 __Lsmallconst 0 0 SMALLCONST 0 smallconst dist/default/production\bootloader.X.production.o
 _BUFX 700 0 BANK7 1 bssBANK7 dist/default/production\bootloader.X.production.o
@@ -792,44 +739,38 @@ _WPUB 409 0 ABS 0 - dist/default/production\bootloader.X.production.o
 _WPUC 411 0 ABS 0 - dist/default/production\bootloader.X.production.o
 _WPUD 419 0 ABS 0 - dist/default/production\bootloader.X.production.o
 _WPUE 421 0 ABS 0 - dist/default/production\bootloader.X.production.o
-___sp 0 0 STACK 2 stack C:\Users\matt\AppData\Local\Temp\xcAsbhc.\driver_tmp_9.o
-_addr 525 0 COMRAM 1 bssCOMRAM dist/default/production\bootloader.X.production.o
-_fsr2 52F 0 COMRAM 1 bssCOMRAM dist/default/production\bootloader.X.production.o
-_main 7F0 0 CODE 0 text0 dist/default/production\bootloader.X.production.o
-_type 530 0 COMRAM 1 bssCOMRAM dist/default/production\bootloader.X.production.o
-___stack_hi 0 0 STACK 2 stack C:\Users\matt\AppData\Local\Temp\xcAsbhc.\driver_tmp_9.o
-___stack_lo 0 0 STACK 2 stack C:\Users\matt\AppData\Local\Temp\xcAsbhc.\driver_tmp_9.o
-start C0 0 CODE 0 init C:\Users\matt\AppData\Local\Temp\xcAsbhc.\driver_tmp_9.o
-__end_of_pic_init 954 0 CODE 0 text2 dist/default/production\bootloader.X.production.o
+___sp 0 0 STACK 2 stack C:\Users\matt\AppData\Local\Temp\xcAs2g4.\driver_tmp_9.o
+_addr 51F 0 COMRAM 1 bssCOMRAM dist/default/production\bootloader.X.production.o
+_fsr2 525 0 COMRAM 1 bssCOMRAM dist/default/production\bootloader.X.production.o
+_main 796 0 CODE 0 text0 dist/default/production\bootloader.X.production.o
+_type 526 0 COMRAM 1 bssCOMRAM dist/default/production\bootloader.X.production.o
+___stack_hi 0 0 STACK 2 stack C:\Users\matt\AppData\Local\Temp\xcAs2g4.\driver_tmp_9.o
+___stack_lo 0 0 STACK 2 stack C:\Users\matt\AppData\Local\Temp\xcAs2g4.\driver_tmp_9.o
+start C0 0 CODE 0 init C:\Users\matt\AppData\Local\Temp\xcAs2g4.\driver_tmp_9.o
+__end_of_pic_init 862 0 CODE 0 text2 dist/default/production\bootloader.X.production.o
 read_byte@hi 509 0 COMRAM 1 cstackCOMRAM dist/default/production\bootloader.X.production.o
 read_byte@lo 50A 0 COMRAM 1 cstackCOMRAM dist/default/production\bootloader.X.production.o
 __HbssCOMRAM 0 0 ABS 0 bssCOMRAM dist/default/production\bootloader.X.production.o
-EEPROM_Write@address 50B 0 COMRAM 1 cstackCOMRAM dist/default/production\bootloader.X.production.o
-_TMR0_OverflowCallback 542 0 COMRAM 1 nvCOMRAM dist/default/production\bootloader.X.production.o
+__end_of_do_write_ee AAE 0 CODE 0 text11 dist/default/production\bootloader.X.production.o
+_TMR0_OverflowCallback 536 0 COMRAM 1 nvCOMRAM dist/default/production\bootloader.X.production.o
 _boot_version 6 0 CODE 0 _boot_version_text dist/default/production\bootloader.X.production.o
-_NVM_Initialize DB6 0 CODE 0 text25 dist/default/production\bootloader.X.production.o
-__end_of_NVM_UnlockKeyClear DA2 0 CODE 0 text20 dist/default/production\bootloader.X.production.o
-FLASH_PageErase@address 509 0 COMRAM 1 cstackCOMRAM dist/default/production\bootloader.X.production.o
-_NVM_IsBusy D8A 0 CODE 0 text12 dist/default/production\bootloader.X.production.o
 __Hpowerup C0 0 CODE 0 powerup dist/default/production\bootloader.X.production.o
 _TMR0_Stop 0 0 ABS 0 - dist/default/production\bootloader.X.production.o
 __end_of_Timer0 D0 0 CONST 0 const dist/default/production\bootloader.X.production.o
 __LnvCOMRAM 0 0 ABS 0 nvCOMRAM dist/default/production\bootloader.X.production.o
-__accesstop 560 0 ABS 0 - C:\Users\matt\AppData\Local\Temp\xcAsbhc.\driver_tmp_9.o
-intlevel0 0 0 CODE 0 text C:\Users\matt\AppData\Local\Temp\xcAsbhc.\driver_tmp_9.o
-intlevel1 0 0 CODE 0 text C:\Users\matt\AppData\Local\Temp\xcAsbhc.\driver_tmp_9.o
-intlevel2 0 0 CODE 0 text C:\Users\matt\AppData\Local\Temp\xcAsbhc.\driver_tmp_9.o
-intlevel3 0 0 CODE 0 text C:\Users\matt\AppData\Local\Temp\xcAsbhc.\driver_tmp_9.o
+__accesstop 560 0 ABS 0 - C:\Users\matt\AppData\Local\Temp\xcAs2g4.\driver_tmp_9.o
+intlevel0 0 0 CODE 0 text C:\Users\matt\AppData\Local\Temp\xcAs2g4.\driver_tmp_9.o
+intlevel1 0 0 CODE 0 text C:\Users\matt\AppData\Local\Temp\xcAs2g4.\driver_tmp_9.o
+intlevel2 0 0 CODE 0 text C:\Users\matt\AppData\Local\Temp\xcAs2g4.\driver_tmp_9.o
+intlevel3 0 0 CODE 0 text C:\Users\matt\AppData\Local\Temp\xcAs2g4.\driver_tmp_9.o
 __LbssCOMRAM 0 0 ABS 0 bssCOMRAM dist/default/production\bootloader.X.production.o
-__end_of_usart_put_hex C14 0 CODE 0 text17 dist/default/production\bootloader.X.production.o
-__end_of_usart_puts2_r D16 0 CODE 0 text10 dist/default/production\bootloader.X.production.o
+__end_of_usart_put_hex AE8 0 CODE 0 text15 dist/default/production\bootloader.X.production.o
+__end_of_usart_puts2_r BEA 0 CODE 0 text9 dist/default/production\bootloader.X.production.o
 __LnvFARRAM 0 0 FARRAM 0 nvFARRAM dist/default/production\bootloader.X.production.o
-_FLASH_RowWrite 6BE 0 CODE 0 text19 dist/default/production\bootloader.X.production.o
 __p_boot_version_text 6 0 CODE 0 _boot_version_text dist/default/production\bootloader.X.production.o
 __Hifardata 0 0 CODE 0 ifardata dist/default/production\bootloader.X.production.o
-_erase_eeprom A60 0 CODE 0 text9 dist/default/production\bootloader.X.production.o
+_erase_eeprom 90C 0 CODE 0 text8 dist/default/production\bootloader.X.production.o
 __Hclrtext 0 0 ABS 0 clrtext dist/default/production\bootloader.X.production.o
-_NVM_UnlockKeyClear D98 0 CODE 0 text20 dist/default/production\bootloader.X.production.o
 _U1ERRIE 2B3 0 ABS 0 - dist/default/production\bootloader.X.production.o
 _U1ERRIR 2B2 0 ABS 0 - dist/default/production\bootloader.X.production.o
 ivt0x8_base 8 0 CODE 0 ivt0x8 dist/default/production\bootloader.X.production.o
@@ -844,27 +785,22 @@ _ANSELB 408 0 ABS 0 - dist/default/production\bootloader.X.production.o
 _ANSELC 410 0 ABS 0 - dist/default/production\bootloader.X.production.o
 _ANSELD 418 0 ABS 0 - dist/default/production\bootloader.X.production.o
 _ANSELE 420 0 ABS 0 - dist/default/production\bootloader.X.production.o
-___inthi_sp 0 0 STACK 2 stack C:\Users\matt\AppData\Local\Temp\xcAsbhc.\driver_tmp_9.o
-___intlo_sp 0 0 STACK 2 stack C:\Users\matt\AppData\Local\Temp\xcAsbhc.\driver_tmp_9.o
-_tx_count 53A 0 COMRAM 1 bssCOMRAM dist/default/production\bootloader.X.production.o
-__end_of_NVM_Initialize DBC 0 CODE 0 text25 dist/default/production\bootloader.X.production.o
+___inthi_sp 0 0 STACK 2 stack C:\Users\matt\AppData\Local\Temp\xcAs2g4.\driver_tmp_9.o
+___intlo_sp 0 0 STACK 2 stack C:\Users\matt\AppData\Local\Temp\xcAs2g4.\driver_tmp_9.o
+_tx_count 530 0 COMRAM 1 bssCOMRAM dist/default/production\bootloader.X.production.o
 _TMR0_DefaultOverflowCallback 0 0 ABS 0 - dist/default/production\bootloader.X.production.o
-_discard 534 0 COMRAM 1 bssCOMRAM dist/default/production\bootloader.X.production.o
+_discard 52A 0 COMRAM 1 bssCOMRAM dist/default/production\bootloader.X.production.o
 __Lintsave_regs 0 0 BIGRAM 1 intsave_regs dist/default/production\bootloader.X.production.o
-__end_of_NVM_IsBusy D98 0 CODE 0 text12 dist/default/production\bootloader.X.production.o
-_usart_puts_r 9AE 0 CODE 0 text11 dist/default/production\bootloader.X.production.o
-FLASH_RowWrite@flashDataCount 511 0 COMRAM 1 cstackCOMRAM dist/default/production\bootloader.X.production.o
+_usart_puts_r 862 0 CODE 0 text10 dist/default/production\bootloader.X.production.o
 __Hmediumconst 0 0 MEDIUMCONST 0 mediumconst dist/default/production\bootloader.X.production.o
 __end_of_boot_version 8 0 CODE 0 _boot_version_text dist/default/production\bootloader.X.production.o
-__end_of_b_last BDA 0 CODE 0 text14 dist/default/production\bootloader.X.production.o
-__end_of_FLASH_PageErase B06 0 CODE 0 text8 dist/default/production\bootloader.X.production.o
-__end_of_FLASH_RowWrite 75C 0 CODE 0 text19 dist/default/production\bootloader.X.production.o
+__end_of_b_last A74 0 CODE 0 text12 dist/default/production\bootloader.X.production.o
 _INLVLA 404 0 ABS 0 - dist/default/production\bootloader.X.production.o
 _INLVLB 40C 0 ABS 0 - dist/default/production\bootloader.X.production.o
 _INLVLC 414 0 ABS 0 - dist/default/production\bootloader.X.production.o
 _INLVLD 41C 0 ABS 0 - dist/default/production\bootloader.X.production.o
 _INLVLE 424 0 ABS 0 - dist/default/production\bootloader.X.production.o
-__end_of_update_status CF8 0 CODE 0 text5 dist/default/production\bootloader.X.production.o
+__end_of_update_status BCC 0 CODE 0 text5 dist/default/production\bootloader.X.production.o
 __Hudata_bank10 0 0 ABS 0 udata_bank10 dist/default/production\bootloader.X.production.o
 __Hudata_bank11 0 0 ABS 0 udata_bank11 dist/default/production\bootloader.X.production.o
 __Hudata_bank12 0 0 ABS 0 udata_bank12 dist/default/production\bootloader.X.production.o
@@ -913,18 +849,15 @@ __Hudata_bank54 0 0 ABS 0 udata_bank54 dist/default/production\bootloader.X.prod
 __L_boot_version_text 6 0 CODE 0 _boot_version_text dist/default/production\bootloader.X.production.o
 __HnvCOMRAM 0 0 ABS 0 nvCOMRAM dist/default/production\bootloader.X.production.o
 _INTCON0bits 4D6 0 ABS 0 - dist/default/production\bootloader.X.production.o
-_PIN_MANAGER_Initialize 5D6 0 CODE 0 text24 dist/default/production\bootloader.X.production.o
-FLASH_RowWrite@dataBuffer 50C 0 COMRAM 1 cstackCOMRAM dist/default/production\bootloader.X.production.o
-_NVMADR 43 0 ABS 0 - dist/default/production\bootloader.X.production.o
-start_initialization B06 0 CODE 0 cinit dist/default/production\bootloader.X.production.o
+_PIN_MANAGER_Initialize 5BA 0 CODE 0 text21 dist/default/production\bootloader.X.production.o
+start_initialization 95A 0 CODE 0 cinit dist/default/production\bootloader.X.production.o
 _ODCONA 402 0 ABS 0 - dist/default/production\bootloader.X.production.o
 _ODCONB 40A 0 ABS 0 - dist/default/production\bootloader.X.production.o
 _ODCONC 412 0 ABS 0 - dist/default/production\bootloader.X.production.o
 _ODCOND 41A 0 ABS 0 - dist/default/production\bootloader.X.production.o
 _ODCONE 422 0 ABS 0 - dist/default/production\bootloader.X.production.o
-EEPROM_Write@globalInterruptBitValue 512 0 COMRAM 1 cstackCOMRAM dist/default/production\bootloader.X.production.o
 _OSCFRQ B1 0 ABS 0 - dist/default/production\bootloader.X.production.o
-__end_of_erase_eeprom AB4 0 CODE 0 text9 dist/default/production\bootloader.X.production.o
+__end_of_erase_eeprom 95A 0 CODE 0 text8 dist/default/production\bootloader.X.production.o
 __HnvFARRAM 0 0 FARRAM 0 nvFARRAM dist/default/production\bootloader.X.production.o
 _TRISAbits 4C6 0 ABS 0 - dist/default/production\bootloader.X.production.o
 _TRISBbits 4C7 0 ABS 0 - dist/default/production\bootloader.X.production.o
@@ -938,17 +871,15 @@ _RC3PPS 214 0 ABS 0 - dist/default/production\bootloader.X.production.o
 _RC4I2C 286 0 ABS 0 - dist/default/production\bootloader.X.production.o
 _RC5PPS 216 0 ABS 0 - dist/default/production\bootloader.X.production.o
 _RC6PPS 217 0 ABS 0 - dist/default/production\bootloader.X.production.o
-__end_of_SYSTEM_Initialize D7C 0 CODE 0 text21 dist/default/production\bootloader.X.production.o
+__end_of_SYSTEM_Initialize C5A 0 CODE 0 text18 dist/default/production\bootloader.X.production.o
 usart_put_hex@c 50A 0 COMRAM 1 cstackCOMRAM dist/default/production\bootloader.X.production.o
 usart_put_hex@x 50B 0 COMRAM 1 cstackCOMRAM dist/default/production\bootloader.X.production.o
-__end_of_NVM_StatusClear DC2 0 CODE 0 text26 dist/default/production\bootloader.X.production.o
-_rx_count 537 0 COMRAM 1 bssCOMRAM dist/default/production\bootloader.X.production.o
+_rx_count 52D 0 COMRAM 1 bssCOMRAM dist/default/production\bootloader.X.production.o
 _T0CON0 31A 0 ABS 0 - dist/default/production\bootloader.X.production.o
 _T0CON1 31B 0 ABS 0 - dist/default/production\bootloader.X.production.o
 _IPR3bits 365 0 ABS 0 - dist/default/production\bootloader.X.production.o
 _IPR4bits 366 0 ABS 0 - dist/default/production\bootloader.X.production.o
 _IPR6bits 368 0 ABS 0 - dist/default/production\bootloader.X.production.o
-_TABLAT 4F5 0 ABS 0 - dist/default/production\bootloader.X.production.o
 _U1BRGH 2AF 0 ABS 0 - dist/default/production\bootloader.X.production.o
 _U1BRGL 2AE 0 ABS 0 - dist/default/production\bootloader.X.production.o
 _U1CON0 2AB 0 ABS 0 - dist/default/production\bootloader.X.production.o
@@ -957,10 +888,9 @@ _U1CON2 2AD 0 ABS 0 - dist/default/production\bootloader.X.production.o
 _U1FIFO 2B0 0 ABS 0 - dist/default/production\bootloader.X.production.o
 _TRISB6 263E 0 ABS 0 - dist/default/production\bootloader.X.production.o
 _TRISB7 263F 0 ABS 0 - dist/default/production\bootloader.X.production.o
-_FLASH_PageErase AB4 0 CODE 0 text8 dist/default/production\bootloader.X.production.o
 _Timer0 C4 0 CONST 0 const dist/default/production\bootloader.X.production.o
-isa$xinst 0 0 ABS 0 - C:\Users\matt\AppData\Local\Temp\xcAsbhc.\driver_tmp_9.o
-__end_of_usart_puts_r A08 0 CODE 0 text11 dist/default/production\bootloader.X.production.o
+isa$xinst 0 0 ABS 0 - C:\Users\matt\AppData\Local\Temp\xcAs2g4.\driver_tmp_9.o
+__end_of_usart_puts_r 8BC 0 CODE 0 text10 dist/default/production\bootloader.X.production.o
 __Hbank5 0 0 ABS 0 bank5 dist/default/production\bootloader.X.production.o
 __Hbank6 0 0 ABS 0 bank6 dist/default/production\bootloader.X.production.o
 __Hbank7 0 0 ABS 0 bank7 dist/default/production\bootloader.X.production.o
@@ -989,7 +919,6 @@ __Hudata 0 0 ABS 0 udata dist/default/production\bootloader.X.production.o
 _NVMADRH 44 0 ABS 0 - dist/default/production\bootloader.X.production.o
 _NVMADRL 43 0 ABS 0 - dist/default/production\bootloader.X.production.o
 _NVMADRU 45 0 ABS 0 - dist/default/production\bootloader.X.production.o
-_NVMDATH 47 0 ABS 0 - dist/default/production\bootloader.X.production.o
 _NVMDATL 46 0 ABS 0 - dist/default/production\bootloader.X.production.o
 _NVMLOCK 42 0 ABS 0 - dist/default/production\bootloader.X.production.o
 __Hbank10 0 0 ABS 0 bank10 dist/default/production\bootloader.X.production.o
@@ -1042,7 +971,7 @@ __Hbigram 0 0 ABS 0 bigram dist/default/production\bootloader.X.production.o
 __Hbigsfr 0 0 ABS 0 bigsfr dist/default/production\bootloader.X.production.o
 __Hcomram 0 0 ABS 0 comram dist/default/production\bootloader.X.production.o
 __Hconfig 300023 0 CONFIG 4 config dist/default/production\bootloader.X.production.o
-_boot_int_lo 4E4 0 CODE 0 text29 dist/default/production\bootloader.X.production.o
+_boot_int_lo 4C8 0 CODE 0 text23 dist/default/production\bootloader.X.production.o
 __Lbank5 0 0 ABS 0 bank5 dist/default/production\bootloader.X.production.o
 __Lbank6 0 0 ABS 0 bank6 dist/default/production\bootloader.X.production.o
 __Lbank7 0 0 ABS 0 bank7 dist/default/production\bootloader.X.production.o
@@ -1068,13 +997,14 @@ __Ltext7 0 0 ABS 0 text7 dist/default/production\bootloader.X.production.o
 __Ltext8 0 0 ABS 0 text8 dist/default/production\bootloader.X.production.o
 __Ltext9 0 0 ABS 0 text9 dist/default/production\bootloader.X.production.o
 __Ludata 0 0 ABS 0 udata dist/default/production\bootloader.X.production.o
-b_process@status 524 0 COMRAM 1 cstackCOMRAM dist/default/production\bootloader.X.production.o
+b_process@status 51E 0 COMRAM 1 cstackCOMRAM dist/default/production\bootloader.X.production.o
 __Hfarbss 0 0 FARRAM 0 farbss dist/default/production\bootloader.X.production.o
+do_write_ee@data 509 0 COMRAM 1 cstackCOMRAM dist/default/production\bootloader.X.production.o
 _PORTAbits 4CE 0 ABS 0 - dist/default/production\bootloader.X.production.o
-_erase_flash 954 0 CODE 0 text7 dist/default/production\bootloader.X.production.o
+_erase_flash 8BC 0 CODE 0 text7 dist/default/production\bootloader.X.production.o
 _PORTBbits 4CF 0 ABS 0 - dist/default/production\bootloader.X.production.o
-_usart_init 880 0 CODE 0 text1 dist/default/production\bootloader.X.production.o
-_usart_send C7C 0 CODE 0 text18 dist/default/production\bootloader.X.production.o
+_usart_init 71E 0 CODE 0 text1 dist/default/production\bootloader.X.production.o
+_usart_send B50 0 CODE 0 text16 dist/default/production\bootloader.X.production.o
 __Habs1 0 0 ABS 0 abs1 dist/default/production\bootloader.X.production.o
 __Hcode 0 0 ABS 0 code dist/default/production\bootloader.X.production.o
 __Hdata 0 0 ABS 0 data dist/default/production\bootloader.X.production.o
@@ -1093,32 +1023,30 @@ __Lrbit 0 0 COMRAM 1 rbit dist/default/production\bootloader.X.production.o
 __Lrbss 0 0 COMRAM 1 rbss dist/default/production\bootloader.X.production.o
 __Ltemp 0 0 COMRAM 1 temp dist/default/production\bootloader.X.production.o
 __Ltext 0 0 ABS 0 text dist/default/production\bootloader.X.production.o
-_b_write_block 75C 0 CODE 0 text15 dist/default/production\bootloader.X.production.o
-_NVM_StatusClear DBC 0 CODE 0 text26 dist/default/production\bootloader.X.production.o
+_b_write_block 6A2 0 CODE 0 text13 dist/default/production\bootloader.X.production.o
 __HcstackCOMRAM 0 0 ABS 0 cstackCOMRAM dist/default/production\bootloader.X.production.o
 __Hirdata 0 0 CODE 0 irdata dist/default/production\bootloader.X.production.o
-__S0 DC2 0 ABS 0 - dist/default/production\bootloader.X.production.o
+__S0 C64 0 ABS 0 - dist/default/production\bootloader.X.production.o
 __S1 800 0 ABS 0 - dist/default/production\bootloader.X.production.o
 __S3 0 0 ABS 0 - dist/default/production\bootloader.X.production.o
 __S4 0 0 ABS 0 - dist/default/production\bootloader.X.production.o
 __S5 0 0 ABS 0 - dist/default/production\bootloader.X.production.o
-_crc 540 0 COMRAM 1 nvCOMRAM dist/default/production\bootloader.X.production.o
+_crc 534 0 COMRAM 1 nvCOMRAM dist/default/production\bootloader.X.production.o
 __Hivt0x8 1C 0 CODE 0 ivt0x8 dist/default/production\bootloader.X.production.o
 usart_puts2_r@str 50D 0 COMRAM 1 cstackCOMRAM dist/default/production\bootloader.X.production.o
-_CLOCK_Initialize D34 0 CODE 0 text27 dist/default/production\bootloader.X.production.o
-FLASH_RowWrite@bufferRamPtr 514 0 COMRAM 1 cstackCOMRAM dist/default/production\bootloader.X.production.o
-_serial_rx_int C14 0 CODE 0 text32 dist/default/production\bootloader.X.production.o
+_CLOCK_Initialize C08 0 CODE 0 text22 dist/default/production\bootloader.X.production.o
+_serial_rx_int AE8 0 CODE 0 text26 dist/default/production\bootloader.X.production.o
 IVTBASEH 45E 0 ABS 0 - dist/default/production\bootloader.X.production.o
 IVTBASEL 45D 0 ABS 0 - dist/default/production\bootloader.X.production.o
 IVTBASEU 45F 0 ABS 0 - dist/default/production\bootloader.X.production.o
-_b_last B96 0 CODE 0 text14 dist/default/production\bootloader.X.production.o
-__pnvCOMRAM 540 0 COMRAM 1 nvCOMRAM dist/default/production\bootloader.X.production.o
+_b_last A30 0 CODE 0 text12 dist/default/production\bootloader.X.production.o
+__pnvCOMRAM 534 0 COMRAM 1 nvCOMRAM dist/default/production\bootloader.X.production.o
 _SPI1BAUD 89 0 ABS 0 - dist/default/production\bootloader.X.production.o
 _SPI1CON0 84 0 ABS 0 - dist/default/production\bootloader.X.production.o
 _SPI1CON1 85 0 ABS 0 - dist/default/production\bootloader.X.production.o
 _SPI1CON2 86 0 ABS 0 - dist/default/production\bootloader.X.production.o
 _serial_in 600 0 BANK6 1 bssBANK6 dist/default/production\bootloader.X.production.o
-_serial_tx_int CAC 0 CODE 0 text31 dist/default/production\bootloader.X.production.o
+_serial_tx_int B80 0 CODE 0 text25 dist/default/production\bootloader.X.production.o
 __pivt0x8 8 0 CODE 0 ivt0x8 dist/default/production\bootloader.X.production.o
 __H_boot_version_text 8 0 CODE 0 _boot_version_text dist/default/production\bootloader.X.production.o
 __Ludata_bank10 0 0 ABS 0 udata_bank10 dist/default/production\bootloader.X.production.o
@@ -1168,14 +1096,11 @@ __Ludata_bank53 0 0 ABS 0 udata_bank53 dist/default/production\bootloader.X.prod
 __Ludata_bank54 0 0 ABS 0 udata_bank54 dist/default/production\bootloader.X.production.o
 __Lbigdata 0 0 BIGRAM 1 bigdata dist/default/production\bootloader.X.production.o
 __Hnvrram 0 0 COMRAM 1 nvrram dist/default/production\bootloader.X.production.o
-_SYSTEM_Initialize D6A 0 CODE 0 text21 dist/default/production\bootloader.X.production.o
-_EEPROM_Write A08 0 CODE 0 text13 dist/default/production\bootloader.X.production.o
-_usart_put_long D50 0 CODE 0 text16 dist/default/production\bootloader.X.production.o
+_SYSTEM_Initialize C4C 0 CODE 0 text18 dist/default/production\bootloader.X.production.o
+_usart_put_long C24 0 CODE 0 text14 dist/default/production\bootloader.X.production.o
 __Hramtop 3700 0 RAM 0 ramtop dist/default/production\bootloader.X.production.o
 __Hrparam 0 0 COMRAM 1 rparam dist/default/production\bootloader.X.production.o
 TMR0_OverflowCallbackRegister@CallbackHandler 509 0 COMRAM 1 cstackCOMRAM dist/default/production\bootloader.X.production.o
-erase_eeprom@addr 516 0 COMRAM 1 cstackCOMRAM dist/default/production\bootloader.X.production.o
-_UART1_TxInterruptHandler 52D 0 COMRAM 1 bssCOMRAM dist/default/production\bootloader.X.production.o
 __activetblptr 3 0 ABS 0 - dist/default/production\bootloader.X.production.o
 __Hstruct 0 0 COMRAM 1 struct dist/default/production\bootloader.X.production.o
 __LbssBANK5 0 0 ABS 0 bssBANK5 dist/default/production\bootloader.X.production.o
@@ -1198,43 +1123,31 @@ __Htext23 0 0 ABS 0 text23 dist/default/production\bootloader.X.production.o
 __Htext24 0 0 ABS 0 text24 dist/default/production\bootloader.X.production.o
 __Htext25 0 0 ABS 0 text25 dist/default/production\bootloader.X.production.o
 __Htext26 0 0 ABS 0 text26 dist/default/production\bootloader.X.production.o
-__Htext27 0 0 ABS 0 text27 dist/default/production\bootloader.X.production.o
-__Htext28 0 0 ABS 0 text28 dist/default/production\bootloader.X.production.o
-__Htext29 0 0 ABS 0 text29 dist/default/production\bootloader.X.production.o
-__Htext30 0 0 ABS 0 text30 dist/default/production\bootloader.X.production.o
-__Htext31 0 0 ABS 0 text31 dist/default/production\bootloader.X.production.o
-__Htext32 0 0 ABS 0 text32 dist/default/production\bootloader.X.production.o
 _PIE3bits 4A1 0 ABS 0 - dist/default/production\bootloader.X.production.o
 _PIE4bits 4A2 0 ABS 0 - dist/default/production\bootloader.X.production.o
 _PIE6bits 4A4 0 ABS 0 - dist/default/production\bootloader.X.production.o
-__end_of_usart_init 8F8 0 CODE 0 text1 dist/default/production\bootloader.X.production.o
-__end_of_usart_send CAC 0 CODE 0 text18 dist/default/production\bootloader.X.production.o
-__ptext10 CF8 0 CODE 0 text10 dist/default/production\bootloader.X.production.o
-__ptext11 9AE 0 CODE 0 text11 dist/default/production\bootloader.X.production.o
-__ptext12 D8A 0 CODE 0 text12 dist/default/production\bootloader.X.production.o
-__ptext13 A08 0 CODE 0 text13 dist/default/production\bootloader.X.production.o
-__ptext14 B96 0 CODE 0 text14 dist/default/production\bootloader.X.production.o
-__ptext15 75C 0 CODE 0 text15 dist/default/production\bootloader.X.production.o
-__ptext16 D50 0 CODE 0 text16 dist/default/production\bootloader.X.production.o
-__ptext17 BDA 0 CODE 0 text17 dist/default/production\bootloader.X.production.o
-__ptext18 C7C 0 CODE 0 text18 dist/default/production\bootloader.X.production.o
-__ptext19 6BE 0 CODE 0 text19 dist/default/production\bootloader.X.production.o
-__ptext20 D98 0 CODE 0 text20 dist/default/production\bootloader.X.production.o
-__ptext21 D6A 0 CODE 0 text21 dist/default/production\bootloader.X.production.o
-__ptext22 C4A 0 CODE 0 text22 dist/default/production\bootloader.X.production.o
-__ptext23 DA2 0 CODE 0 text23 dist/default/production\bootloader.X.production.o
-__ptext24 5D6 0 CODE 0 text24 dist/default/production\bootloader.X.production.o
-__ptext25 DB6 0 CODE 0 text25 dist/default/production\bootloader.X.production.o
-__ptext26 DBC 0 CODE 0 text26 dist/default/production\bootloader.X.production.o
-__ptext27 D34 0 CODE 0 text27 dist/default/production\bootloader.X.production.o
-__ptext28 DAC 0 CODE 0 text28 dist/default/production\bootloader.X.production.o
-__ptext29 4E4 0 CODE 0 text29 dist/default/production\bootloader.X.production.o
-__ptext30 D16 0 CODE 0 text30 dist/default/production\bootloader.X.production.o
-__ptext31 CAC 0 CODE 0 text31 dist/default/production\bootloader.X.production.o
-__ptext32 C14 0 CODE 0 text32 dist/default/production\bootloader.X.production.o
-__end_of_PIN_MANAGER_Initialize 6BE 0 CODE 0 text24 dist/default/production\bootloader.X.production.o
-__end_of_TMR0_Initialize C7C 0 CODE 0 text22 dist/default/production\bootloader.X.production.o
-_TMR0_OverflowCallbackRegister DA2 0 CODE 0 text23 dist/default/production\bootloader.X.production.o
+__end_of_usart_init 796 0 CODE 0 text1 dist/default/production\bootloader.X.production.o
+__end_of_usart_send B80 0 CODE 0 text16 dist/default/production\bootloader.X.production.o
+__ptext10 862 0 CODE 0 text10 dist/default/production\bootloader.X.production.o
+__ptext11 A74 0 CODE 0 text11 dist/default/production\bootloader.X.production.o
+__ptext12 A30 0 CODE 0 text12 dist/default/production\bootloader.X.production.o
+__ptext13 6A2 0 CODE 0 text13 dist/default/production\bootloader.X.production.o
+__ptext14 C24 0 CODE 0 text14 dist/default/production\bootloader.X.production.o
+__ptext15 AAE 0 CODE 0 text15 dist/default/production\bootloader.X.production.o
+__ptext16 B50 0 CODE 0 text16 dist/default/production\bootloader.X.production.o
+__ptext17 9A6 0 CODE 0 text17 dist/default/production\bootloader.X.production.o
+__ptext18 C4C 0 CODE 0 text18 dist/default/production\bootloader.X.production.o
+__ptext19 B1E 0 CODE 0 text19 dist/default/production\bootloader.X.production.o
+__ptext20 C5A 0 CODE 0 text20 dist/default/production\bootloader.X.production.o
+__ptext21 5BA 0 CODE 0 text21 dist/default/production\bootloader.X.production.o
+__ptext22 C08 0 CODE 0 text22 dist/default/production\bootloader.X.production.o
+__ptext23 4C8 0 CODE 0 text23 dist/default/production\bootloader.X.production.o
+__ptext24 BEA 0 CODE 0 text24 dist/default/production\bootloader.X.production.o
+__ptext25 B80 0 CODE 0 text25 dist/default/production\bootloader.X.production.o
+__ptext26 AE8 0 CODE 0 text26 dist/default/production\bootloader.X.production.o
+__end_of_PIN_MANAGER_Initialize 6A2 0 CODE 0 text21 dist/default/production\bootloader.X.production.o
+__end_of_TMR0_Initialize B50 0 CODE 0 text19 dist/default/production\bootloader.X.production.o
+_TMR0_OverflowCallbackRegister C5A 0 CODE 0 text20 dist/default/production\bootloader.X.production.o
 __Lbank10 0 0 ABS 0 bank10 dist/default/production\bootloader.X.production.o
 __Lbank11 0 0 ABS 0 bank11 dist/default/production\bootloader.X.production.o
 __Lbank12 0 0 ABS 0 bank12 dist/default/production\bootloader.X.production.o
@@ -1288,23 +1201,22 @@ __Lconfig 0 0 CONFIG 4 config dist/default/production\bootloader.X.production.o
 _LATAbits 4BE 0 ABS 0 - dist/default/production\bootloader.X.production.o
 _LATBbits 4BF 0 ABS 0 - dist/default/production\bootloader.X.production.o
 _LATCbits 4C0 0 ABS 0 - dist/default/production\bootloader.X.production.o
-_rx_out 535 0 COMRAM 1 bssCOMRAM dist/default/production\bootloader.X.production.o
+_rx_out 52B 0 COMRAM 1 bssCOMRAM dist/default/production\bootloader.X.production.o
 usart_put_short@x 50C 0 COMRAM 1 cstackCOMRAM dist/default/production\bootloader.X.production.o
 __Lfarbss 0 0 FARRAM 0 farbss dist/default/production\bootloader.X.production.o
-___inthi_stack_hi 0 0 STACK 2 stack C:\Users\matt\AppData\Local\Temp\xcAsbhc.\driver_tmp_9.o
-___inthi_stack_lo 0 0 STACK 2 stack C:\Users\matt\AppData\Local\Temp\xcAsbhc.\driver_tmp_9.o
-_unlockKeyHigh 53B 0 COMRAM 1 bssCOMRAM dist/default/production\bootloader.X.production.o
+___inthi_stack_hi 0 0 STACK 2 stack C:\Users\matt\AppData\Local\Temp\xcAs2g4.\driver_tmp_9.o
+___inthi_stack_lo 0 0 STACK 2 stack C:\Users\matt\AppData\Local\Temp\xcAs2g4.\driver_tmp_9.o
 __Lfardata 0 0 FARRAM 0 fardata dist/default/production\bootloader.X.production.o
-isa$std 1 0 ABS 0 - C:\Users\matt\AppData\Local\Temp\xcAsbhc.\driver_tmp_9.o
-__end_of_usart_put_long D6A 0 CODE 0 text16 dist/default/production\bootloader.X.production.o
-_tblptr 53D 0 COMRAM 1 bssCOMRAM dist/default/production\bootloader.X.production.o
-__end_of_CLOCK_Initialize D50 0 CODE 0 text27 dist/default/production\bootloader.X.production.o
-__end_of_b_process 4E4 0 CODE 0 text3 dist/default/production\bootloader.X.production.o
-_tx_out 538 0 COMRAM 1 bssCOMRAM dist/default/production\bootloader.X.production.o
+isa$std 1 0 ABS 0 - C:\Users\matt\AppData\Local\Temp\xcAs2g4.\driver_tmp_9.o
+__end_of_usart_put_long C3E 0 CODE 0 text14 dist/default/production\bootloader.X.production.o
+_tblptr 531 0 COMRAM 1 bssCOMRAM dist/default/production\bootloader.X.production.o
+__end_of_CLOCK_Initialize C24 0 CODE 0 text22 dist/default/production\bootloader.X.production.o
+__end_of_b_process 4C8 0 CODE 0 text3 dist/default/production\bootloader.X.production.o
+_tx_out 52E 0 COMRAM 1 bssCOMRAM dist/default/production\bootloader.X.production.o
 usart_puts_r@str 50A 0 COMRAM 1 cstackCOMRAM dist/default/production\bootloader.X.production.o
-FLASH_RowWrite@globalInterruptBitValue 513 0 COMRAM 1 cstackCOMRAM dist/default/production\bootloader.X.production.o
-stackhi 0 0 ABS 0 - C:\Users\matt\AppData\Local\Temp\xcAsbhc.\driver_tmp_9.o
-stacklo 0 0 ABS 0 - C:\Users\matt\AppData\Local\Temp\xcAsbhc.\driver_tmp_9.o
+_do_write_ee A74 0 CODE 0 text11 dist/default/production\bootloader.X.production.o
+stackhi 0 0 ABS 0 - C:\Users\matt\AppData\Local\Temp\xcAs2g4.\driver_tmp_9.o
+stacklo 0 0 ABS 0 - C:\Users\matt\AppData\Local\Temp\xcAs2g4.\driver_tmp_9.o
 _OSCCON1 AD 0 ABS 0 - dist/default/production\bootloader.X.production.o
 _OSCCON3 AF 0 ABS 0 - dist/default/production\bootloader.X.production.o
 _OSCTUNE B0 0 ABS 0 - dist/default/production\bootloader.X.production.o
@@ -1315,41 +1227,41 @@ __Lspace_1 0 0 ABS 0 - dist/default/production\bootloader.X.production.o
 __Lspace_2 0 0 ABS 0 - dist/default/production\bootloader.X.production.o
 __Lspace_3 0 0 ABS 0 - dist/default/production\bootloader.X.production.o
 __Lspace_4 0 0 ABS 0 - dist/default/production\bootloader.X.production.o
-__end_of_EEPROM_Write A60 0 CODE 0 text13 dist/default/production\bootloader.X.production.o
-__pbssCOMRAM 525 0 COMRAM 1 bssCOMRAM dist/default/production\bootloader.X.production.o
-_UART1_RxInterruptHandler 52B 0 COMRAM 1 bssCOMRAM dist/default/production\bootloader.X.production.o
+__pbssCOMRAM 51F 0 COMRAM 1 bssCOMRAM dist/default/production\bootloader.X.production.o
 _PIR3bits 4B1 0 ABS 0 - dist/default/production\bootloader.X.production.o
 _PIR4bits 4B2 0 ABS 0 - dist/default/production\bootloader.X.production.o
 _PIR6bits 4B4 0 ABS 0 - dist/default/production\bootloader.X.production.o
 __LcstackCOMRAM 0 0 ABS 0 cstackCOMRAM dist/default/production\bootloader.X.production.o
 _b_process EE 0 CODE 0 text3 dist/default/production\bootloader.X.production.o
 _SPI1TCNTL 82 0 ABS 0 - dist/default/production\bootloader.X.production.o
-end_of_initialization B4C 0 CODE 0 cinit dist/default/production\bootloader.X.production.o
-_TMR0_Initialize C4A 0 CODE 0 text22 dist/default/production\bootloader.X.production.o
+end_of_initialization 9A0 0 CODE 0 cinit dist/default/production\bootloader.X.production.o
+_TMR0_Initialize B1E 0 CODE 0 text19 dist/default/production\bootloader.X.production.o
 __Lnvrram 0 0 COMRAM 1 nvrram dist/default/production\bootloader.X.production.o
+_do_write 9A6 0 CODE 0 text17 dist/default/production\bootloader.X.production.o
 powerup 1C 0 CODE 0 powerup build/default/production/powerup.o
-__end_of_b_write_block 7F0 0 CODE 0 text15 dist/default/production\bootloader.X.production.o
+__end_of_b_write_block 71E 0 CODE 0 text13 dist/default/production\bootloader.X.production.o
 __Hreset_vec 4 0 CODE 0 reset_vec dist/default/production\bootloader.X.production.o
-_checksum 532 0 COMRAM 1 bssCOMRAM dist/default/production\bootloader.X.production.o
+_checksum 528 0 COMRAM 1 bssCOMRAM dist/default/production\bootloader.X.production.o
 __HbssBANK5 0 0 ABS 0 bssBANK5 dist/default/production\bootloader.X.production.o
 __HbssBANK6 0 0 ABS 0 bssBANK6 dist/default/production\bootloader.X.production.o
 __HbssBANK7 0 0 ABS 0 bssBANK7 dist/default/production\bootloader.X.production.o
 __Lramtop 3700 0 RAM 0 ramtop dist/default/production\bootloader.X.production.o
+__end_of_do_write 9EC 0 CODE 0 text17 dist/default/production\bootloader.X.production.o
 __Lrparam 0 0 COMRAM 1 rparam dist/default/production\bootloader.X.production.o
 _TMR0_Start 0 0 ABS 0 - dist/default/production\bootloader.X.production.o
-__pcinit B06 0 CODE 0 cinit dist/default/production\bootloader.X.production.o
+__pcinit 95A 0 CODE 0 cinit dist/default/production\bootloader.X.production.o
 __pconst C4 0 CONST 0 const dist/default/production\bootloader.X.production.o
-__end_of_serial_rx_int C4A 0 CODE 0 text32 dist/default/production\bootloader.X.production.o
-__ptext0 7F0 0 CODE 0 text0 dist/default/production\bootloader.X.production.o
-__ptext1 880 0 CODE 0 text1 dist/default/production\bootloader.X.production.o
-__ptext2 8F8 0 CODE 0 text2 dist/default/production\bootloader.X.production.o
+__end_of_serial_rx_int B1E 0 CODE 0 text26 dist/default/production\bootloader.X.production.o
+__ptext0 796 0 CODE 0 text0 dist/default/production\bootloader.X.production.o
+__ptext1 71E 0 CODE 0 text1 dist/default/production\bootloader.X.production.o
+__ptext2 802 0 CODE 0 text2 dist/default/production\bootloader.X.production.o
 __ptext3 EE 0 CODE 0 text3 dist/default/production\bootloader.X.production.o
-__ptext4 D7C 0 CODE 0 text4 dist/default/production\bootloader.X.production.o
-__ptext5 CDA 0 CODE 0 text5 dist/default/production\bootloader.X.production.o
-__ptext6 B52 0 CODE 0 text6 dist/default/production\bootloader.X.production.o
-__ptext7 954 0 CODE 0 text7 dist/default/production\bootloader.X.production.o
-__ptext8 AB4 0 CODE 0 text8 dist/default/production\bootloader.X.production.o
-__ptext9 A60 0 CODE 0 text9 dist/default/production\bootloader.X.production.o
+__ptext4 C3E 0 CODE 0 text4 dist/default/production\bootloader.X.production.o
+__ptext5 BAE 0 CODE 0 text5 dist/default/production\bootloader.X.production.o
+__ptext6 9EC 0 CODE 0 text6 dist/default/production\bootloader.X.production.o
+__ptext7 8BC 0 CODE 0 text7 dist/default/production\bootloader.X.production.o
+__ptext8 90C 0 CODE 0 text8 dist/default/production\bootloader.X.production.o
+__ptext9 BCC 0 CODE 0 text9 dist/default/production\bootloader.X.production.o
 usart_put_long@x 50C 0 COMRAM 1 cstackCOMRAM dist/default/production\bootloader.X.production.o
 __Lstruct 0 0 COMRAM 1 struct dist/default/production\bootloader.X.production.o
 __Ltext10 0 0 ABS 0 text10 dist/default/production\bootloader.X.production.o
@@ -1369,14 +1281,8 @@ __Ltext23 0 0 ABS 0 text23 dist/default/production\bootloader.X.production.o
 __Ltext24 0 0 ABS 0 text24 dist/default/production\bootloader.X.production.o
 __Ltext25 0 0 ABS 0 text25 dist/default/production\bootloader.X.production.o
 __Ltext26 0 0 ABS 0 text26 dist/default/production\bootloader.X.production.o
-__Ltext27 0 0 ABS 0 text27 dist/default/production\bootloader.X.production.o
-__Ltext28 0 0 ABS 0 text28 dist/default/production\bootloader.X.production.o
-__Ltext29 0 0 ABS 0 text29 dist/default/production\bootloader.X.production.o
-__Ltext30 0 0 ABS 0 text30 dist/default/production\bootloader.X.production.o
-__Ltext31 0 0 ABS 0 text31 dist/default/production\bootloader.X.production.o
-__Ltext32 0 0 ABS 0 text32 dist/default/production\bootloader.X.production.o
-__ramtop 3700 0 RAM 0 ramtop C:\Users\matt\AppData\Local\Temp\xcAsbhc.\driver_tmp_9.o
-__end_of_serial_tx_int CDA 0 CODE 0 text31 dist/default/production\bootloader.X.production.o
+__ramtop 3700 0 RAM 0 ramtop C:\Users\matt\AppData\Local\Temp\xcAs2g4.\driver_tmp_9.o
+__end_of_serial_tx_int BAE 0 CODE 0 text25 dist/default/production\bootloader.X.production.o
 __Lpowerup 1C 0 CODE 0 powerup dist/default/production\bootloader.X.production.o
 __Leeprom_data 0 0 EEDATA 0 eeprom_data dist/default/production\bootloader.X.production.o
 update_status@status 509 0 COMRAM 1 cstackCOMRAM dist/default/production\bootloader.X.production.o
@@ -1386,43 +1292,43 @@ __Ludata_bank7 0 0 ABS 0 udata_bank7 dist/default/production\bootloader.X.produc
 __Ludata_bank8 0 0 ABS 0 udata_bank8 dist/default/production\bootloader.X.production.o
 __Ludata_bank9 0 0 ABS 0 udata_bank9 dist/default/production\bootloader.X.production.o
 __H__absolute__ 0 0 ABS 0 __absolute__ dist/default/production\bootloader.X.production.o
+do_write@cmd 50C 0 COMRAM 1 cstackCOMRAM dist/default/production\bootloader.X.production.o
 __Lreset_vec 0 0 CODE 0 reset_vec dist/default/production\bootloader.X.production.o
-_NVM_UnlockKeySet DAC 0 CODE 0 text28 dist/default/production\bootloader.X.production.o
-__end_ofi1_update_status D34 0 CODE 0 text30 dist/default/production\bootloader.X.production.o
+__end_ofi1_update_status C08 0 CODE 0 text24 dist/default/production\bootloader.X.production.o
 _SLRCONA 403 0 ABS 0 - dist/default/production\bootloader.X.production.o
 _SLRCONB 40B 0 ABS 0 - dist/default/production\bootloader.X.production.o
 _SLRCONC 413 0 ABS 0 - dist/default/production\bootloader.X.production.o
 _SLRCOND 41B 0 ABS 0 - dist/default/production\bootloader.X.production.o
 _SLRCONE 423 0 ABS 0 - dist/default/production\bootloader.X.production.o
-___heap_hi 0 0 ABS 0 - C:\Users\matt\AppData\Local\Temp\xcAsbhc.\driver_tmp_9.o
-___heap_lo 0 0 ABS 0 - C:\Users\matt\AppData\Local\Temp\xcAsbhc.\driver_tmp_9.o
-__end_of_boot_int_lo 5D6 0 CODE 0 text29 dist/default/production\bootloader.X.production.o
+___heap_hi 0 0 ABS 0 - C:\Users\matt\AppData\Local\Temp\xcAs2g4.\driver_tmp_9.o
+___heap_lo 0 0 ABS 0 - C:\Users\matt\AppData\Local\Temp\xcAs2g4.\driver_tmp_9.o
+__end_of_boot_int_lo 5BA 0 CODE 0 text23 dist/default/production\bootloader.X.production.o
 _boot_version_absaddr 6 0 ABS 0 - dist/default/production\bootloader.X.production.o
 ___param_bank 0 0 ABS 0 - dist/default/production\bootloader.X.production.o
-___intlo_stack_hi 0 0 STACK 2 stack C:\Users\matt\AppData\Local\Temp\xcAsbhc.\driver_tmp_9.o
-___intlo_stack_lo 0 0 STACK 2 stack C:\Users\matt\AppData\Local\Temp\xcAsbhc.\driver_tmp_9.o
+___intlo_stack_hi 0 0 STACK 2 stack C:\Users\matt\AppData\Local\Temp\xcAs2g4.\driver_tmp_9.o
+___intlo_stack_lo 0 0 STACK 2 stack C:\Users\matt\AppData\Local\Temp\xcAs2g4.\driver_tmp_9.o
 __Hbigdata 0 0 BIGRAM 1 bigdata dist/default/production\bootloader.X.production.o
-__end_of__initialization B4C 0 CODE 0 cinit dist/default/production\bootloader.X.production.o
-__end_of_read_byte B96 0 CODE 0 text6 dist/default/production\bootloader.X.production.o
+__end_of__initialization 9A0 0 CODE 0 cinit dist/default/production\bootloader.X.production.o
+__end_of_read_byte A30 0 CODE 0 text6 dist/default/production\bootloader.X.production.o
 __Libigdata 0 0 CODE 0 ibigdata dist/default/production\bootloader.X.production.o
 _NVMCON0bits 40 0 ABS 0 - dist/default/production\bootloader.X.production.o
 _NVMCON1bits 41 0 ABS 0 - dist/default/production\bootloader.X.production.o
-_timerTMR0ReloadVal16bit 529 0 COMRAM 1 bssCOMRAM dist/default/production\bootloader.X.production.o
+_timerTMR0ReloadVal16bit 523 0 COMRAM 1 bssCOMRAM dist/default/production\bootloader.X.production.o
 _TMR0_PeriodCountSet 0 0 ABS 0 - dist/default/production\bootloader.X.production.o
-__end_of_erase_flash 9AE 0 CODE 0 text7 dist/default/production\bootloader.X.production.o
+__end_of_erase_flash 90C 0 CODE 0 text7 dist/default/production\bootloader.X.production.o
 __Lclrtext 0 0 ABS 0 clrtext dist/default/production\bootloader.X.production.o
 _SPI1CLK 8C 0 ABS 0 - dist/default/production\bootloader.X.production.o
 _SPI1RXB 80 0 ABS 0 - dist/default/production\bootloader.X.production.o
 _SPI1TXB 81 0 ABS 0 - dist/default/production\bootloader.X.production.o
-_usart_put_hex BDA 0 CODE 0 text17 dist/default/production\bootloader.X.production.o
-_usart_puts2_r CF8 0 CODE 0 text10 dist/default/production\bootloader.X.production.o
+_usart_put_hex AAE 0 CODE 0 text15 dist/default/production\bootloader.X.production.o
+_usart_puts2_r BCC 0 CODE 0 text9 dist/default/production\bootloader.X.production.o
 _serial_out 560 0 BANK5 1 bssBANK5 dist/default/production\bootloader.X.production.o
 __pcstackCOMRAM 501 0 COMRAM 1 cstackCOMRAM dist/default/production\bootloader.X.production.o
 _T0CON0bits 31A 0 ABS 0 - dist/default/production\bootloader.X.production.o
-_read_byte B52 0 CODE 0 text6 dist/default/production\bootloader.X.production.o
-__end_of_main 880 0 CODE 0 text0 dist/default/production\bootloader.X.production.o
+_read_byte 9EC 0 CODE 0 text6 dist/default/production\bootloader.X.production.o
+__end_of_main 802 0 CODE 0 text0 dist/default/production\bootloader.X.production.o
 __Hudata_acs 0 0 ABS 0 udata_acs dist/default/production\bootloader.X.production.o
-__end_of_usart_put_short D8A 0 CODE 0 text4 dist/default/production\bootloader.X.production.o
+__end_of_usart_put_short C4C 0 CODE 0 text4 dist/default/production\bootloader.X.production.o
 _IOCAF 407 0 ABS 0 - dist/default/production\bootloader.X.production.o
 _IOCAN 406 0 ABS 0 - dist/default/production\bootloader.X.production.o
 _IOCAP 405 0 ABS 0 - dist/default/production\bootloader.X.production.o
@@ -1464,25 +1370,23 @@ __LRAM 1 0 ABS 0 - dist/default/production\bootloader.X.production.o
 __Lbss 0 0 RAM 1 bss dist/default/production\bootloader.X.production.o
 __Lram 0 0 ABS 0 ram dist/default/production\bootloader.X.production.o
 __Lsfr 0 0 ABS 0 sfr dist/default/production\bootloader.X.production.o
-_count 531 0 COMRAM 1 bssCOMRAM dist/default/production\bootloader.X.production.o
-_flags 544 0 COMRAM 1 nvCOMRAM dist/default/production\bootloader.X.production.o
-FLASH_PageErase@globalInterruptBitValue 50F 0 COMRAM 1 cstackCOMRAM dist/default/production\bootloader.X.production.o
-_rx_in 536 0 COMRAM 1 bssCOMRAM dist/default/production\bootloader.X.production.o
-_tx_in 539 0 COMRAM 1 bssCOMRAM dist/default/production\bootloader.X.production.o
-NVM_UnlockKeySet@unlockKey 509 0 COMRAM 1 cstackCOMRAM dist/default/production\bootloader.X.production.o
-i1_update_status D16 0 CODE 0 text30 dist/default/production\bootloader.X.production.o
-__initialization B06 0 CODE 0 cinit dist/default/production\bootloader.X.production.o
+_count 527 0 COMRAM 1 bssCOMRAM dist/default/production\bootloader.X.production.o
+_flags 538 0 COMRAM 1 nvCOMRAM dist/default/production\bootloader.X.production.o
+_rx_in 52C 0 COMRAM 1 bssCOMRAM dist/default/production\bootloader.X.production.o
+_tx_in 52F 0 COMRAM 1 bssCOMRAM dist/default/production\bootloader.X.production.o
+i1_update_status BEA 0 CODE 0 text24 dist/default/production\bootloader.X.production.o
+__initialization 95A 0 CODE 0 cinit dist/default/production\bootloader.X.production.o
 __pbssBANK5 560 0 BANK5 1 bssBANK5 dist/default/production\bootloader.X.production.o
 __pbssBANK6 600 0 BANK6 1 bssBANK6 dist/default/production\bootloader.X.production.o
 __pbssBANK7 700 0 BANK7 1 bssBANK7 dist/default/production\bootloader.X.production.o
 __Hfardata 0 0 FARRAM 0 fardata dist/default/production\bootloader.X.production.o
 __Hsmallconst 0 0 SMALLCONST 0 smallconst dist/default/production\bootloader.X.production.o
-__end_of_TMR0_OverflowCallbackRegister DAC 0 CODE 0 text23 dist/default/production\bootloader.X.production.o
+__end_of_TMR0_OverflowCallbackRegister C64 0 CODE 0 text20 dist/default/production\bootloader.X.production.o
 __Ludata_acs 0 0 ABS 0 udata_acs dist/default/production\bootloader.X.production.o
 __Lifardata 0 0 CODE 0 ifardata dist/default/production\bootloader.X.production.o
 _U1ERRIRbits 2B2 0 ABS 0 - dist/default/production\bootloader.X.production.o
 __Hintsave_regs 0 0 BIGRAM 1 intsave_regs dist/default/production\bootloader.X.production.o
-_update_status CDA 0 CODE 0 text5 dist/default/production\bootloader.X.production.o
+_update_status BAE 0 CODE 0 text5 dist/default/production\bootloader.X.production.o
 # %SPLITSTAB Section
 # This section enumerates all the psect splits performed by the assembler.
 # The beginning of the section is indicated by %SPLITSTAB.
@@ -1509,8 +1413,8 @@ _update_status CDA 0 CODE 0 text5 dist/default/production\bootloader.X.productio
 %SEGMENTS
 ivt0x8 0 8 8 BC 1
 const 0 C4 C4 2A 1
-text3 0 EE EE CD4 1
-cstackCOMRAM 1 501 501 44 1
+text3 0 EE EE B76 1
+cstackCOMRAM 1 501 501 38 1
 reset_vec 0 0 0 4 1
 bssBANK5 1 560 560 80 1
 bssBANK6 1 600 600 80 1

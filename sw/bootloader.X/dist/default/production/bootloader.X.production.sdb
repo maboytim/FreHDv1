@@ -3,37 +3,31 @@
 [d edition pro ]
 [d chip 18F47Q83 ]
 [d frameptr 1249 ]
-"53 C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/nvm/src/nvm.c
-[e E22826 . `uc
-NVM_OK 0
-NVM_ERROR 1
-]
-"496 C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-[e E22829 . `uc
-NVM_OK 0
-NVM_ERROR 1
-]
-"124
+"125 C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
 [v _boot_int_lo boot_int_lo `IIL(v  1 e 1 0 ]
-"188
+"189
 [v _update_status update_status `(v  1 e 1 0 ]
 [v i1_update_status update_status `(v  1 e 1 0 ]
-"202
+"203
 [v _read_byte read_byte `(uc  1 e 1 0 ]
-"215
+"216
 [v _pic_init pic_init `(v  1 e 1 0 ]
-"274
+"277
 [v _main main `(v  1 e 1 0 ]
-"317
+"318
 [v _b_process b_process `(v  1 e 1 0 ]
-"489
+"492
 [v _erase_flash erase_flash `(v  1 e 1 0 ]
-"504
+"508
 [v _erase_eeprom erase_eeprom `(v  1 e 1 0 ]
-"517
+"528
 [v _b_last b_last `(v  1 e 1 0 ]
-"532
+"543
 [v _b_write_block b_write_block `(v  1 e 1 0 ]
+"565
+[v _do_write do_write `(v  1 e 1 0 ]
+"599
+[v _do_write_ee do_write_ee `(v  1 e 1 0 ]
 "4 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\fleq.c
 [v ___fleq __fleq `(b  1 e 0 0 ]
 "62 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\float.c
@@ -58,22 +52,6 @@ NVM_ERROR 1
 [v ___lmul __lmul `(ul  1 e 4 0 ]
 "91 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\Umul64.c
 [v ___omul __omul `(uo  1 e 8 0 ]
-"43 C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/nvm/src/nvm.c
-[v _NVM_Initialize NVM_Initialize `(v  1 e 1 0 ]
-"48
-[v _NVM_IsBusy NVM_IsBusy `(a  1 e 1 0 ]
-"65
-[v _NVM_StatusClear NVM_StatusClear `(v  1 e 1 0 ]
-"70
-[v _NVM_UnlockKeySet NVM_UnlockKeySet `(v  1 e 1 0 ]
-"76
-[v _NVM_UnlockKeyClear NVM_UnlockKeyClear `(v  1 e 1 0 ]
-"183
-[v _FLASH_RowWrite FLASH_RowWrite `(E22826  1 e 1 0 ]
-"240
-[v _FLASH_PageErase FLASH_PageErase `(E22826  1 e 1 0 ]
-"309
-[v _EEPROM_Write EEPROM_Write `(v  1 e 1 0 ]
 "37 C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/system/src/clock.c
 [v _CLOCK_Initialize CLOCK_Initialize `(v  1 e 1 0 ]
 "38 C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/system/src/pins.c
@@ -134,28 +112,26 @@ NVM_ERROR 1
 [v _fsr2 fsr2 `Nuc  1 e 1 0 ]
 "109
 [v _tblptr tblptr `Num  1 e 3 0 ]
-[s S28 . 1 `uc 1 GO 1 0 :1:0 
+[s S964 . 1 `uc 1 GO 1 0 :1:0 
 ]
 "596 C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-Q_DFP/1.24.430/xc8\pic\include\proc\pic18f47q83.h
-[s S30 . 1 `uc 1 NOT_DONE 1 0 :1:0 
+[s S966 . 1 `uc 1 NOT_DONE 1 0 :1:0 
 ]
-[s S32 . 1 `uc 1 nDONE 1 0 :1:0 
+[s S968 . 1 `uc 1 nDONE 1 0 :1:0 
 ]
-[u S34 . 1 `S28 1 . 1 0 `S30 1 . 1 0 `S32 1 . 1 0 ]
-[v _NVMCON0bits NVMCON0bits `VES34  1 e 1 @64 ]
-[s S48 . 1 `uc 1 CMD 1 0 :3:0 
+[u S970 . 1 `S964 1 . 1 0 `S966 1 . 1 0 `S968 1 . 1 0 ]
+[v _NVMCON0bits NVMCON0bits `VES970  1 e 1 @64 ]
+[s S717 . 1 `uc 1 CMD 1 0 :3:0 
 `uc 1 . 1 0 :4:3 
 `uc 1 WRERR 1 0 :1:7 
 ]
 "631
-[s S52 . 1 `uc 1 NVMCMD 1 0 :3:0 
+[s S721 . 1 `uc 1 NVMCMD 1 0 :3:0 
 ]
-[u S54 . 1 `S48 1 . 1 0 `S52 1 . 1 0 ]
-[v _NVMCON1bits NVMCON1bits `VES54  1 e 1 @65 ]
+[u S723 . 1 `S717 1 . 1 0 `S721 1 . 1 0 ]
+[v _NVMCON1bits NVMCON1bits `VES723  1 e 1 @65 ]
 "651
 [v _NVMLOCK NVMLOCK `VEuc  1 e 1 @66 ]
-"672
-[v _NVMADR NVMADR `VEum  1 e 3 @67 ]
 "680
 [v _NVMADRL NVMADRL `VEuc  1 e 1 @67 ]
 "750
@@ -164,9 +140,7 @@ NVM_ERROR 1
 [v _NVMADRU NVMADRU `VEuc  1 e 1 @69 ]
 "885
 [v _NVMDATL NVMDATL `VEuc  1 e 1 @70 ]
-"955
-[v _NVMDATH NVMDATH `VEuc  1 e 1 @71 ]
-[s S308 . 1 `uc 1 SPI1RXIE 1 0 :1:0 
+[s S173 . 1 `uc 1 SPI1RXIE 1 0 :1:0 
 `uc 1 SPI1TXIE 1 0 :1:1 
 `uc 1 SPI1IE 1 0 :1:2 
 `uc 1 TMR2IE 1 0 :1:3 
@@ -176,9 +150,9 @@ NVM_ERROR 1
 `uc 1 TMR0IE 1 0 :1:7 
 ]
 "1487
-[u S317 . 1 `S308 1 . 1 0 ]
-[v _PIE3bits PIE3bits `VES317  1 e 1 @1185 ]
-[s S508 . 1 `uc 1 U1RXIE 1 0 :1:0 
+[u S182 . 1 `S173 1 . 1 0 ]
+[v _PIE3bits PIE3bits `VES182  1 e 1 @1185 ]
+[s S374 . 1 `uc 1 U1RXIE 1 0 :1:0 
 `uc 1 U1TXIE 1 0 :1:1 
 `uc 1 U1EIE 1 0 :1:2 
 `uc 1 U1IE 1 0 :1:3 
@@ -188,9 +162,9 @@ NVM_ERROR 1
 `uc 1 PWM1IE 1 0 :1:7 
 ]
 "1549
-[u S517 . 1 `S508 1 . 1 0 ]
-[v _PIE4bits PIE4bits `VES517  1 e 1 @1186 ]
-[s S947 . 1 `uc 1 INT1IE 1 0 :1:0 
+[u S383 . 1 `S374 1 . 1 0 ]
+[v _PIE4bits PIE4bits `VES383  1 e 1 @1186 ]
+[s S845 . 1 `uc 1 INT1IE 1 0 :1:0 
 `uc 1 CLC2IE 1 0 :1:1 
 `uc 1 CWG1IE 1 0 :1:2 
 `uc 1 NCO1IE 1 0 :1:3 
@@ -200,9 +174,9 @@ NVM_ERROR 1
 `uc 1 DMA2AIE 1 0 :1:7 
 ]
 "1673
-[u S956 . 1 `S947 1 . 1 0 ]
-[v _PIE6bits PIE6bits `VES956  1 e 1 @1188 ]
-[s S287 . 1 `uc 1 SPI1RXIF 1 0 :1:0 
+[u S854 . 1 `S845 1 . 1 0 ]
+[v _PIE6bits PIE6bits `VES854  1 e 1 @1188 ]
+[s S152 . 1 `uc 1 SPI1RXIF 1 0 :1:0 
 `uc 1 SPI1TXIF 1 0 :1:1 
 `uc 1 SPI1IF 1 0 :1:2 
 `uc 1 TMR2IF 1 0 :1:3 
@@ -212,9 +186,9 @@ NVM_ERROR 1
 `uc 1 TMR0IF 1 0 :1:7 
 ]
 "2472
-[u S296 . 1 `S287 1 . 1 0 ]
-[v _PIR3bits PIR3bits `VES296  1 e 1 @1201 ]
-[s S787 . 1 `uc 1 U1RXIF 1 0 :1:0 
+[u S161 . 1 `S152 1 . 1 0 ]
+[v _PIR3bits PIR3bits `VES161  1 e 1 @1201 ]
+[s S669 . 1 `uc 1 U1RXIF 1 0 :1:0 
 `uc 1 U1TXIF 1 0 :1:1 
 `uc 1 U1EIF 1 0 :1:2 
 `uc 1 U1IF 1 0 :1:3 
@@ -224,9 +198,9 @@ NVM_ERROR 1
 `uc 1 PWM1IF 1 0 :1:7 
 ]
 "2534
-[u S796 . 1 `S787 1 . 1 0 ]
-[v _PIR4bits PIR4bits `VES796  1 e 1 @1202 ]
-[s S658 . 1 `uc 1 INT1IF 1 0 :1:0 
+[u S678 . 1 `S669 1 . 1 0 ]
+[v _PIR4bits PIR4bits `VES678  1 e 1 @1202 ]
+[s S540 . 1 `uc 1 INT1IF 1 0 :1:0 
 `uc 1 CLC2IF 1 0 :1:1 
 `uc 1 CWG1IF 1 0 :1:2 
 `uc 1 NCO1IF 1 0 :1:3 
@@ -236,11 +210,11 @@ NVM_ERROR 1
 `uc 1 DMA2AIF 1 0 :1:7 
 ]
 "2658
-[u S667 . 1 `S658 1 . 1 0 ]
-[v _PIR6bits PIR6bits `VES667  1 e 1 @1204 ]
+[u S549 . 1 `S540 1 . 1 0 ]
+[v _PIR6bits PIR6bits `VES549  1 e 1 @1204 ]
 "3246
 [v _LATA LATA `VEuc  1 e 1 @1214 ]
-[s S889 . 1 `uc 1 LATA0 1 0 :1:0 
+[s S787 . 1 `uc 1 LATA0 1 0 :1:0 
 `uc 1 LATA1 1 0 :1:1 
 `uc 1 LATA2 1 0 :1:2 
 `uc 1 LATA3 1 0 :1:3 
@@ -250,11 +224,11 @@ NVM_ERROR 1
 `uc 1 LATA7 1 0 :1:7 
 ]
 "3263
-[u S898 . 1 `S889 1 . 1 0 ]
-[v _LATAbits LATAbits `VES898  1 e 1 @1214 ]
+[u S796 . 1 `S787 1 . 1 0 ]
+[v _LATAbits LATAbits `VES796  1 e 1 @1214 ]
 "3308
 [v _LATB LATB `VEuc  1 e 1 @1215 ]
-[s S709 . 1 `uc 1 LATB0 1 0 :1:0 
+[s S591 . 1 `uc 1 LATB0 1 0 :1:0 
 `uc 1 LATB1 1 0 :1:1 
 `uc 1 LATB2 1 0 :1:2 
 `uc 1 LATB3 1 0 :1:3 
@@ -264,11 +238,11 @@ NVM_ERROR 1
 `uc 1 LATB7 1 0 :1:7 
 ]
 "3325
-[u S718 . 1 `S709 1 . 1 0 ]
-[v _LATBbits LATBbits `VES718  1 e 1 @1215 ]
+[u S600 . 1 `S591 1 . 1 0 ]
+[v _LATBbits LATBbits `VES600  1 e 1 @1215 ]
 "3370
 [v _LATC LATC `VEuc  1 e 1 @1216 ]
-[s S813 . 1 `uc 1 LATC0 1 0 :1:0 
+[s S695 . 1 `uc 1 LATC0 1 0 :1:0 
 `uc 1 LATC1 1 0 :1:1 
 `uc 1 LATC2 1 0 :1:2 
 `uc 1 LATC3 1 0 :1:3 
@@ -278,8 +252,8 @@ NVM_ERROR 1
 `uc 1 LATC7 1 0 :1:7 
 ]
 "3387
-[u S822 . 1 `S813 1 . 1 0 ]
-[v _LATCbits LATCbits `VES822  1 e 1 @1216 ]
+[u S704 . 1 `S695 1 . 1 0 ]
+[v _LATCbits LATCbits `VES704  1 e 1 @1216 ]
 "3432
 [v _LATD LATD `VEuc  1 e 1 @1217 ]
 "3492
@@ -288,7 +262,7 @@ NVM_ERROR 1
 [v _LATE LATE `VEuc  1 e 1 @1218 ]
 "3526
 [v _TRISA TRISA `VEuc  1 e 1 @1222 ]
-[s S835 . 1 `uc 1 TRISA0 1 0 :1:0 
+[s S733 . 1 `uc 1 TRISA0 1 0 :1:0 
 `uc 1 TRISA1 1 0 :1:1 
 `uc 1 TRISA2 1 0 :1:2 
 `uc 1 TRISA3 1 0 :1:3 
@@ -298,13 +272,13 @@ NVM_ERROR 1
 `uc 1 TRISA7 1 0 :1:7 
 ]
 "3543
-[u S844 . 1 `S835 1 . 1 0 ]
-[v _TRISAbits TRISAbits `VES844  1 e 1 @1222 ]
+[u S742 . 1 `S733 1 . 1 0 ]
+[v _TRISAbits TRISAbits `VES742  1 e 1 @1222 ]
 "3562
 [v _SPI1TXB SPI1TXB `VEuc  1 e 1 @129 ]
 "3588
 [v _TRISB TRISB `VEuc  1 e 1 @1223 ]
-[s S856 . 1 `uc 1 TRISB0 1 0 :1:0 
+[s S754 . 1 `uc 1 TRISB0 1 0 :1:0 
 `uc 1 TRISB1 1 0 :1:1 
 `uc 1 TRISB2 1 0 :1:2 
 `uc 1 TRISB3 1 0 :1:3 
@@ -314,13 +288,13 @@ NVM_ERROR 1
 `uc 1 TRISB7 1 0 :1:7 
 ]
 "3605
-[u S865 . 1 `S856 1 . 1 0 ]
-[v _TRISBbits TRISBbits `VES865  1 e 1 @1223 ]
+[u S763 . 1 `S754 1 . 1 0 ]
+[v _TRISBbits TRISBbits `VES763  1 e 1 @1223 ]
 "3639
 [v _SPI1TCNTL SPI1TCNTL `VEuc  1 e 1 @130 ]
 "3650
 [v _TRISC TRISC `VEuc  1 e 1 @1224 ]
-[s S436 . 1 `uc 1 TRISC0 1 0 :1:0 
+[s S302 . 1 `uc 1 TRISC0 1 0 :1:0 
 `uc 1 TRISC1 1 0 :1:1 
 `uc 1 TRISC2 1 0 :1:2 
 `uc 1 TRISC3 1 0 :1:3 
@@ -330,41 +304,41 @@ NVM_ERROR 1
 `uc 1 TRISC7 1 0 :1:7 
 ]
 "3667
-[u S445 . 1 `S436 1 . 1 0 ]
-[v _TRISCbits TRISCbits `VES445  1 e 1 @1224 ]
+[u S311 . 1 `S302 1 . 1 0 ]
+[v _TRISCbits TRISCbits `VES311  1 e 1 @1224 ]
 "3679
 [v _SPI1CON0 SPI1CON0 `VEuc  1 e 1 @132 ]
-[s S997 . 1 `uc 1 BMODE 1 0 :1:0 
+[s S895 . 1 `uc 1 BMODE 1 0 :1:0 
 `uc 1 MST 1 0 :1:1 
 `uc 1 LSBF 1 0 :1:2 
 `uc 1 . 1 0 :4:3 
 `uc 1 EN 1 0 :1:7 
 ]
 "3700
-[s S1003 . 1 `uc 1 SPI1BMODE 1 0 :1:0 
+[s S901 . 1 `uc 1 SPI1BMODE 1 0 :1:0 
 `uc 1 SPI1MST 1 0 :1:1 
 `uc 1 SPI1LSBF 1 0 :1:2 
 `uc 1 . 1 0 :4:3 
 `uc 1 SPI1SPIEN 1 0 :1:7 
 ]
-[u S1009 . 1 `S997 1 . 1 0 `S1003 1 . 1 0 ]
-[v _SPI1CON0bits SPI1CON0bits `VES1009  1 e 1 @132 ]
+[u S907 . 1 `S895 1 . 1 0 `S901 1 . 1 0 ]
+[v _SPI1CON0bits SPI1CON0bits `VES907  1 e 1 @132 ]
 "3712
 [v _TRISD TRISD `VEuc  1 e 1 @1225 ]
 "3745
 [v _SPI1CON1 SPI1CON1 `VEuc  1 e 1 @133 ]
 "3774
 [v _TRISE TRISE `VEuc  1 e 1 @1226 ]
-[s S457 . 1 `uc 1 TRISE0 1 0 :1:0 
+[s S323 . 1 `uc 1 TRISE0 1 0 :1:0 
 `uc 1 TRISE1 1 0 :1:1 
 `uc 1 TRISE2 1 0 :1:2 
 ]
 "3786
-[u S461 . 1 `S457 1 . 1 0 ]
-[v _TRISEbits TRISEbits `VES461  1 e 1 @1226 ]
+[u S327 . 1 `S323 1 . 1 0 ]
+[v _TRISEbits TRISEbits `VES327  1 e 1 @1226 ]
 "3806
 [v _PORTA PORTA `VEuc  1 e 1 @1230 ]
-[s S679 . 1 `uc 1 RA0 1 0 :1:0 
+[s S561 . 1 `uc 1 RA0 1 0 :1:0 
 `uc 1 RA1 1 0 :1:1 
 `uc 1 RA2 1 0 :1:2 
 `uc 1 RA3 1 0 :1:3 
@@ -374,11 +348,11 @@ NVM_ERROR 1
 `uc 1 RA7 1 0 :1:7 
 ]
 "3823
-[u S688 . 1 `S679 1 . 1 0 ]
-[v _PORTAbits PORTAbits `VES688  1 e 1 @1230 ]
+[u S570 . 1 `S561 1 . 1 0 ]
+[v _PORTAbits PORTAbits `VES570  1 e 1 @1230 ]
 "3847
 [v _SPI1CON2 SPI1CON2 `VEuc  1 e 1 @134 ]
-[s S730 . 1 `uc 1 RB0 1 0 :1:0 
+[s S612 . 1 `uc 1 RB0 1 0 :1:0 
 `uc 1 RB1 1 0 :1:1 
 `uc 1 RB2 1 0 :1:2 
 `uc 1 RB3 1 0 :1:3 
@@ -388,13 +362,13 @@ NVM_ERROR 1
 `uc 1 RB7 1 0 :1:7 
 ]
 "3885
-[u S739 . 1 `S730 1 . 1 0 ]
-[v _PORTBbits PORTBbits `VES739  1 e 1 @1231 ]
+[u S621 . 1 `S612 1 . 1 0 ]
+[v _PORTBbits PORTBbits `VES621  1 e 1 @1231 ]
 "3992
 [v _PORTD PORTD `VEuc  1 e 1 @1233 ]
 "4047
 [v _SPI1BAUD SPI1BAUD `VEuc  1 e 1 @137 ]
-[s S71 . 1 `uc 1 INT0EDG 1 0 :1:0 
+[s S395 . 1 `uc 1 INT0EDG 1 0 :1:0 
 `uc 1 INT1EDG 1 0 :1:1 
 `uc 1 INT2EDG 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
@@ -403,21 +377,13 @@ NVM_ERROR 1
 `uc 1 GIE 1 0 :1:7 
 ]
 "4112
-[s S79 . 1 `uc 1 . 1 0 :7:0 
+[s S403 . 1 `uc 1 . 1 0 :7:0 
 `uc 1 GIEH 1 0 :1:7 
 ]
-[u S82 . 1 `S71 1 . 1 0 `S79 1 . 1 0 ]
-[v _INTCON0bits INTCON0bits `VES82  1 e 1 @1238 ]
+[u S406 . 1 `S395 1 . 1 0 `S403 1 . 1 0 ]
+[v _INTCON0bits INTCON0bits `VES406  1 e 1 @1238 ]
 "4301
 [v _SPI1CLK SPI1CLK `VEuc  1 e 1 @140 ]
-"5028
-[v _TABLAT TABLAT `VEuc  1 e 1 @1269 ]
-"5057
-[v _TBLPTRL TBLPTRL `VEuc  1 e 1 @1270 ]
-"5077
-[v _TBLPTRH TBLPTRH `VEuc  1 e 1 @1271 ]
-"5097
-[v _TBLPTRU TBLPTRU `VEuc  1 e 1 @1272 ]
 "5294
 [v _ACTCON ACTCON `VEuc  1 e 1 @172 ]
 "5335
@@ -494,7 +460,7 @@ NVM_ERROR 1
 [v _U1UIR U1UIR `VEuc  1 e 1 @689 ]
 "32418
 [v _U1ERRIR U1ERRIR `VEuc  1 e 1 @690 ]
-[s S544 . 1 `uc 1 TXCIF 1 0 :1:0 
+[s S421 . 1 `uc 1 TXCIF 1 0 :1:0 
 `uc 1 RXFOIF 1 0 :1:1 
 `uc 1 RXBKIF 1 0 :1:2 
 `uc 1 FERIF 1 0 :1:3 
@@ -504,7 +470,7 @@ NVM_ERROR 1
 `uc 1 TXMTIF 1 0 :1:7 
 ]
 "32445
-[s S553 . 1 `uc 1 U1TXCIF 1 0 :1:0 
+[s S430 . 1 `uc 1 U1TXCIF 1 0 :1:0 
 `uc 1 U1RXFOIF 1 0 :1:1 
 `uc 1 U1RXBKIF 1 0 :1:2 
 `uc 1 U1FERIF 1 0 :1:3 
@@ -513,8 +479,8 @@ NVM_ERROR 1
 `uc 1 U1PERIF 1 0 :1:6 
 `uc 1 U1TXMTIF 1 0 :1:7 
 ]
-[u S562 . 1 `S544 1 . 1 0 `S553 1 . 1 0 ]
-[v _U1ERRIRbits U1ERRIRbits `VES562  1 e 1 @690 ]
+[u S439 . 1 `S421 1 . 1 0 `S430 1 . 1 0 ]
+[v _U1ERRIRbits U1ERRIRbits `VES439  1 e 1 @690 ]
 "32530
 [v _U1ERRIE U1ERRIE `VEuc  1 e 1 @691 ]
 "38653
@@ -523,40 +489,40 @@ NVM_ERROR 1
 [v _TMR0H TMR0H `VEuc  1 e 1 @793 ]
 "39045
 [v _T0CON0 T0CON0 `VEuc  1 e 1 @794 ]
-[s S330 . 1 `uc 1 OUTPS 1 0 :4:0 
+[s S195 . 1 `uc 1 OUTPS 1 0 :4:0 
 `uc 1 MD16 1 0 :1:4 
 `uc 1 OUT 1 0 :1:5 
 `uc 1 . 1 0 :1:6 
 `uc 1 EN 1 0 :1:7 
 ]
 "39079
-[s S336 . 1 `uc 1 T0OUTPS 1 0 :4:0 
+[s S201 . 1 `uc 1 T0OUTPS 1 0 :4:0 
 `uc 1 T0MD16 1 0 :1:4 
 `uc 1 T0OUT 1 0 :1:5 
 `uc 1 . 1 0 :1:6 
 `uc 1 T0EN 1 0 :1:7 
 ]
 "39079
-[s S342 . 1 `uc 1 OUTPS0 1 0 :1:0 
+[s S207 . 1 `uc 1 OUTPS0 1 0 :1:0 
 `uc 1 OUTPS1 1 0 :1:1 
 `uc 1 OUTPS2 1 0 :1:2 
 `uc 1 OUTPS3 1 0 :1:3 
 `uc 1 T016BIT 1 0 :1:4 
 ]
 "39079
-[s S348 . 1 `uc 1 T0OUTPS0 1 0 :1:0 
+[s S213 . 1 `uc 1 T0OUTPS0 1 0 :1:0 
 `uc 1 T0OUTPS1 1 0 :1:1 
 `uc 1 T0OUTPS2 1 0 :1:2 
 `uc 1 T0OUTPS3 1 0 :1:3 
 ]
 "39079
-[u S353 . 1 `S330 1 . 1 0 `S336 1 . 1 0 `S342 1 . 1 0 `S348 1 . 1 0 ]
+[u S218 . 1 `S195 1 . 1 0 `S201 1 . 1 0 `S207 1 . 1 0 `S213 1 . 1 0 ]
 "39079
 "39079
-[v _T0CON0bits T0CON0bits `VES353  1 e 1 @794 ]
+[v _T0CON0bits T0CON0bits `VES218  1 e 1 @794 ]
 "39169
 [v _T0CON1 T0CON1 `VEuc  1 e 1 @795 ]
-[s S972 . 1 `uc 1 SPI1RXIP 1 0 :1:0 
+[s S870 . 1 `uc 1 SPI1RXIP 1 0 :1:0 
 `uc 1 SPI1TXIP 1 0 :1:1 
 `uc 1 SPI1IP 1 0 :1:2 
 `uc 1 TMR2IP 1 0 :1:3 
@@ -566,11 +532,11 @@ NVM_ERROR 1
 `uc 1 TMR0IP 1 0 :1:7 
 ]
 "48106
-[u S981 . 1 `S972 1 . 1 0 ]
+[u S879 . 1 `S870 1 . 1 0 ]
 "48106
 "48106
-[v _IPR3bits IPR3bits `VES981  1 e 1 @869 ]
-[s S468 . 1 `uc 1 U1RXIP 1 0 :1:0 
+[v _IPR3bits IPR3bits `VES879  1 e 1 @869 ]
+[s S334 . 1 `uc 1 U1RXIP 1 0 :1:0 
 `uc 1 U1TXIP 1 0 :1:1 
 `uc 1 U1EIP 1 0 :1:2 
 `uc 1 U1IP 1 0 :1:3 
@@ -580,11 +546,11 @@ NVM_ERROR 1
 `uc 1 PWM1IP 1 0 :1:7 
 ]
 "48168
-[u S477 . 1 `S468 1 . 1 0 ]
+[u S343 . 1 `S334 1 . 1 0 ]
 "48168
 "48168
-[v _IPR4bits IPR4bits `VES477  1 e 1 @870 ]
-[s S926 . 1 `uc 1 INT1IP 1 0 :1:0 
+[v _IPR4bits IPR4bits `VES343  1 e 1 @870 ]
+[s S824 . 1 `uc 1 INT1IP 1 0 :1:0 
 `uc 1 CLC2IP 1 0 :1:1 
 `uc 1 CWG1IP 1 0 :1:2 
 `uc 1 NCO1IP 1 0 :1:3 
@@ -594,10 +560,10 @@ NVM_ERROR 1
 `uc 1 DMA2AIP 1 0 :1:7 
 ]
 "48292
-[u S935 . 1 `S926 1 . 1 0 ]
+[u S833 . 1 `S824 1 . 1 0 ]
 "48292
 "48292
-[v _IPR6bits IPR6bits `VES935  1 e 1 @872 ]
+[v _IPR6bits IPR6bits `VES833  1 e 1 @872 ]
 "59445
 [v _ANSELA ANSELA `VEuc  1 e 1 @1024 ]
 "59507
@@ -672,10 +638,6 @@ NVM_ERROR 1
 [v _IOCEN IOCEN `VEuc  1 e 1 @1062 ]
 "61457
 [v _IOCEF IOCEF `VEuc  1 e 1 @1063 ]
-"40 C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/nvm/src/nvm.c
-[v _unlockKeyLow unlockKeyLow `VNEuc  1 s 1 unlockKeyLow ]
-"41
-[v _unlockKeyHigh unlockKeyHigh `VNEuc  1 s 1 unlockKeyHigh ]
 "36 C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/timer/src/tmr0.c
 [v _timerTMR0ReloadVal16bit timerTMR0ReloadVal16bit `VEus  1 e 2 0 ]
 "47
@@ -694,27 +656,27 @@ NVM_ERROR 1
 [v _rx_out rx_out `uc  1 s 1 rx_out ]
 "33
 [v _discard discard `uc  1 s 1 discard ]
-"274 C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+"277 C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
 [v _main main `(v  1 e 1 0 ]
 {
-"306
+"308
 } 0
 "36 C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
 [v _usart_init usart_init `(v  1 e 1 0 ]
 {
 "97
 } 0
-"215 C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+"216 C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
 [v _pic_init pic_init `(v  1 e 1 0 ]
 {
-"271
+"274
 } 0
-"317
+"318
 [v _b_process b_process `(v  1 e 1 0 ]
 {
-"319
-[v b_process@status status `uc  1 a 1 35 ]
-"484
+"320
+[v b_process@status status `uc  1 a 1 29 ]
+"487
 } 0
 "226 C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
 [v _usart_put_short usart_put_short `(v  1 e 1 0 ]
@@ -722,43 +684,32 @@ NVM_ERROR 1
 [v usart_put_short@x x `s  1 p 2 11 ]
 "230
 } 0
-"188 C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+"189 C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
 [v _update_status update_status `(v  1 e 1 0 ]
 {
 [v update_status@status status `uc  1 a 1 wreg ]
 [v update_status@status status `uc  1 a 1 wreg ]
-"190
+"191
 [v update_status@status status `uc  1 a 1 8 ]
-"197
+"198
 } 0
-"202
+"203
 [v _read_byte read_byte `(uc  1 e 1 0 ]
 {
-"204
+"205
 [v read_byte@lo lo `uc  1 a 1 9 ]
 [v read_byte@hi hi `uc  1 a 1 8 ]
-"212
+"213
 } 0
-"489
+"492
 [v _erase_flash erase_flash `(v  1 e 1 0 ]
 {
-"499
+"503
 } 0
-"240 C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/nvm/src/nvm.c
-[v _FLASH_PageErase FLASH_PageErase `(E22826  1 e 1 0 ]
-{
-"243
-[v FLASH_PageErase@globalInterruptBitValue globalInterruptBitValue `uc  1 a 1 14 ]
-"240
-[v FLASH_PageErase@address address `um  1 p 3 8 ]
-"281
-} 0
-"504 C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+"508
 [v _erase_eeprom erase_eeprom `(v  1 e 1 0 ]
 {
-"506
-[v erase_eeprom@addr addr `us  1 a 2 21 ]
-"514
+"525
 } 0
 "200 C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
 [v _usart_puts2_r usart_puts2_r `(v  1 e 1 0 ]
@@ -772,30 +723,24 @@ NVM_ERROR 1
 [v usart_puts_r@str str `*.36Cuc  1 p 3 9 ]
 "198
 } 0
-"48 C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/nvm/src/nvm.c
-[v _NVM_IsBusy NVM_IsBusy `(a  1 e 1 0 ]
+"599 C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+[v _do_write_ee do_write_ee `(v  1 e 1 0 ]
 {
-"51
+[v do_write_ee@data data `uc  1 a 1 wreg ]
+[v do_write_ee@data data `uc  1 a 1 wreg ]
+"602
+[v do_write_ee@data data `uc  1 a 1 8 ]
+"634
 } 0
-"309
-[v _EEPROM_Write EEPROM_Write `(v  1 e 1 0 ]
-{
-"312
-[v EEPROM_Write@globalInterruptBitValue globalInterruptBitValue `uc  1 a 1 17 ]
-"309
-[v EEPROM_Write@address address `um  1 p 3 10 ]
-[v EEPROM_Write@data data `uc  1 p 1 13 ]
-"345
-} 0
-"517 C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+"528
 [v _b_last b_last `(v  1 e 1 0 ]
 {
-"527
+"538
 } 0
-"532
+"543
 [v _b_write_block b_write_block `(v  1 e 1 0 ]
 {
-"549
+"560
 } 0
 "232 C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
 [v _usart_put_long usart_put_long `(v  1 e 1 0 ]
@@ -823,24 +768,14 @@ NVM_ERROR 1
 [v usart_send@data data `uc  1 a 1 8 ]
 "131
 } 0
-"183 C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/nvm/src/nvm.c
-[v _FLASH_RowWrite FLASH_RowWrite `(E22826  1 e 1 0 ]
+"565 C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+[v _do_write do_write `(v  1 e 1 0 ]
 {
-"185
-[v FLASH_RowWrite@bufferRamPtr bufferRamPtr `*.39uc  1 a 2 19 ]
-"186
-[v FLASH_RowWrite@flashDataCount flashDataCount `us  1 a 2 16 ]
-"189
-[v FLASH_RowWrite@globalInterruptBitValue globalInterruptBitValue `uc  1 a 1 18 ]
-"183
-[v FLASH_RowWrite@address address `um  1 p 3 8 ]
-[v FLASH_RowWrite@dataBuffer dataBuffer `*.39uc  1 p 2 11 ]
-"238
-} 0
-"76
-[v _NVM_UnlockKeyClear NVM_UnlockKeyClear `(v  1 e 1 0 ]
-{
-"80
+[v do_write@cmd cmd `uc  1 a 1 wreg ]
+[v do_write@cmd cmd `uc  1 a 1 wreg ]
+"568
+[v do_write@cmd cmd `uc  1 a 1 11 ]
+"594
 } 0
 "41 C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/system/src/system.c
 [v _SYSTEM_Initialize SYSTEM_Initialize `(v  1 e 1 0 ]
@@ -863,40 +798,24 @@ NVM_ERROR 1
 {
 "137
 } 0
-"43 C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/nvm/src/nvm.c
-[v _NVM_Initialize NVM_Initialize `(v  1 e 1 0 ]
-{
-"46
-} 0
-"65
-[v _NVM_StatusClear NVM_StatusClear `(v  1 e 1 0 ]
-{
-"68
-} 0
 "37 C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/system/src/clock.c
 [v _CLOCK_Initialize CLOCK_Initialize `(v  1 e 1 0 ]
 {
 "52
 } 0
-"70 C:\Users\matt\MPLABXProjects\bootloader.X\mcc_generated_files/nvm/src/nvm.c
-[v _NVM_UnlockKeySet NVM_UnlockKeySet `(v  1 e 1 0 ]
-{
-[v NVM_UnlockKeySet@unlockKey unlockKey `us  1 p 2 8 ]
-"74
-} 0
-"124 C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
+"125 C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
 [v _boot_int_lo boot_int_lo `IIL(v  1 e 1 0 ]
 {
-"183
+"184
 } 0
-"188
+"189
 [v i1_update_status update_status `(v  1 e 1 0 ]
 {
 [v i1update_status@status status `uc  1 a 1 wreg ]
 [v i1update_status@status status `uc  1 a 1 wreg ]
-"190
+"191
 [v i1update_status@status status `uc  1 a 1 0 ]
-"197
+"198
 } 0
 "100 C:\Users\matt\MPLABXProjects\bootloader.X\serial.c
 [v _serial_tx_int serial_tx_int `(v  1 e 1 0 ]

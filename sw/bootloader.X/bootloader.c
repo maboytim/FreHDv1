@@ -278,8 +278,9 @@ void main(void)
 {
 	SYSTEM_Initialize();
 	pic_init();
+#if UART_DEBUG
 	usart_init();
-
+#endif
     addr = 0; // init our variables
     fsr2 = 0;
 
@@ -321,7 +322,9 @@ void b_process(void)
     flags &= ~(1 << BF_PROCESS);
 
     BUFX[fsr2] = 0;
+#if UART_DEBUG
     usart_puts2_r(BUFX);
+#endif
     //
     // step 1 : confirm line starts with ':'
     //
@@ -399,8 +402,9 @@ void b_process(void)
                             {
                                 // write some data in eeprom
                                 // b_data_eeprom
+#if UART_DEBUG
                                 usart_put_short(addr); usart_send('-'); usart_put_short(addr + count - 1); usart_send('\r'); usart_send('\n');
-
+#endif
                                 if(((addr >> 8) & 0xFC) == 0) // upper 6 bits of addr+1 must be 0
                                 {
                                     while(count)
@@ -487,8 +491,9 @@ void b_process(void)
 //
 void erase_flash(void)
 {
+#if UART_DEBUG
     usart_puts2_r("Erasing Flash");
-
+#endif
     flags |= 1 << BF_FLASH_INVALID;
 
     for(tblptr = (uint24_t)(BOOTLOADER_END+1); tblptr < (uint24_t)FLASH_CRC_ADDR; tblptr += (uint24_t)ERASE_BLOCKSIZE)
@@ -502,7 +507,9 @@ void erase_flash(void)
 //
 void erase_eeprom(void)
 {
+#if UART_DEBUG
     usart_puts2_r("Erasing EEPROM");
+#endif
     addr = (uint32_t)EEPROM_START_ADDRESS;
 
     count = 0;
@@ -542,8 +549,9 @@ void b_write_block(void)
         if(!(tblptr < (uint24_t)(BOOTLOADER_END + 1)))
         {
             // b_write_addr_ok
+#if UART_DEBUG
             usart_put_long(tblptr & ~(BLOCKSIZE - 1)); usart_send('-'); usart_put_long(tblptr); usart_send('\r'); usart_send('\n');
-
+#endif
             flags |= 1 << BF_FLASH_INVALID;
             do_write(0x05); // write
         }
