@@ -37,7 +37,7 @@
 
 #include <xc.h>
 #include "../tmr2.h"
-
+#if 0
 const struct TMR_INTERFACE Timer2 = {
     .Initialize = TMR2_Initialize,
     .Start = TMR2_Start,
@@ -46,7 +46,7 @@ const struct TMR_INTERFACE Timer2 = {
     .TimeoutCallbackRegister = TMR2_OverflowCallbackRegister,
     .Tasks = NULL
 };
-
+#endif
 static void (*TMR2_OverflowCallback)(void);
 static void TMR2_DefaultOverflowCallback(void);
 
