@@ -3,6 +3,8 @@ C:zmac.exe import2.z80
 C:zmac.exe export2.z80
 C:zmac.exe fupdate.z80
 C:zmac.exe eupdate.z80
+C:zmac.exe dsk.z80
+ren zout\dsk.cmd dsk.dct
 del zout\*.ams
 del zout\*.bds
 del zout\*.cas

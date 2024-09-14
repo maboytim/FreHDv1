@@ -118,7 +118,7 @@ model1	ld	a,0cdh			; insert @dsply1
 asku1	ld	hl,s_fname		; ask filename
 	call	dsply
 	ld	hl,fname
-	ld	bc,0c00h
+	ld	bc,1700h
 	call	@keyin1
 	jp	c,hitbrk
 	jp	nz,hitbrk
@@ -168,7 +168,7 @@ model3	ld	a,0cdh			; insert @dsply3
 asku3	ld	hl,s_fname		; ask filename
 	call	dsply
 	ld	hl,fname
-	ld	bc,0c00h
+	ld	bc,1700h
 	call	@keyin3
 	jp	c,hitbrk
 	jp	nz,hitbrk
@@ -212,7 +212,7 @@ ldos6	ld	hl,s_hello		; welcome message
 asku4	ld	hl,s_fname		; ask filename
 	call	dsply
 	ld	hl,fname
-	ld	bc,0c00h
+	ld	bc,1700h
 	ld	a,@keyin
 	rst	40
 	jp	c,hitbrk
@@ -528,7 +528,7 @@ newend		dw	0
 unitmask	db	0
 unit		db	0		; unit  \
 flen		db	0		; flen   | must remain together
-fname		ds	13		; fname /
+fname		ds	24		; fname /
 
 
 ;*=*=*

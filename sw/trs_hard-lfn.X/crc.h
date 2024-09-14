@@ -1,1 +1,1 @@
-#define	THECRC	0x3484
+#define	THECRC	0xc1f3
