@@ -1,1 +1,1 @@
-THECRC	equ	0x9a1e
+THECRC	equ	0x7396

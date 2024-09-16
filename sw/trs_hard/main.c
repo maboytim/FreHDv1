@@ -288,6 +288,7 @@ void main(void)
 {
 	pic_init();
 	led_init();
+	gled_val = 0;
 	i2c_init();
 	ds1307_init();
 	trs_hard_init();
