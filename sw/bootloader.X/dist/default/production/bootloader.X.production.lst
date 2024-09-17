@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.46 build 20240104201356 
-                                                                                               Wed Sep 04 09:46:02 2024
+                                                                                               Tue Sep 17 07:31:47 2024
 
 Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1 
      1                           	processor	18F47Q83
@@ -4318,15 +4318,15 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
   3863                           
   3864                           ;Config register CONFIG7 @ 0x300006
   3865                           ;	Boot Block Size selection bits
-  3866                           ;	BBSIZE = BBSIZE_512, Boot Block size is 512 words
+  3866                           ;	BBSIZE = BBSIZE_2048, Boot Block size is 2048 words
   3867                           ;	Boot Block enable bit
-  3868                           ;	BBEN = OFF, Boot block disabled
+  3868                           ;	BBEN = ON, Boot block enabled
   3869                           ;	Storage Area Flash enable bit
   3870                           ;	SAFEN = OFF, SAF disabled
   3871                           ;	Background Debugger
   3872                           ;	DEBUG = 0x1, unprogrammed default
   3873   300006                     	org	3145734
-  3874   300006  FF                 	db	255
+  3874   300006  F5                 	db	245
   3875                           
   3876                           ;Config register CONFIG8 @ 0x300007
   3877                           ;	Boot Block Write Protection bit
@@ -5437,7 +5437,7 @@ CODE                 0      0       0       0        0.0%
 
 
 Microchip Technology PIC18 Macro Assembler V2.46 build 20240104201356 
-Symbol Table                                                                                   Wed Sep 04 09:46:02 2024
+Symbol Table                                                                                   Tue Sep 17 07:31:47 2024
 
                                 ?_boot_int_lo 0501                                 _update_status 0BAE  
                                          l602 0AA8                                           l514 0A28  

@@ -73,8 +73,8 @@
 #pragma config WDTCCS = SC     // WDT input clock selector->Software Control
 
 //CONFIG7
-#pragma config BBSIZE = BBSIZE_512     // Boot Block Size selection bits->Boot Block size is 512 words
-#pragma config BBEN = OFF     // Boot Block enable bit->Boot block disabled
+#pragma config BBSIZE = BBSIZE_2048     // Boot Block Size selection bits->Boot Block size is 2048 words
+#pragma config BBEN = ON     // Boot Block enable bit->Boot block enabled
 #pragma config SAFEN = OFF     // Storage Area Flash enable bit->SAF disabled
 
 //CONFIG8

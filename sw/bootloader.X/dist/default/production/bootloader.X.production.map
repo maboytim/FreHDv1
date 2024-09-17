@@ -6,10 +6,10 @@ Linker command line:
   --edf=C:\Program Files\Microchip\xc8\v2.46\pic\dat\20240104201356_en.msgs \
   -pivt0x8=08h -cn -h+dist/default/production\bootloader.X.production.sym \
   --cmf=dist/default/production\bootloader.X.production.cmf -z -Q18F47Q83 \
-  -oC:\Users\matt\AppData\Local\Temp\xcAs2g4.\driver_tmp_3.o \
+  -oC:\Users\matt\AppData\Local\Temp\xcAsjo0.\driver_tmp_3.o \
   --defsym=__MPLAB_BUILD=1 --fixupoverflow=error \
   -Mdist/default/production/bootloader.X.production.map \
-  --md=C:\Users\matt\AppData\Local\Temp\xcAs2g4.\driver_tmp_0.dat -E1 \
+  --md=C:\Users\matt\AppData\Local\Temp\xcAsjo0.\driver_tmp_0.dat -E1 \
   -ver=XC8 Compiler --acfsm=1493 -p_boot_version_text=6h -ACODE=00h-0FFFh \
   -ACONST=00h-0FFFh -ACOMRAM=0501h-055Fh -AABS1=0500h-036FFh \
   -ABIGRAM=0501h-036FFh -ARAM=0560h-05FFh,0600h-06FFhx49 \
@@ -39,7 +39,7 @@ Linker command line:
   -pfarbss=FARRAM,fardata=FARRAM,nvFARRAM=FARRAM \
   -pintsave_regs=BIGRAM,bigbss=BIGRAM,bigdata=BIGRAM -pbss=RAM \
   -pidata=CODE,irdata=CODE,ibigdata=CODE,ifardata=CODE -prparam=COMRAM \
-  C:\Users\matt\AppData\Local\Temp\xcAs2g4.\driver_tmp_9.o \
+  C:\Users\matt\AppData\Local\Temp\xcAsjo0.\driver_tmp_9.o \
   dist/default/production\bootloader.X.production.o \
   build/default/production/powerup.o 
 
@@ -50,7 +50,7 @@ Machine type is 18F47Q83
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\matt\AppData\Local\Temp\xcAs2g4.\driver_tmp_9.o
+C:\Users\matt\AppData\Local\Temp\xcAsjo0.\driver_tmp_9.o
                 config                           300000   300000       23        0       4
                 init                                 C0       C0        4        4       0
                 reset_vec                             0        0        4        0       0

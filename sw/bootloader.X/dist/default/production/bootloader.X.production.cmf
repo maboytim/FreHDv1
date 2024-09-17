@@ -52,7 +52,7 @@ _boot_version_text CODE 0 6 6 2 1 2
 config CONFIG 4 300000 300000 23 1 1
 $build/default/production/powerup.o
 powerup CODE 0 1C 1C A4 1 2
-$C:\Users\matt\AppData\Local\Temp\xcAs2g4.\driver_tmp_9.o
+$C:\Users\matt\AppData\Local\Temp\xcAsjo0.\driver_tmp_9.o
 init CODE 0 C0 C0 4 1 2
 reset_vec CODE 0 0 0 4 1 2
 config CONFIG 4 300000 300000 23 1 1
@@ -574,46 +574,46 @@ F4 text3 CODE >324:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
 7F6 text0 CODE >306:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
 7FC text0 CODE >307:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
 7FE text0 CODE >308:C:\Users\matt\MPLABXProjects\bootloader.X\bootloader.c
-95A cinit CODE >14961:C:\Users\matt\AppData\Local\Temp\xcAs2g4.\driver_tmp_1.s
-95A cinit CODE >14963:C:\Users\matt\AppData\Local\Temp\xcAs2g4.\driver_tmp_1.s
-95A cinit CODE >14966:C:\Users\matt\AppData\Local\Temp\xcAs2g4.\driver_tmp_1.s
-95A cinit CODE >15029:C:\Users\matt\AppData\Local\Temp\xcAs2g4.\driver_tmp_1.s
-95E cinit CODE >15030:C:\Users\matt\AppData\Local\Temp\xcAs2g4.\driver_tmp_1.s
-962 cinit CODE >15031:C:\Users\matt\AppData\Local\Temp\xcAs2g4.\driver_tmp_1.s
-962 cinit CODE >15032:C:\Users\matt\AppData\Local\Temp\xcAs2g4.\driver_tmp_1.s
-964 cinit CODE >15033:C:\Users\matt\AppData\Local\Temp\xcAs2g4.\driver_tmp_1.s
-966 cinit CODE >15034:C:\Users\matt\AppData\Local\Temp\xcAs2g4.\driver_tmp_1.s
-968 cinit CODE >15035:C:\Users\matt\AppData\Local\Temp\xcAs2g4.\driver_tmp_1.s
-96A cinit CODE >15036:C:\Users\matt\AppData\Local\Temp\xcAs2g4.\driver_tmp_1.s
-96C cinit CODE >15037:C:\Users\matt\AppData\Local\Temp\xcAs2g4.\driver_tmp_1.s
-96E cinit CODE >15040:C:\Users\matt\AppData\Local\Temp\xcAs2g4.\driver_tmp_1.s
-972 cinit CODE >15041:C:\Users\matt\AppData\Local\Temp\xcAs2g4.\driver_tmp_1.s
-974 cinit CODE >15042:C:\Users\matt\AppData\Local\Temp\xcAs2g4.\driver_tmp_1.s
-974 cinit CODE >15043:C:\Users\matt\AppData\Local\Temp\xcAs2g4.\driver_tmp_1.s
-976 cinit CODE >15044:C:\Users\matt\AppData\Local\Temp\xcAs2g4.\driver_tmp_1.s
-978 cinit CODE >15045:C:\Users\matt\AppData\Local\Temp\xcAs2g4.\driver_tmp_1.s
-97A cinit CODE >15048:C:\Users\matt\AppData\Local\Temp\xcAs2g4.\driver_tmp_1.s
-97E cinit CODE >15049:C:\Users\matt\AppData\Local\Temp\xcAs2g4.\driver_tmp_1.s
-980 cinit CODE >15050:C:\Users\matt\AppData\Local\Temp\xcAs2g4.\driver_tmp_1.s
-980 cinit CODE >15051:C:\Users\matt\AppData\Local\Temp\xcAs2g4.\driver_tmp_1.s
-982 cinit CODE >15052:C:\Users\matt\AppData\Local\Temp\xcAs2g4.\driver_tmp_1.s
-984 cinit CODE >15053:C:\Users\matt\AppData\Local\Temp\xcAs2g4.\driver_tmp_1.s
-986 cinit CODE >15056:C:\Users\matt\AppData\Local\Temp\xcAs2g4.\driver_tmp_1.s
-98A cinit CODE >15057:C:\Users\matt\AppData\Local\Temp\xcAs2g4.\driver_tmp_1.s
-98C cinit CODE >15058:C:\Users\matt\AppData\Local\Temp\xcAs2g4.\driver_tmp_1.s
-98C cinit CODE >15059:C:\Users\matt\AppData\Local\Temp\xcAs2g4.\driver_tmp_1.s
-98E cinit CODE >15060:C:\Users\matt\AppData\Local\Temp\xcAs2g4.\driver_tmp_1.s
-990 cinit CODE >15061:C:\Users\matt\AppData\Local\Temp\xcAs2g4.\driver_tmp_1.s
-992 cinit CODE >15069:C:\Users\matt\AppData\Local\Temp\xcAs2g4.\driver_tmp_1.s
-994 cinit CODE >15070:C:\Users\matt\AppData\Local\Temp\xcAs2g4.\driver_tmp_1.s
-996 cinit CODE >15071:C:\Users\matt\AppData\Local\Temp\xcAs2g4.\driver_tmp_1.s
-998 cinit CODE >15072:C:\Users\matt\AppData\Local\Temp\xcAs2g4.\driver_tmp_1.s
-99A cinit CODE >15073:C:\Users\matt\AppData\Local\Temp\xcAs2g4.\driver_tmp_1.s
-99C cinit CODE >15074:C:\Users\matt\AppData\Local\Temp\xcAs2g4.\driver_tmp_1.s
-99E cinit CODE >15075:C:\Users\matt\AppData\Local\Temp\xcAs2g4.\driver_tmp_1.s
-9A0 cinit CODE >15081:C:\Users\matt\AppData\Local\Temp\xcAs2g4.\driver_tmp_1.s
-9A0 cinit CODE >15083:C:\Users\matt\AppData\Local\Temp\xcAs2g4.\driver_tmp_1.s
-9A2 cinit CODE >15084:C:\Users\matt\AppData\Local\Temp\xcAs2g4.\driver_tmp_1.s
+95A cinit CODE >14961:C:\Users\matt\AppData\Local\Temp\xcAsjo0.\driver_tmp_1.s
+95A cinit CODE >14963:C:\Users\matt\AppData\Local\Temp\xcAsjo0.\driver_tmp_1.s
+95A cinit CODE >14966:C:\Users\matt\AppData\Local\Temp\xcAsjo0.\driver_tmp_1.s
+95A cinit CODE >15029:C:\Users\matt\AppData\Local\Temp\xcAsjo0.\driver_tmp_1.s
+95E cinit CODE >15030:C:\Users\matt\AppData\Local\Temp\xcAsjo0.\driver_tmp_1.s
+962 cinit CODE >15031:C:\Users\matt\AppData\Local\Temp\xcAsjo0.\driver_tmp_1.s
+962 cinit CODE >15032:C:\Users\matt\AppData\Local\Temp\xcAsjo0.\driver_tmp_1.s
+964 cinit CODE >15033:C:\Users\matt\AppData\Local\Temp\xcAsjo0.\driver_tmp_1.s
+966 cinit CODE >15034:C:\Users\matt\AppData\Local\Temp\xcAsjo0.\driver_tmp_1.s
+968 cinit CODE >15035:C:\Users\matt\AppData\Local\Temp\xcAsjo0.\driver_tmp_1.s
+96A cinit CODE >15036:C:\Users\matt\AppData\Local\Temp\xcAsjo0.\driver_tmp_1.s
+96C cinit CODE >15037:C:\Users\matt\AppData\Local\Temp\xcAsjo0.\driver_tmp_1.s
+96E cinit CODE >15040:C:\Users\matt\AppData\Local\Temp\xcAsjo0.\driver_tmp_1.s
+972 cinit CODE >15041:C:\Users\matt\AppData\Local\Temp\xcAsjo0.\driver_tmp_1.s
+974 cinit CODE >15042:C:\Users\matt\AppData\Local\Temp\xcAsjo0.\driver_tmp_1.s
+974 cinit CODE >15043:C:\Users\matt\AppData\Local\Temp\xcAsjo0.\driver_tmp_1.s
+976 cinit CODE >15044:C:\Users\matt\AppData\Local\Temp\xcAsjo0.\driver_tmp_1.s
+978 cinit CODE >15045:C:\Users\matt\AppData\Local\Temp\xcAsjo0.\driver_tmp_1.s
+97A cinit CODE >15048:C:\Users\matt\AppData\Local\Temp\xcAsjo0.\driver_tmp_1.s
+97E cinit CODE >15049:C:\Users\matt\AppData\Local\Temp\xcAsjo0.\driver_tmp_1.s
+980 cinit CODE >15050:C:\Users\matt\AppData\Local\Temp\xcAsjo0.\driver_tmp_1.s
+980 cinit CODE >15051:C:\Users\matt\AppData\Local\Temp\xcAsjo0.\driver_tmp_1.s
+982 cinit CODE >15052:C:\Users\matt\AppData\Local\Temp\xcAsjo0.\driver_tmp_1.s
+984 cinit CODE >15053:C:\Users\matt\AppData\Local\Temp\xcAsjo0.\driver_tmp_1.s
+986 cinit CODE >15056:C:\Users\matt\AppData\Local\Temp\xcAsjo0.\driver_tmp_1.s
+98A cinit CODE >15057:C:\Users\matt\AppData\Local\Temp\xcAsjo0.\driver_tmp_1.s
+98C cinit CODE >15058:C:\Users\matt\AppData\Local\Temp\xcAsjo0.\driver_tmp_1.s
+98C cinit CODE >15059:C:\Users\matt\AppData\Local\Temp\xcAsjo0.\driver_tmp_1.s
+98E cinit CODE >15060:C:\Users\matt\AppData\Local\Temp\xcAsjo0.\driver_tmp_1.s
+990 cinit CODE >15061:C:\Users\matt\AppData\Local\Temp\xcAsjo0.\driver_tmp_1.s
+992 cinit CODE >15069:C:\Users\matt\AppData\Local\Temp\xcAsjo0.\driver_tmp_1.s
+994 cinit CODE >15070:C:\Users\matt\AppData\Local\Temp\xcAsjo0.\driver_tmp_1.s
+996 cinit CODE >15071:C:\Users\matt\AppData\Local\Temp\xcAsjo0.\driver_tmp_1.s
+998 cinit CODE >15072:C:\Users\matt\AppData\Local\Temp\xcAsjo0.\driver_tmp_1.s
+99A cinit CODE >15073:C:\Users\matt\AppData\Local\Temp\xcAsjo0.\driver_tmp_1.s
+99C cinit CODE >15074:C:\Users\matt\AppData\Local\Temp\xcAsjo0.\driver_tmp_1.s
+99E cinit CODE >15075:C:\Users\matt\AppData\Local\Temp\xcAsjo0.\driver_tmp_1.s
+9A0 cinit CODE >15081:C:\Users\matt\AppData\Local\Temp\xcAsjo0.\driver_tmp_1.s
+9A0 cinit CODE >15083:C:\Users\matt\AppData\Local\Temp\xcAsjo0.\driver_tmp_1.s
+9A2 cinit CODE >15084:C:\Users\matt\AppData\Local\Temp\xcAsjo0.\driver_tmp_1.s
 $build/default/production/powerup.o
 1C powerup CODE >11:C:\Users\matt\MPLABXProjects\bootloader.X\powerup.asm
 1E powerup CODE >13:C:\Users\matt\MPLABXProjects\bootloader.X\powerup.asm
@@ -739,14 +739,14 @@ _WPUB 409 0 ABS 0 - dist/default/production\bootloader.X.production.o
 _WPUC 411 0 ABS 0 - dist/default/production\bootloader.X.production.o
 _WPUD 419 0 ABS 0 - dist/default/production\bootloader.X.production.o
 _WPUE 421 0 ABS 0 - dist/default/production\bootloader.X.production.o
-___sp 0 0 STACK 2 stack C:\Users\matt\AppData\Local\Temp\xcAs2g4.\driver_tmp_9.o
+___sp 0 0 STACK 2 stack C:\Users\matt\AppData\Local\Temp\xcAsjo0.\driver_tmp_9.o
 _addr 51F 0 COMRAM 1 bssCOMRAM dist/default/production\bootloader.X.production.o
 _fsr2 525 0 COMRAM 1 bssCOMRAM dist/default/production\bootloader.X.production.o
 _main 796 0 CODE 0 text0 dist/default/production\bootloader.X.production.o
 _type 526 0 COMRAM 1 bssCOMRAM dist/default/production\bootloader.X.production.o
-___stack_hi 0 0 STACK 2 stack C:\Users\matt\AppData\Local\Temp\xcAs2g4.\driver_tmp_9.o
-___stack_lo 0 0 STACK 2 stack C:\Users\matt\AppData\Local\Temp\xcAs2g4.\driver_tmp_9.o
-start C0 0 CODE 0 init C:\Users\matt\AppData\Local\Temp\xcAs2g4.\driver_tmp_9.o
+___stack_hi 0 0 STACK 2 stack C:\Users\matt\AppData\Local\Temp\xcAsjo0.\driver_tmp_9.o
+___stack_lo 0 0 STACK 2 stack C:\Users\matt\AppData\Local\Temp\xcAsjo0.\driver_tmp_9.o
+start C0 0 CODE 0 init C:\Users\matt\AppData\Local\Temp\xcAsjo0.\driver_tmp_9.o
 __end_of_pic_init 862 0 CODE 0 text2 dist/default/production\bootloader.X.production.o
 read_byte@hi 509 0 COMRAM 1 cstackCOMRAM dist/default/production\bootloader.X.production.o
 read_byte@lo 50A 0 COMRAM 1 cstackCOMRAM dist/default/production\bootloader.X.production.o
@@ -758,11 +758,11 @@ __Hpowerup C0 0 CODE 0 powerup dist/default/production\bootloader.X.production.o
 _TMR0_Stop 0 0 ABS 0 - dist/default/production\bootloader.X.production.o
 __end_of_Timer0 D0 0 CONST 0 const dist/default/production\bootloader.X.production.o
 __LnvCOMRAM 0 0 ABS 0 nvCOMRAM dist/default/production\bootloader.X.production.o
-__accesstop 560 0 ABS 0 - C:\Users\matt\AppData\Local\Temp\xcAs2g4.\driver_tmp_9.o
-intlevel0 0 0 CODE 0 text C:\Users\matt\AppData\Local\Temp\xcAs2g4.\driver_tmp_9.o
-intlevel1 0 0 CODE 0 text C:\Users\matt\AppData\Local\Temp\xcAs2g4.\driver_tmp_9.o
-intlevel2 0 0 CODE 0 text C:\Users\matt\AppData\Local\Temp\xcAs2g4.\driver_tmp_9.o
-intlevel3 0 0 CODE 0 text C:\Users\matt\AppData\Local\Temp\xcAs2g4.\driver_tmp_9.o
+__accesstop 560 0 ABS 0 - C:\Users\matt\AppData\Local\Temp\xcAsjo0.\driver_tmp_9.o
+intlevel0 0 0 CODE 0 text C:\Users\matt\AppData\Local\Temp\xcAsjo0.\driver_tmp_9.o
+intlevel1 0 0 CODE 0 text C:\Users\matt\AppData\Local\Temp\xcAsjo0.\driver_tmp_9.o
+intlevel2 0 0 CODE 0 text C:\Users\matt\AppData\Local\Temp\xcAsjo0.\driver_tmp_9.o
+intlevel3 0 0 CODE 0 text C:\Users\matt\AppData\Local\Temp\xcAsjo0.\driver_tmp_9.o
 __LbssCOMRAM 0 0 ABS 0 bssCOMRAM dist/default/production\bootloader.X.production.o
 __end_of_usart_put_hex AE8 0 CODE 0 text15 dist/default/production\bootloader.X.production.o
 __end_of_usart_puts2_r BEA 0 CODE 0 text9 dist/default/production\bootloader.X.production.o
@@ -785,8 +785,8 @@ _ANSELB 408 0 ABS 0 - dist/default/production\bootloader.X.production.o
 _ANSELC 410 0 ABS 0 - dist/default/production\bootloader.X.production.o
 _ANSELD 418 0 ABS 0 - dist/default/production\bootloader.X.production.o
 _ANSELE 420 0 ABS 0 - dist/default/production\bootloader.X.production.o
-___inthi_sp 0 0 STACK 2 stack C:\Users\matt\AppData\Local\Temp\xcAs2g4.\driver_tmp_9.o
-___intlo_sp 0 0 STACK 2 stack C:\Users\matt\AppData\Local\Temp\xcAs2g4.\driver_tmp_9.o
+___inthi_sp 0 0 STACK 2 stack C:\Users\matt\AppData\Local\Temp\xcAsjo0.\driver_tmp_9.o
+___intlo_sp 0 0 STACK 2 stack C:\Users\matt\AppData\Local\Temp\xcAsjo0.\driver_tmp_9.o
 _tx_count 530 0 COMRAM 1 bssCOMRAM dist/default/production\bootloader.X.production.o
 _TMR0_DefaultOverflowCallback 0 0 ABS 0 - dist/default/production\bootloader.X.production.o
 _discard 52A 0 COMRAM 1 bssCOMRAM dist/default/production\bootloader.X.production.o
@@ -889,7 +889,7 @@ _U1FIFO 2B0 0 ABS 0 - dist/default/production\bootloader.X.production.o
 _TRISB6 263E 0 ABS 0 - dist/default/production\bootloader.X.production.o
 _TRISB7 263F 0 ABS 0 - dist/default/production\bootloader.X.production.o
 _Timer0 C4 0 CONST 0 const dist/default/production\bootloader.X.production.o
-isa$xinst 0 0 ABS 0 - C:\Users\matt\AppData\Local\Temp\xcAs2g4.\driver_tmp_9.o
+isa$xinst 0 0 ABS 0 - C:\Users\matt\AppData\Local\Temp\xcAsjo0.\driver_tmp_9.o
 __end_of_usart_puts_r 8BC 0 CODE 0 text10 dist/default/production\bootloader.X.production.o
 __Hbank5 0 0 ABS 0 bank5 dist/default/production\bootloader.X.production.o
 __Hbank6 0 0 ABS 0 bank6 dist/default/production\bootloader.X.production.o
@@ -1204,10 +1204,10 @@ _LATCbits 4C0 0 ABS 0 - dist/default/production\bootloader.X.production.o
 _rx_out 52B 0 COMRAM 1 bssCOMRAM dist/default/production\bootloader.X.production.o
 usart_put_short@x 50C 0 COMRAM 1 cstackCOMRAM dist/default/production\bootloader.X.production.o
 __Lfarbss 0 0 FARRAM 0 farbss dist/default/production\bootloader.X.production.o
-___inthi_stack_hi 0 0 STACK 2 stack C:\Users\matt\AppData\Local\Temp\xcAs2g4.\driver_tmp_9.o
-___inthi_stack_lo 0 0 STACK 2 stack C:\Users\matt\AppData\Local\Temp\xcAs2g4.\driver_tmp_9.o
+___inthi_stack_hi 0 0 STACK 2 stack C:\Users\matt\AppData\Local\Temp\xcAsjo0.\driver_tmp_9.o
+___inthi_stack_lo 0 0 STACK 2 stack C:\Users\matt\AppData\Local\Temp\xcAsjo0.\driver_tmp_9.o
 __Lfardata 0 0 FARRAM 0 fardata dist/default/production\bootloader.X.production.o
-isa$std 1 0 ABS 0 - C:\Users\matt\AppData\Local\Temp\xcAs2g4.\driver_tmp_9.o
+isa$std 1 0 ABS 0 - C:\Users\matt\AppData\Local\Temp\xcAsjo0.\driver_tmp_9.o
 __end_of_usart_put_long C3E 0 CODE 0 text14 dist/default/production\bootloader.X.production.o
 _tblptr 531 0 COMRAM 1 bssCOMRAM dist/default/production\bootloader.X.production.o
 __end_of_CLOCK_Initialize C24 0 CODE 0 text22 dist/default/production\bootloader.X.production.o
@@ -1215,8 +1215,8 @@ __end_of_b_process 4C8 0 CODE 0 text3 dist/default/production\bootloader.X.produ
 _tx_out 52E 0 COMRAM 1 bssCOMRAM dist/default/production\bootloader.X.production.o
 usart_puts_r@str 50A 0 COMRAM 1 cstackCOMRAM dist/default/production\bootloader.X.production.o
 _do_write_ee A74 0 CODE 0 text11 dist/default/production\bootloader.X.production.o
-stackhi 0 0 ABS 0 - C:\Users\matt\AppData\Local\Temp\xcAs2g4.\driver_tmp_9.o
-stacklo 0 0 ABS 0 - C:\Users\matt\AppData\Local\Temp\xcAs2g4.\driver_tmp_9.o
+stackhi 0 0 ABS 0 - C:\Users\matt\AppData\Local\Temp\xcAsjo0.\driver_tmp_9.o
+stacklo 0 0 ABS 0 - C:\Users\matt\AppData\Local\Temp\xcAsjo0.\driver_tmp_9.o
 _OSCCON1 AD 0 ABS 0 - dist/default/production\bootloader.X.production.o
 _OSCCON3 AF 0 ABS 0 - dist/default/production\bootloader.X.production.o
 _OSCTUNE B0 0 ABS 0 - dist/default/production\bootloader.X.production.o
@@ -1281,7 +1281,7 @@ __Ltext23 0 0 ABS 0 text23 dist/default/production\bootloader.X.production.o
 __Ltext24 0 0 ABS 0 text24 dist/default/production\bootloader.X.production.o
 __Ltext25 0 0 ABS 0 text25 dist/default/production\bootloader.X.production.o
 __Ltext26 0 0 ABS 0 text26 dist/default/production\bootloader.X.production.o
-__ramtop 3700 0 RAM 0 ramtop C:\Users\matt\AppData\Local\Temp\xcAs2g4.\driver_tmp_9.o
+__ramtop 3700 0 RAM 0 ramtop C:\Users\matt\AppData\Local\Temp\xcAsjo0.\driver_tmp_9.o
 __end_of_serial_tx_int BAE 0 CODE 0 text25 dist/default/production\bootloader.X.production.o
 __Lpowerup 1C 0 CODE 0 powerup dist/default/production\bootloader.X.production.o
 __Leeprom_data 0 0 EEDATA 0 eeprom_data dist/default/production\bootloader.X.production.o
@@ -1300,13 +1300,13 @@ _SLRCONB 40B 0 ABS 0 - dist/default/production\bootloader.X.production.o
 _SLRCONC 413 0 ABS 0 - dist/default/production\bootloader.X.production.o
 _SLRCOND 41B 0 ABS 0 - dist/default/production\bootloader.X.production.o
 _SLRCONE 423 0 ABS 0 - dist/default/production\bootloader.X.production.o
-___heap_hi 0 0 ABS 0 - C:\Users\matt\AppData\Local\Temp\xcAs2g4.\driver_tmp_9.o
-___heap_lo 0 0 ABS 0 - C:\Users\matt\AppData\Local\Temp\xcAs2g4.\driver_tmp_9.o
+___heap_hi 0 0 ABS 0 - C:\Users\matt\AppData\Local\Temp\xcAsjo0.\driver_tmp_9.o
+___heap_lo 0 0 ABS 0 - C:\Users\matt\AppData\Local\Temp\xcAsjo0.\driver_tmp_9.o
 __end_of_boot_int_lo 5BA 0 CODE 0 text23 dist/default/production\bootloader.X.production.o
 _boot_version_absaddr 6 0 ABS 0 - dist/default/production\bootloader.X.production.o
 ___param_bank 0 0 ABS 0 - dist/default/production\bootloader.X.production.o
-___intlo_stack_hi 0 0 STACK 2 stack C:\Users\matt\AppData\Local\Temp\xcAs2g4.\driver_tmp_9.o
-___intlo_stack_lo 0 0 STACK 2 stack C:\Users\matt\AppData\Local\Temp\xcAs2g4.\driver_tmp_9.o
+___intlo_stack_hi 0 0 STACK 2 stack C:\Users\matt\AppData\Local\Temp\xcAsjo0.\driver_tmp_9.o
+___intlo_stack_lo 0 0 STACK 2 stack C:\Users\matt\AppData\Local\Temp\xcAsjo0.\driver_tmp_9.o
 __Hbigdata 0 0 BIGRAM 1 bigdata dist/default/production\bootloader.X.production.o
 __end_of__initialization 9A0 0 CODE 0 cinit dist/default/production\bootloader.X.production.o
 __end_of_read_byte A30 0 CODE 0 text6 dist/default/production\bootloader.X.production.o
