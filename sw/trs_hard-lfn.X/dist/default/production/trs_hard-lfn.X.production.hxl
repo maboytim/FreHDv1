@@ -1,7 +1,7 @@
 ### HEXMate logfile and output summary ###
 
 ### Command-line arguments ###
- C:\Users\matt\AppData\Local\Temp\xcAs51c.\driver_tmp_3.o
+ C:\Users\matt\AppData\Local\Temp\xcAsceo.\driver_tmp_3.o
  -Odist/default/production\trs_hard-lfn.X.production.hex
  -logfile=dist/default/production\trs_hard-lfn.X.production.hxl
  -addressing=1
@@ -9,23 +9,23 @@
 
 ### Memory Usage ###
  Input file ranges:
-  0h - 3h		(C:\Users\matt\AppData\Local\Temp\xcAs51c.\driver_tmp_3.o)
-  1000h - 1003h		(C:\Users\matt\AppData\Local\Temp\xcAs51c.\driver_tmp_3.o)
-  1008h - 100Bh		(C:\Users\matt\AppData\Local\Temp\xcAs51c.\driver_tmp_3.o)
-  1018h - 101Fh		(C:\Users\matt\AppData\Local\Temp\xcAs51c.\driver_tmp_3.o)
-  FB0Ch - FFFEh		(C:\Users\matt\AppData\Local\Temp\xcAs51c.\driver_tmp_3.o)
-  10000h - 1B167h		(C:\Users\matt\AppData\Local\Temp\xcAs51c.\driver_tmp_3.o)
-  1FFFEh - 1FFFFh		(C:\Users\matt\AppData\Local\Temp\xcAs51c.\driver_tmp_3.o)
-  300000h - 300022h		(C:\Users\matt\AppData\Local\Temp\xcAs51c.\driver_tmp_3.o)
-  380000h - 3800FFh		(C:\Users\matt\AppData\Local\Temp\xcAs51c.\driver_tmp_3.o)
-  3803FEh - 3803FFh		(C:\Users\matt\AppData\Local\Temp\xcAs51c.\driver_tmp_3.o)
+  0h - 3h		(C:\Users\matt\AppData\Local\Temp\xcAsceo.\driver_tmp_3.o)
+  1000h - 1003h		(C:\Users\matt\AppData\Local\Temp\xcAsceo.\driver_tmp_3.o)
+  1008h - 100Bh		(C:\Users\matt\AppData\Local\Temp\xcAsceo.\driver_tmp_3.o)
+  1018h - 101Fh		(C:\Users\matt\AppData\Local\Temp\xcAsceo.\driver_tmp_3.o)
+  FB0Ch - FFFEh		(C:\Users\matt\AppData\Local\Temp\xcAsceo.\driver_tmp_3.o)
+  10000h - 1B16Bh		(C:\Users\matt\AppData\Local\Temp\xcAsceo.\driver_tmp_3.o)
+  1FFFEh - 1FFFFh		(C:\Users\matt\AppData\Local\Temp\xcAsceo.\driver_tmp_3.o)
+  300000h - 300022h		(C:\Users\matt\AppData\Local\Temp\xcAsceo.\driver_tmp_3.o)
+  380000h - 3800FFh		(C:\Users\matt\AppData\Local\Temp\xcAsceo.\driver_tmp_3.o)
+  3803FEh - 3803FFh		(C:\Users\matt\AppData\Local\Temp\xcAsceo.\driver_tmp_3.o)
  Unused ranges:
   4h - FFFh
   1004h - 1007h
   100Ch - 1017h
   1020h - FB0Bh
   FFFFh - FFFFh
-  1B168h - 1FFFDh
+  1B16Ch - 1FFFDh
   20000h - 2FFFFFh
   300023h - 37FFFFh
   380100h - 3803FDh
@@ -33,7 +33,7 @@
 ### Hex Memory Map ###
  Legend:
   -- = Unused memory
-  H1 = Input file             (C:\Users\matt\AppData\Local\Temp\xcAs51c.\driver_tmp_3.o)
+  H1 = Input file             (C:\Users\matt\AppData\Local\Temp\xcAsceo.\driver_tmp_3.o)
 ----------------------------------------------------------
          | 00 01 02 03 04 05 06 07 08 09 0A 0B 0C 0D 0E 0F
 ----------------------------------------------------------
@@ -2960,7 +2960,7 @@
 0001B130 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 0001B140 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 0001B150 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
-0001B160 | H1 H1 H1 H1 H1 H1 H1 H1 -- -- -- -- -- -- -- --
+0001B160 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 -- -- -- --
 ----------------------------------------------------------
 0001FFF0 | -- -- -- -- -- -- -- -- -- -- -- -- -- -- H1 H1
 ----------------------------------------------------------
