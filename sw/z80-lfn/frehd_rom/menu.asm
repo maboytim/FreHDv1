@@ -382,7 +382,7 @@ read_directory:
 
 	ld	a,2			; strlen("/")
 	out	(SIZE2),a
-	ld	a,OPEN_DIR_LFN		; read directory command
+	ld	a,OPEN_DIR		; read directory command
 	out	(COMMAND2),a
 	call	wait
 	ld	a,'/'			; send '/'
@@ -395,7 +395,7 @@ read_dir_loop:
 	ld	a,(im_max)		; do we have space for another entry?
 	cp	MENU_MAX
 	ret	nc
-	ld	a,READ_DIR		; request one entry
+	ld	a,READ_DIR_LFN		; request one entry
 	out	(COMMAND2),a
 	call	wait
 	jr	nz,dir_error

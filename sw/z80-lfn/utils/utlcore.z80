@@ -31,9 +31,9 @@ AM_ARC      EQU     020H            ; Archive
 GETVER      EQU     0
 GETTIME     EQU     1
 SETTIME     EQU     2
-;OPENDIR     EQU     8
-OPENDIRLFN  EQU     8+16            ; +16 = return LFN's
-READDIR     EQU     9
+OPENDIR     EQU     8
+;READDIR     EQU     9
+READDIRLFN  EQU     9+16            ; +16 = return LFN's
 MOUNTDRIVE  EQU     0AH
 ;DRIVEINFO   EQU     0CH
 DRIVEINFOLFN EQU    0CH+16          ; +16 = return LFN's
@@ -261,7 +261,7 @@ GETDIR      CALL    DONESTUFF
             CALL    SETCOLS         ; Setup column count
             LD      A,2             ; Default to the "current" directory
             OUT     (SIZE2),A
-            LD      A,OPENDIRLFN
+            LD      A,OPENDIR
             OUT     (COMMAND2),A
             CALL    WAIT
             LD      A,"/"
@@ -272,7 +272,7 @@ GETDIR      CALL    DONESTUFF
             IN      A,(STATUS)      ; Check for HARD_ERR indicating open failed
             AND     01h
             JR      NZ,GETDIRX      ; Open failed
-GETDIR2     LD      A,READDIR       ; Request directory entry
+GETDIR2     LD      A,READDIRLFN    ; Request directory entry
             OUT     (COMMAND2),A
             CALL    WAIT
             IN      A,(STATUS)      ; Check for Error

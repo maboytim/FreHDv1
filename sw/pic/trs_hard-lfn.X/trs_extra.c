@@ -340,10 +340,6 @@ UCHAR trs_extra_bootloader(UCHAR step)
 UCHAR trs_extra_opendir(UCHAR step)
 {
 	if (step == 1) {
-#if 1 // LFN w/ FF_LFN_BUF>12 , FF_SFN_BUF=12
-		extern BYTE ff_lfn_buf;
-		ff_lfn_buf = (action_type & 0x10) ? FF_LFN_BUF : FF_SFN_BUF;
-#endif
 		state_error2 = f_opendir(&state_dir, (const TCHAR *)&extra_buffer[0]);
 		if (state_error2 != FR_OK) {
 			state_size2 = 0;
@@ -384,9 +380,17 @@ UCHAR trs_extra_readdir(UCHAR step)
 		return (TRS_HARD_READY | TRS_HARD_SEEKDONE);
 	}
 #if 1 // LFN w/ FF_LFN_BUF>12 , FF_SFN_BUF=12
-	state_size2 = sizeof (state_fno) - sizeof (state_fno.altname) - sizeof (state_fno.fname);
-	strcpy(state_fno.altname, state_fno.fname);
-	state_size2 += strlen(state_fno.altname) + 1;
+	if (action_type & 0x10) {
+		memcpy(state_fno.altname, state_fno.fname, sizeof(state_fno.fname));
+		state_size2 = sizeof(state_fno) - sizeof(state_fno.altname);
+	} else {
+		// If the long file name is not accessible due to any reason, short file
+ 		// name is stored to the fname[] and the altname[] has a null string.
+		if (state_fno.altname[0] == '\0' || strlen(state_fno.fname) < sizeof(state_fno.altname)) {
+			memcpy(state_fno.altname, state_fno.fname, sizeof(state_fno.altname));
+		}
+		state_size2 = sizeof(state_fno) - sizeof(state_fno.fname);
+	}
 #else
 	state_size2 = sizeof (state_fno);
 #endif	
@@ -468,7 +472,7 @@ UCHAR trs_extra_infodrive(UCHAR step)
 			else
 			{
 				memcpy(&extra_buffer[state_size2], (const char *)d->filename, FF_SFN_BUF);
-                extra_buffer[state_size2 + FF_SFN_BUF] = 0; // make sure null terminated
+				extra_buffer[state_size2 + FF_SFN_BUF] = 0; // make sure null terminated
 				state_size2 += FF_SFN_BUF + 1;
 			}
 #else

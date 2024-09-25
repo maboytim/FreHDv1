@@ -556,7 +556,6 @@ static WCHAR LfnBuf[FF_MAX_LFN + 1];		/* LFN working buffer */
 #error Wrong setting of FF_USE_LFN
 
 #endif	/* FF_USE_LFN == 1 */
-BYTE ff_lfn_buf = FF_SFN_BUF;
 #endif	/* FF_USE_LFN == 0 */
 
 
@@ -2652,7 +2651,7 @@ static void get_fileinfo (
 			if (hs == 0 && IsSurrogate(wc)) {	/* Is it a surrogate? */
 				hs = wc; continue;				/* Get low surrogate */
 			}
-			nw = put_utf((DWORD)hs << 16 | wc, &fno->fname[di], ff_lfn_buf - di);	/* Store it in API encoding */
+			nw = put_utf((DWORD)hs << 16 | wc, &fno->fname[di], FF_LFN_BUF - di);	/* Store it in API encoding */
 			if (nw == 0) {						/* Buffer overflow or wrong char? */
 				di = 0; break;
 			}
@@ -2680,7 +2679,7 @@ static void get_fileinfo (
 				if (hs == 0 && IsSurrogate(wc)) {	/* Is it a surrogate? */
 					hs = wc; continue;		/* Get low surrogate */
 				}
-				nw = put_utf((DWORD)hs << 16 | wc, &fno->fname[di], ff_lfn_buf - di);	/* Store it in API encoding */
+				nw = put_utf((DWORD)hs << 16 | wc, &fno->fname[di], FF_LFN_BUF - di);	/* Store it in API encoding */
 				if (nw == 0) {				/* Buffer overflow or wrong char? */
 					di = 0; break;
 				}

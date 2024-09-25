@@ -1407,7 +1407,7 @@ notroot:
 	ld	b,a		
 	inc	a		
 	out	(f_size),a
-	ld	a,OPENDIRLFN
+	ld	a,OPENDIR
 	out	(f_cmd),a
 	call	wait
 	ld	hl,cwd
@@ -1442,7 +1442,7 @@ atroot:
 
 dlist1:	ex	de,hl
 
-dlist:	ld	a,READDIR
+dlist:	ld	a,READDIRLFN
 	out	(f_cmd),a
 	call	wait
 
