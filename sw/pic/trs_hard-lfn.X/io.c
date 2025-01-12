@@ -11,7 +11,7 @@ extern FATFS fs;
 extern Drive state_d[TRS_HARD_MAXDRIVES];
 extern FIL state_file2;
 #if EXTRA_IM_SUPPORT
-#if _USE_FASTSEEK
+#if FF_USE_FASTSEEK
 DWORD im_stbl[FAST_SEEK_LEN];
 #endif
 extern FIL im_file;

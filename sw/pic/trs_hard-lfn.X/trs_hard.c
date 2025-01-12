@@ -144,7 +144,7 @@ FRESULT open_drive(UCHAR drive_num, UCHAR options)
 	if (res != FR_OK) return res;
 
 	/* initialize fast seek */
-#if _USE_FASTSEEK
+#if FF_USE_FASTSEEK
 	if ((options & (TRS_EXTRA_MOUNT_SLOW | TRS_EXTRA_MOUNT_CREATE)) == 0) {
 		d->file.cltbl = d->stbl;
 		d->stbl[0] = FAST_SEEK_LEN;

@@ -44,7 +44,7 @@ FATFS fs;
 Drive state_d[TRS_HARD_MAXDRIVES];
 FIL state_file2;
 #if EXTRA_IM_SUPPORT
-#if _USE_FASTSEEK
+#if FF_USE_FASTSEEK
 DWORD im_stbl[FAST_SEEK_LEN];
 #endif
 FIL im_file;

@@ -61,7 +61,7 @@ typedef struct {
 	UCHAR secs;			// secs per track
 
 	/* fast seek */
-#if _USE_FASTSEEK
+#if FF_USE_FASTSEEK
 	DWORD stbl[FAST_SEEK_LEN];
 #endif
 } Drive;
@@ -292,7 +292,7 @@ extern FIL im_file;
 extern BYTE im_buf[];
 extern UCHAR cur_unit;
 extern image_t im[];
-#if _USE_FASTSEEK
+#if FF_USE_FASTSEEK
 extern DWORD im_stbl[];
 #endif
 
