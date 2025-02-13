@@ -19,7 +19,7 @@
 
 	list	p=18f47q83
 	#include	<xc.inc>
-	#include	"bootloader.inc"
+	#include	"bootloader.h"
 	#include	"trs_hard_defs.h"
 	#include	"version.h"
 
