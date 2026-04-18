@@ -1,0 +1,133 @@
+(footprint "RAD-0.2"
+	(version 20240108)
+	(generator "pcbnew")
+	(generator_version "8.0")
+	(layer "F.Cu")
+	(property "Reference" "REF**"
+		(at 1.27 0.762 0)
+		(layer "F.SilkS")
+		(uuid "af1ff8b4-bc87-4915-a473-732a957df945")
+		(effects
+			(font
+				(size 1.524 1.524)
+				(thickness 0.254)
+			)
+			(justify left)
+		)
+	)
+	(property "Value" "22p"
+		(at -1.397 -2.921 0)
+		(layer "F.Fab")
+		(uuid "29d3db94-4ebf-4f0b-8f59-8f5bc7e8127c")
+		(effects
+			(font
+				(size 1.524 1.524)
+				(thickness 0.254)
+			)
+			(justify left)
+		)
+	)
+	(property "Footprint" "RAD-0.2"
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "adcfff3b-c21d-4c0e-b5ad-a66e41eecfeb")
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+	)
+	(property "Datasheet" ""
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "fc8ed9fc-a1e0-4eb2-a552-62d4e2e3f40a")
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+	)
+	(property "Description" ""
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "2bed6db7-6bbf-4ba0-92c2-cd592eb20149")
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+	)
+	(attr smd board_only)
+	(fp_line
+		(start -1.524 -1.524)
+		(end 6.604 -1.524)
+		(stroke
+			(width 0.254)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "3e11350c-e4c4-470e-883d-3ed188a99466")
+	)
+	(fp_line
+		(start -1.524 1.524)
+		(end -1.524 -1.524)
+		(stroke
+			(width 0.254)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "63b04f0e-0a3b-4a4a-bda4-0e3b6369250e")
+	)
+	(fp_line
+		(start -1.524 1.524)
+		(end 6.604 1.524)
+		(stroke
+			(width 0.254)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "f7a34b0b-fa4b-4e6a-ac8c-a65fec303ea2")
+	)
+	(fp_line
+		(start 1.016 1.524)
+		(end 3.861 1.524)
+		(stroke
+			(width 0.254)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "3a3ee000-f13e-4e3c-86c2-8f32d13740b0")
+	)
+	(fp_line
+		(start 6.604 1.524)
+		(end 6.604 -1.524)
+		(stroke
+			(width 0.254)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "d9d70751-bfa5-4ba1-ad0d-4ea788fc80a8")
+	)
+	(pad "1" thru_hole circle
+		(at 0 0)
+		(size 1.905 1.905)
+		(drill 0.9)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(uuid "98b8020c-67eb-4b4e-b23d-1bd511cf653f")
+	)
+	(pad "2" thru_hole circle
+		(at 5.08 0)
+		(size 1.905 1.905)
+		(drill 0.9)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(uuid "32f388d2-225e-425e-8b5f-ed97b5c26e21")
+	)
+)

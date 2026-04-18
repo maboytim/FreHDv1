@@ -1,0 +1,104 @@
+(footprint "LEDFRED"
+	(version 20240108)
+	(generator "pcbnew")
+	(generator_version "8.0")
+	(layer "F.Cu")
+	(property "Reference" "REF**"
+		(at 4.064 -0.762 0)
+		(layer "F.SilkS")
+		(uuid "0a2dbbd7-2b3e-411f-80da-63ad48317766")
+		(effects
+			(font
+				(size 1.524 1.524)
+				(thickness 0.254)
+			)
+			(justify left)
+		)
+	)
+	(property "Value" "LED"
+		(at -1.016 -3.429 0)
+		(layer "F.Fab")
+		(uuid "24271d1e-a1ad-4374-a7dc-6422d419da37")
+		(effects
+			(font
+				(size 1.524 1.524)
+				(thickness 0.254)
+			)
+			(justify left)
+		)
+	)
+	(property "Footprint" "LEDFRED"
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "677e216e-a1c4-46b5-915b-285486717eb6")
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+	)
+	(property "Datasheet" ""
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "3b0787e6-bdf8-46cf-9b2e-8931b855c334")
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+	)
+	(property "Description" ""
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "c9e892b5-68fe-4ac3-9aa6-6c5d82706eec")
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+	)
+	(attr smd board_only)
+	(fp_line
+		(start 3.607 1.27)
+		(end 3.607 -1.27)
+		(stroke
+			(width 0.254)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "8805517c-2551-4de7-b61b-7c9c74b14d6c")
+	)
+	(fp_arc
+		(start 3.597 1.27)
+		(mid -1.143 0)
+		(end 3.597 -1.27)
+		(stroke
+			(width 0.254)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "b55b7d86-fd08-4833-ad3a-03800e2b4098")
+	)
+	(pad "A" thru_hole circle
+		(at 0 0)
+		(size 1.829 1.829)
+		(drill 1)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(uuid "7864bdaa-22a2-4089-a3b8-18353d50de30")
+	)
+	(pad "K" thru_hole circle
+		(at 2.54 0)
+		(size 1.829 1.829)
+		(drill 1)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(uuid "eaab5a5e-73f3-43a3-a83e-b12efdb2e9e5")
+	)
+)
